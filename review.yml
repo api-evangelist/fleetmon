@@ -1,0 +1,127 @@
+aid: fleetmon
+name: FleetMon
+review:
+  question: Does FleetMon expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-11'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. The FleetMon API (apiv2.fleetmon.com)
+    was plain request/response REST over HTTPS authenticated with an API key -
+    the final archived Swagger 2.0 definition (v2.4.2) documents no WebSocket,
+    SSE, or any other server-push transport. There is therefore nothing to
+    model in AsyncAPI. Moreover the entire API is retired: FleetMon was
+    acquired by Kpler in 2023, the platform and API were phased out from
+    January 2024 into MarineTraffic, and as of 2026 the fleetmon.com domain
+    no longer resolves at all.
+findings:
+  summary: |
+    FleetMon never documented a public WebSocket API, and today it exposes no
+    public API at all. FleetMon was a Rostock, Germany vessel tracking and AIS
+    data provider whose REST API at https://apiv2.fleetmon.com (Swagger 2.0,
+    final archived version 2.4.2) covered vessel search, basic and extended
+    vessel data, latest and historical AIS positions, regional AIS bounding-box
+    queries, port calls, expected arrivals, next-port/ETA calculation, voyage
+    planning, distance to port, weather/wave data, fleets, and zone monitoring.
+    Authentication was an API key passed as an apikey query parameter, an
+    Api-Key header, or an Authorization Token header; responses carried a
+    request_limit_info block reporting credit/rate consumption. Every transport
+    in the archived definition is HTTPS request/response - no ws:// or wss://
+    endpoint appears anywhere. Kpler acquired FleetMon (alongside MarineTraffic)
+    in 2023; the FleetMon platform was phased out from January 2024, the
+    developer portal carried a termination notice through its final archived
+    capture (January 2025), and in September 2025 the combined AIS assets
+    relaunched as Kpler AIS. As of this review, fleetmon.com, www.fleetmon.com,
+    developer.fleetmon.com, apidocs.fleetmon.com, and apiv2.fleetmon.com return
+    no DNS A records - the domain is dark and the API surface is fully retired.
+  retirementStatus: |
+    RETIRED. The archived developer portal (January 2025 capture) states the
+    migration of FleetMon into MarineTraffic was nearly final, that "the
+    discontinuation of all FleetMon product offerings is imminent," and that
+    logins were no longer possible. Account logins had already been
+    discontinued in February 2024. The successor surface for vessel tracking,
+    AIS positions, and port call data is the MarineTraffic API portfolio
+    (servicedocs.marinetraffic.com), whose position feeds were rebranded
+    Kpler AIS on September 19, 2025.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://apiv2.fleetmon.com
+      documented: true
+      note: Archived Swagger 2.0 definition (v2.4.2), API-key auth via apikey query parameter, Api-Key header, or Authorization Token header. Retired - host no longer resolves.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint appears anywhere in the archived FleetMon API definition or developer portal, and no live surface exists today to expose one.
+  endpointsArchivedRest:
+    - GET    https://apiv2.fleetmon.com/vesselsearch/
+    - GET    https://apiv2.fleetmon.com/basicvessel/{vessel_id}
+    - GET    https://apiv2.fleetmon.com/vessel/{vessel_id}
+    - GET    https://apiv2.fleetmon.com/vessel/{vessel_id}/identity/
+    - GET    https://apiv2.fleetmon.com/vessel/{vessel_id}/position/
+    - GET    https://apiv2.fleetmon.com/vessel/{vessel_id}/ais/dynamic/
+    - GET    https://apiv2.fleetmon.com/vessel/{vessel_id}/nearby/
+    - GET    https://apiv2.fleetmon.com/vessel/{vessel_id}/ports/next/
+    - GET    https://apiv2.fleetmon.com/vessel/{vessel_id}/route/port/last/
+    - GET    https://apiv2.fleetmon.com/vessel/{vessel_id}/route/port/next/
+    - GET    https://apiv2.fleetmon.com/vessel/{vessel_id}/schedule/
+    - GET    https://apiv2.fleetmon.com/vessel/photo/{size}/
+    - GET    https://apiv2.fleetmon.com/vessel/portcalls/
+    - GET    https://apiv2.fleetmon.com/vessel/near/
+    - GET    https://apiv2.fleetmon.com/ais/position/
+    - GET    https://apiv2.fleetmon.com/ais/static/
+    - GET    https://apiv2.fleetmon.com/regional_ais/
+    - GET    https://apiv2.fleetmon.com/myfleet/
+    - GET    https://apiv2.fleetmon.com/fleet/
+    - POST   https://apiv2.fleetmon.com/fleet/
+    - PUT    https://apiv2.fleetmon.com/fleet/
+    - DELETE https://apiv2.fleetmon.com/fleet/
+    - GET    https://apiv2.fleetmon.com/portsearch/
+    - GET    https://apiv2.fleetmon.com/port/portcalls/
+    - GET    https://apiv2.fleetmon.com/port/inport/
+    - GET    https://apiv2.fleetmon.com/port/arrivals/
+    - GET    https://apiv2.fleetmon.com/distance/to/port/{to_port}
+    - POST   https://apiv2.fleetmon.com/voyage-planning/
+    - GET    https://apiv2.fleetmon.com/zone/
+    - GET    https://apiv2.fleetmon.com/zone/calls/
+    - GET    https://apiv2.fleetmon.com/meteo/weather/
+    - GET    https://apiv2.fleetmon.com/meteo/wave/
+    - GET    https://apiv2.fleetmon.com/meteo/current/
+  endpointsModeled: false
+  endpointsNote: |
+    Endpoints above are not modeled - they are taken verbatim from the final
+    archived Swagger 2.0 schema (apiv2.fleetmon.com/schema.json, Wayback
+    Machine capture 2021-12-08), preserved in this repository at
+    openapi/fleetmon-openapi.yml. None are live today.
+sources:
+  - url: http://web.archive.org/web/20211208160310/https://apiv2.fleetmon.com/schema.json
+    type: OpenAPI
+    note: Final archived Swagger 2.0 schema (v2.4.2) for the FleetMon API - REST only, API-key auth, no WebSocket.
+  - url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+    type: ArchivedAPIReference
+    note: Archived Redoc API reference on developer.fleetmon.com, final capture January 2025.
+  - url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/
+    type: ArchivedDeveloperPortal
+    note: January 2025 capture carries the termination notice - discontinuation of all FleetMon product offerings imminent, logins disabled.
+  - url: https://www.kpler.com/blog/kpler-acquires-marinetraffic-and-fleetmon-for-maritime-sector-expansion
+    type: Announcement
+    note: Kpler acquisition of MarineTraffic and FleetMon, announced February 15, 2023.
+  - url: https://support.marinetraffic.com/en/articles/9552991-fleetmon-and-marinetraffic-merge-process-for-former-fleetmon-ais-partners-from-january-2024
+    type: MigrationGuide
+    note: FleetMon phased out from January 2024 as part of the merger into MarineTraffic.
+  - url: https://support.marinetraffic.com/en/articles/12495052-19-september-2025-announcing-the-launch-of-kpler-ais
+    type: Announcement
+    note: Kpler AIS launch, September 19, 2025 - unified successor brand for the combined AIS feeds.
+  - url: https://servicedocs.marinetraffic.com/
+    type: Documentation
+    note: Live successor API documentation (MarineTraffic API portfolio under Kpler).
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface ever existed on the FleetMon API, and the
+    API itself is retired with its domain dark, so no AsyncAPI document was
+    created. The final archived Swagger 2.0 definition was preserved at
+    openapi/fleetmon-openapi.yml and the apis.yml documents the retired
+    surface plus the Kpler / MarineTraffic successor properties.

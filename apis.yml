@@ -1,0 +1,118 @@
+aid: fleetmon
+url: https://raw.githubusercontent.com/api-evangelist/fleetmon/refs/heads/main/apis.yml
+name: FleetMon
+kind: company
+description: FleetMon was a Rostock, Germany based vessel tracking and maritime data
+  provider (founded 2007) that operated one of the world's largest terrestrial AIS
+  receiver networks and a documented REST API (apiv2.fleetmon.com) for vessel search,
+  live and historical AIS positions, port calls, expected arrivals, ETA and voyage
+  planning. Kpler acquired FleetMon alongside MarineTraffic in 2023, the FleetMon
+  platform and API were phased out from January 2024 and migrated into MarineTraffic,
+  and in September 2025 the combined AIS assets were unified under the Kpler AIS
+  brand. As of 2026 the fleetmon.com domain, developer portal, and API no longer
+  resolve - this entry preserves the final archived API surface and points to the
+  Kpler / MarineTraffic successor services.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Vessel Tracking
+- Maritime
+- AIS
+- Ships
+- Ports
+- Port Calls
+- Shipping
+- Retired
+created: '2026-07-11'
+modified: '2026-07-11'
+specificationVersion: '0.19'
+apis:
+- aid: fleetmon:fleetmon-vessels-api
+  name: FleetMon Vessels API (Retired)
+  tags:
+  - Vessels
+  - Vessel Search
+  - Vessel Database
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+  baseURL: https://apiv2.fleetmon.com
+  properties:
+  - url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+    type: ArchivedAPIReference
+  - url: openapi/fleetmon-openapi.yml
+    type: OpenAPI
+  description: 'Retired. Vessel master data surface of the FleetMon API - search
+    the vessel database (GET /vesselsearch/), fetch basic and extended vessel
+    particulars (GET /basicvessel/{vessel_id}, GET /vessel/{vessel_id}), vessel
+    identity attributes, non-AIS vessel particulars, vessel photos, and manage
+    tracked fleets (GET/POST/PUT/DELETE /fleet/). Authenticated with an API key
+    via apikey query parameter or Api-Key header. Endpoints are grounded in the
+    archived Swagger 2.0 definition but are no longer live - the surface migrated
+    to MarineTraffic / Kpler AIS.'
+- aid: fleetmon:fleetmon-vessel-positions-api
+  name: FleetMon Vessel Positions API (Retired)
+  tags:
+  - AIS
+  - Positions
+  - Vessel Tracking
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+  baseURL: https://apiv2.fleetmon.com
+  properties:
+  - url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+    type: ArchivedAPIReference
+  - url: openapi/fleetmon-openapi.yml
+    type: OpenAPI
+  description: 'Retired. AIS position tracking surface of the FleetMon API - latest
+    vessel position (GET /vessel/{vessel_id}/position/), positions with extended
+    vessel data for your fleet (GET /myfleet/), historical AIS track reports
+    (GET /ais/position/), historical AIS static and voyage messages (GET /ais/static/),
+    dynamic AIS data, vessels inside a bounding box (GET /regional_ais/), and
+    vessels near a position (GET /vessel/near/). Endpoints are grounded in the
+    archived Swagger 2.0 definition but are no longer live - live AIS feeds now
+    ship as Kpler AIS via the MarineTraffic API portfolio.'
+- aid: fleetmon:fleetmon-port-calls-eta-api
+  name: FleetMon Port Calls & ETA API (Retired)
+  tags:
+  - Port Calls
+  - Ports
+  - ETA
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+  baseURL: https://apiv2.fleetmon.com
+  properties:
+  - url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+    type: ArchivedAPIReference
+  - url: openapi/fleetmon-openapi.yml
+    type: OpenAPI
+  description: 'Retired. Port intelligence surface of the FleetMon API - port
+    search (GET /portsearch/), port calls per port and per vessel (GET /port/portcalls/,
+    GET /vessel/portcalls/), vessels currently in port (GET /port/inport/), expected
+    port arrivals (GET /port/arrivals/), next port and ETA calculation
+    (GET /vessel/{vessel_id}/ports/next/), distance to port, voyage planning ETA
+    and distance estimations (POST /voyage-planning/), and zone monitoring calls.
+    Endpoints are grounded in the archived Swagger 2.0 definition but are no
+    longer live - the surface migrated to MarineTraffic / Kpler AIS.'
+common:
+- type: Website
+  url: https://www.kpler.com
+- type: LegacyWebsite
+  url: https://www.fleetmon.com
+- type: LinkedIn
+  url: https://www.linkedin.com/company/fleetmon-com
+- type: ArchivedDeveloperPortal
+  url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/
+- type: ArchivedAPIReference
+  url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+- type: AcquisitionAnnouncement
+  url: https://www.kpler.com/blog/kpler-acquires-marinetraffic-and-fleetmon-for-maritime-sector-expansion
+- type: MigrationGuide
+  url: https://support.marinetraffic.com/en/articles/9552991-fleetmon-and-marinetraffic-merge-process-for-former-fleetmon-ais-partners-from-january-2024
+- type: SuccessorAnnouncement
+  url: https://support.marinetraffic.com/en/articles/12495052-19-september-2025-announcing-the-launch-of-kpler-ais
+- type: SuccessorAPIDocumentation
+  url: https://servicedocs.marinetraffic.com/
+- type: SuccessorProduct
+  url: https://www.kpler.com/product/maritime/data-services
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
