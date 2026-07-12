@@ -1,0 +1,32 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/fleetmon-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+  - query
+schemes:
+- name: apikey
+  type: apiKey
+  in: query
+  parameter: apikey
+  description: Auth via API-Key Query-Parameter
+  sources:
+  - openapi/fleetmon-openapi.yml
+- name: apikey_authorization_header
+  type: apiKey
+  in: header
+  parameter: Authorization
+  description: 'Auth via API-Key in ''Authorization'' header field in the form ''Authorization:
+    Token <apikey>'''
+  sources:
+  - openapi/fleetmon-openapi.yml
+- name: apikey_header
+  type: apiKey
+  in: header
+  parameter: Api-Key
+  description: Auth via API-Key in 'Api-Key' header field
+  sources:
+  - openapi/fleetmon-openapi.yml
