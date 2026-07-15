@@ -93,6 +93,8 @@ apis:
     Endpoints are grounded in the archived Swagger 2.0 definition but are no
     longer live - the surface migrated to MarineTraffic / Kpler AIS.'
 common:
+- type: AgenticAccess
+  url: agentic-access/fleetmon-agentic-access.yml
 - type: DomainSecurity
   url: security/fleetmon-domain-security.yml
 - type: Authentication

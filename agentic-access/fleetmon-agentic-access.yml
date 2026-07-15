@@ -1,0 +1,542 @@
+generated: '2026-07-15'
+method: generated
+source: openapi/fleetmon-openapi.yml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 49
+  by_action_class:
+    connected: 43
+    acting: 6
+  by_consequence:
+    read: 43
+    write: 6
+  human_in_the_loop_required: 0
+operations:
+- path: /ais/position/
+  method: get
+  operationId: get-ais_position-listing
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ais/static/
+  method: get
+  operationId: get-ais_static-listing
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /basicvessel/{vessel_id}
+  method: get
+  operationId: get-vesselbasic-detail
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /distance/to/port/{to_port}
+  method: get
+  operationId: get-distancetoport-detail
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /fleet/
+  method: delete
+  operationId: delete-fleet-listing
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /fleet/
+  method: get
+  operationId: get-fleet-listing
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /fleet/
+  method: post
+  operationId: post-fleet-listing
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /fleet/
+  method: put
+  operationId: put-fleet-listing
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /fleet/{vessel_id}
+  method: delete
+  operationId: delete-fleet-detail
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /fleet/{vessel_id}
+  method: get
+  operationId: get-fleet-detail
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /fleet/{vessel_id}
+  method: put
+  operationId: put-fleet-detail
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /lng_vessel/events/
+  method: get
+  operationId: get-lng_vessel_events-listing
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /lng_vessel/events/{vessel_id}
+  method: get
+  operationId: get-lng_vessel_events-detail
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /logistics/vessel/{vessel_id}
+  method: get
+  operationId: get-logistics_vessel-detail
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /meteo/current/
+  method: get
+  operationId: get-meteo_current-listing
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /meteo/current/{gxi}/{tb}/{gyi}
+  method: get
+  operationId: get-meteo_current-detail
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /meteo/wave/
+  method: get
+  operationId: get-meteo_wave-listing
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /meteo/wave/{geohash}
+  method: get
+  operationId: get-meteo_wave-detail
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /meteo/weather/
+  method: get
+  operationId: get-meteo_weather-listing
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /meteo/weather/{geohash}
+  method: get
+  operationId: get-meteo_weather-detail
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /my/user-login-token/
+  method: get
+  operationId: get-user_login_api-detail
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /myfleet/
+  method: get
+  operationId: get-myfleet-listing
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /myfleet/{vessel_id}
+  method: get
+  operationId: get-myfleet-detail
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /port/arrivals/
+  method: get
+  operationId: get-port_arrivals-listing
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /port/inport/
+  method: get
+  operationId: get-port_inport-listing
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /port/portcalls/
+  method: get
+  operationId: get-portportcall-listing
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /portsearch/
+  method: get
+  operationId: get-portsearch-listing
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regional_ais/
+  method: get
+  operationId: get-regional_ais-listing
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /terminal/call/demo/
+  method: get
+  operationId: get-terminal_call_demo-listing
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /vessel/events/{vessel_id}
+  method: get
+  operationId: get-vessel_events-detail
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /vessel/near/
+  method: get
+  operationId: get-vessels_near_position-detail
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /vessel/photo/{size}/
+  method: get
+  operationId: get-vesselphoto-listing
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /vessel/portcalls/
+  method: get
+  operationId: get-vesselportcall-listing
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /vessel/{vessel_id}
+  method: get
+  operationId: get-vesselparticulars-detail
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /vessel/{vessel_id}/ais/dynamic/
+  method: get
+  operationId: get-vessel_dynamic_ais-detail
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /vessel/{vessel_id}/identity/
+  method: get
+  operationId: get-vessel-identity-detail
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /vessel/{vessel_id}/nearby/
+  method: get
+  operationId: get-vessels_nearby-detail
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /vessel/{vessel_id}/port/{port_id}/laytime/
+  method: get
+  operationId: get-vessellaytime-listing
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /vessel/{vessel_id}/ports/next/
+  method: get
+  operationId: get-next_port-detail
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /vessel/{vessel_id}/position/
+  method: get
+  operationId: get-vessel-position-only-detail
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /vessel/{vessel_id}/route/port/last/
+  method: get
+  operationId: get-vessel_route_from_last_port-detail
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /vessel/{vessel_id}/route/port/next/
+  method: get
+  operationId: get-vessel_route_to_next_port-detail
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /vessel/{vessel_id}/schedule/
+  method: get
+  operationId: get-vesselschedule-listing
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /vessel_nonais/{vessel_id}
+  method: get
+  operationId: get-nonaisparticulars-detail
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /vesselsearch/
+  method: get
+  operationId: get-vesselsearch-listing
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /voyage-planning/
+  method: post
+  operationId: post-voyage_planning-listing
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /zone/
+  method: get
+  operationId: get-zone-listing
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /zone/calls/
+  method: get
+  operationId: get-zone_call-listing
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /zone/calls/{zone_id}
+  method: get
+  operationId: get-zone_call-detail
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
