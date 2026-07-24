@@ -1,0 +1,561 @@
+swagger: '2.0'
+info:
+  description: 'ARCHIVED SPECIFICATION - RETIRED API. This is the final publicly archived Swagger 2.0 definition of the FleetMon API (apiv2.fleetmon.com), preserved from the Internet Archive Wayback Machine (schema.json capture 2021-12-08; the developer portal at developer.fleetmon.com remained online through early 2025). FleetMon was acquired by Kpler in 2023, the FleetMon platform and API were phased out beginning January 2024 and migrated into MarineTraffic, and as of 2026 the fleetmon.com domain (including apiv2.fleetmon.com and developer.fleetmon.com) no longer resolves. None of the endpoints below are live. The successor surface is the MarineTraffic API portfolio / Kpler AIS (servicedocs.marinetraffic.com).
+
+
+    --- Original description follows ---
+
+
+    Welcome to our API reference!
+
+
+    You can view JSON response samples in the area to the right.
+
+    If you need help with the API, just [contact us](https://www.fleetmon.com/company/contact/).
+
+
+    Follow us on [Facebook](https://www.facebook.com/fleetmon) and [Twitter](https://twitter.com/fleetmon) for the latest updates and news on the platform.
+
+
+    With the use of the FleetMon API, you agree with the [Terms of Service](https://www.fleetmon.com/terms-of-service/).
+
+    '
+  title: FleetMon API Reference Basic Vessel Data Logistics API
+  version: Version 2.4.2
+  x-archived:
+    status: retired
+    retiredNote: FleetMon product offerings, logins, and the apiv2.fleetmon.com API were discontinued during the 2024 migration into MarineTraffic following the 2023 Kpler acquisition; fleetmon.com DNS no longer resolves as of 2026.
+    archiveSource: http://web.archive.org/web/20211208160310/https://apiv2.fleetmon.com/schema.json
+    archivedDeveloperPortal: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+    successor: https://servicedocs.marinetraffic.com/
+    archivedBy: API Evangelist
+    archivedDate: '2026-07-11'
+host: apiv2.fleetmon.com
+basePath: /
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+tags:
+- description: Delivers information about the vessels current state and the next port it is heading for.
+  name: Logistics
+  x-codename: logistics_vessel
+  x-tag-group: Professional Planing
+paths:
+  /logistics/vessel/{vessel_id}:
+    get:
+      description: ''
+      operationId: get-logistics_vessel-detail
+      parameters:
+      - description: FleetMon identifier for maritime objects like vessels
+        format: int64
+        in: path
+        name: vessel_id
+        required: true
+        type: integer
+      - default: false
+        description: If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint.
+        in: query
+        name: request_limit_info
+        required: false
+        type: boolean
+      responses:
+        '200':
+          description: Logistics - vessel response
+          schema:
+            $ref: '#/definitions/logistics_vessel-response-vessel'
+        '401':
+          description: The server could not verify that you are authorized to access the URL.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-401
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 401
+            description: The server could not verify that you are authorized to access the URL requested.
+            message: Unauthorized
+            status: error
+        '403':
+          description: The provided credentials were correct but the API is not yet fully configured.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-403
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 403
+            description: The API is not yet fully configured.
+            message: Forbidden
+            status: error
+        '404':
+          description: Requested item does not exist.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-404
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 404
+            description: The requested item was not found on the server.
+            message: Not Found
+            status: error
+        '405':
+          description: The used HTTP method is not allowed for this URL.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-405
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 405
+            description: The method is not allowed for the requested URL.
+            message: Method Not Allowed
+            status: error
+        '422':
+          description: A required parameter is missing or has a wrong structure.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-422
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 422
+            description: The request was well-formed but was unable to be followed due to semantic errors.
+            message: Unprocessable Entity
+            status: error
+        '429':
+          description: The client requested the resource too many times. (rate limit)
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-429
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 429
+            description: Only 200 requests per 30 days are allowed for this endpoint.
+            message: Too Many Requests
+            status: error
+      security:
+      - apikey: []
+      - apikey_authorization_header: []
+      - apikey_header: []
+      summary: Delivers information about the vessels current state and the next port it is heading for
+      tags:
+      - Logistics
+definitions:
+  logistics_vessel-response-vessel:
+    properties:
+      imo_number:
+        description: unique International Maritime Organization (IMO) vessel number
+        format: int64
+        type: integer
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      last_port:
+        $ref: '#/definitions/logistics_vessel-response-vessel-last_port'
+      mmsi_number:
+        description: 9 decimal digits Maritime Mobile Service Identity (connector between AIS message typs)
+        format: int64
+        type: integer
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      name:
+        type: string
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      next_port:
+        $ref: '#/definitions/logistics_vessel-response-vessel-next_port'
+      position:
+        $ref: '#/definitions/logistics_vessel-response-vessel-position'
+      request_limit_info:
+        description: Information about usage and limits of this endpoint. Included if query parameter `request_limit_info` is `true`
+        properties:
+          left_requests:
+            description: Number of requests left at this moment to this endpoint. If not included there is no limit.
+            type: integer
+            xml:
+              x-add-datatype: true
+          max_requests:
+            description: Maximum number of requests to this endpoint within 30 days. If not included there is no limit.
+            type: integer
+            xml:
+              x-add-datatype: true
+          used_requests:
+            description: Number of requests to this endpoint within the last 30 days.
+            type: integer
+            xml:
+              x-add-datatype: true
+        required:
+        - used_requests
+        title: request-limit-info
+        type: object
+        xml:
+          x-add-datatype: true
+      vessel_id:
+        description: FleetMon identifier for maritime objects like vessels
+        format: int64
+        type: integer
+        xml:
+          x-add-datatype: true
+      voyage:
+        $ref: '#/definitions/logistics_vessel-response-vessel-voyage'
+    required:
+    - voyage
+    - last_port
+    - name
+    - imo_number
+    - mmsi_number
+    - position
+    - next_port
+    - vessel_id
+    title: vessel
+    type: object
+    xml:
+      name: response
+      namespace: https://apiv2.fleetmon.com
+      x-extra-attributes:
+        timestamp:
+          type: date-time
+  logistics_vessel-response-vessel-voyage:
+    description: Voyage related information from AIS
+    properties:
+      destination:
+        description: current destination received via AIS (static message)
+        format: ascii
+        type: string
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      draught:
+        description: current draught received via AIS (static message)
+        format: float
+        type: number
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      eta:
+        description: current ETA by Vessel received via AIS (static message)
+        format: date-time
+        type: string
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      received:
+        description: time of received static message
+        format: date-time
+        type: string
+        xml:
+          x-add-datatype: true
+    required:
+    - draught
+    - received
+    - destination
+    - eta
+    title: voyage
+    type: object
+    xml:
+      x-add-datatype: true
+  logistics_vessel-response-vessel-last_port:
+    description: Last recorded portcall
+    properties:
+      ata:
+        description: actual time of arrival (of last port)
+        format: date-time
+        type: string
+        xml:
+          x-add-datatype: true
+      atd:
+        description: actual time of departure, if `null` the portcall is ongoing
+        format: date-time
+        type: string
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      locode:
+        description: last port Locode
+        format: ascii
+        type: string
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      name:
+        description: last port name
+        type: string
+        xml:
+          x-add-datatype: true
+    required:
+    - atd
+    - name
+    - locode
+    - ata
+    title: port-last
+    type: object
+    xml:
+      x-add-datatype: true
+  error-message-response:
+    properties:
+      code:
+        description: correlates to the HTTP status code
+        format: int32
+        type: integer
+        xml:
+          x-add-datatype: true
+      description:
+        description: more detailed description
+        type: string
+        xml:
+          x-add-datatype: true
+      message:
+        description: short error message
+        type: string
+        xml:
+          x-add-datatype: true
+      status:
+        description: '"error"'
+        example: error
+        format: ascii
+        type: string
+        xml:
+          x-add-datatype: true
+    required:
+    - status
+    - message
+    - description
+    - code
+    type: object
+  logistics_vessel-response-vessel-next_port:
+    description: Port the vessel is heading to, if matching from AIS "destination" was possible
+    properties:
+      eta_calc:
+        description: ETA at next port calculated by FleetMon
+        format: date-time
+        type: string
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      locode:
+        description: Locode of the next port
+        format: ascii
+        type: string
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      name:
+        description: matched next port name
+        type: string
+        xml:
+          x-add-datatype: true
+      travel_distance_nm:
+        description: distance to next port in nautical miles
+        format: float
+        type: number
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      travel_time_h:
+        description: required time to next port calculated by FleetMon in hours
+        format: float
+        type: number
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+    required:
+    - travel_time_h
+    - name
+    - travel_distance_nm
+    - eta_calc
+    - locode
+    title: port-next
+    type: object
+    x-nullable: true
+    xml:
+      x-add-datatype: true
+  logistics_vessel-response-vessel-position:
+    properties:
+      course_over_ground:
+        description: movement direction received via AIS (position message)
+        format: float
+        type: number
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      latitude:
+        description: current position latitude received via AIS (position message)
+        format: float
+        type: number
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      location_str:
+        description: verbal description of the current position
+        type: string
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      longitude:
+        description: current position longitude received via AIS (position message)
+        format: float
+        type: number
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      nav_status:
+        description: reported navigation status received via AIS (position message)
+        format: ascii
+        type: string
+        xml:
+          x-add-datatype: true
+      received:
+        description: time of received position message
+        format: date-time
+        type: string
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      speed:
+        description: current speed received via AIS (position message)
+        format: float
+        type: number
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      true_heading:
+        description: heading of vessel received via AIS (position message)
+        format: int64
+        type: integer
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+    required:
+    - location_str
+    - course_over_ground
+    - received
+    - nav_status
+    - true_heading
+    - longitude
+    - latitude
+    - speed
+    title: position
+    type: object
+    x-nullable: true
+    xml:
+      x-add-datatype: true
+securityDefinitions:
+  apikey:
+    description: Auth via API-Key Query-Parameter
+    in: query
+    name: apikey
+    type: apiKey
+  apikey_authorization_header:
+    description: 'Auth via API-Key in ''Authorization'' header field in the form ''Authorization: Token <apikey>'''
+    in: header
+    name: Authorization
+    type: apiKey
+  apikey_header:
+    description: Auth via API-Key in 'Api-Key' header field
+    in: header
+    name: Api-Key
+    type: apiKey
+x-tagGroups:
+- name: My
+  tags:
+  - My API Keys
+  - My Client
+  - My User Notification Setting
+  - My User Alert Addresses
+  - Login Token
+- name: Vessels
+  tags:
+  - Vessel Search
+  - Vessel Photo
+  - Vessel Schedule
+  - Next Port / ETA Calculation
+  - Vessel History
+  - Vessel Positions Only
+  - Vessel Identity
+  - Vessel Route To Next Port
+  - Vessels Nearby
+  - Vessels Near Position
+  - Historical AIS Static Messages
+  - Historical Track API
+  - Vessel Positions with Extended Vessel Data
+  - Port Calls per Vessel
+  - Vessel Coarse Type
+  - ETA Reports
+  - Basic Vessel Data
+  - Non AIS Vessel Particulars
+  - Vessel Time to Port
+  - Vessel Change Events
+  - Voyage Planning
+  - Vessel Dynamic AIS
+- name: Ports
+  tags:
+  - Expected Port Arrivals
+  - Vessels in Port
+  - Port Search
+  - Port Calls per Port
+- name: Fleets
+  tags:
+  - Fleet Tracker
+  - My Fleet Positions
+  - Dry and Bulk Cargo Fleet
+- name: Logistics
+  tags:
+  - Logistics
+  - RoRo Ferry Terminal Demo
+  - Vessel ETA & Destination Change Events
+  - Terminals
+  - Estimated Laytime - Specific Vessel
+- name: Zone
+  tags:
+  - Regional AIS
+  - Zone Call
+  - Zone Information
+  - User Zones
+- name: Routing
+  tags:
+  - Route To Port
+  - Distance To Port
+  - Vessel Route To Next Port
+  - Vessel Route From Last Port
+- name: Weather & Water
+  tags:
+  - Weather
+  - Water
+  - Current

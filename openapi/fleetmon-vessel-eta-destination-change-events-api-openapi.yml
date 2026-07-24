@@ -1,0 +1,683 @@
+swagger: '2.0'
+info:
+  description: 'ARCHIVED SPECIFICATION - RETIRED API. This is the final publicly archived Swagger 2.0 definition of the FleetMon API (apiv2.fleetmon.com), preserved from the Internet Archive Wayback Machine (schema.json capture 2021-12-08; the developer portal at developer.fleetmon.com remained online through early 2025). FleetMon was acquired by Kpler in 2023, the FleetMon platform and API were phased out beginning January 2024 and migrated into MarineTraffic, and as of 2026 the fleetmon.com domain (including apiv2.fleetmon.com and developer.fleetmon.com) no longer resolves. None of the endpoints below are live. The successor surface is the MarineTraffic API portfolio / Kpler AIS (servicedocs.marinetraffic.com).
+
+
+    --- Original description follows ---
+
+
+    Welcome to our API reference!
+
+
+    You can view JSON response samples in the area to the right.
+
+    If you need help with the API, just [contact us](https://www.fleetmon.com/company/contact/).
+
+
+    Follow us on [Facebook](https://www.facebook.com/fleetmon) and [Twitter](https://twitter.com/fleetmon) for the latest updates and news on the platform.
+
+
+    With the use of the FleetMon API, you agree with the [Terms of Service](https://www.fleetmon.com/terms-of-service/).
+
+    '
+  title: FleetMon API Reference Basic Vessel Data Vessel ETA & Destination Change Events API
+  version: Version 2.4.2
+  x-archived:
+    status: retired
+    retiredNote: FleetMon product offerings, logins, and the apiv2.fleetmon.com API were discontinued during the 2024 migration into MarineTraffic following the 2023 Kpler acquisition; fleetmon.com DNS no longer resolves as of 2026.
+    archiveSource: http://web.archive.org/web/20211208160310/https://apiv2.fleetmon.com/schema.json
+    archivedDeveloperPortal: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+    successor: https://servicedocs.marinetraffic.com/
+    archivedBy: API Evangelist
+    archivedDate: '2026-07-11'
+host: apiv2.fleetmon.com
+basePath: /
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+tags:
+- description: Delivers ETA & Destination Change for vessels.
+  name: Vessel ETA & Destination Change Events
+  x-codename: lng_vessel_events
+paths:
+  /lng_vessel/events/:
+    get:
+      description: ''
+      operationId: get-lng_vessel_events-listing
+      parameters:
+      - default: EtaChanged
+        description: Type of event that should be delivered
+        enum:
+        - DestinationChanged
+        - EtaChanged
+        format: ascii
+        in: query
+        name: event_type
+        required: true
+        type: string
+      - description: 'Start of requested time interval (default: `until` - 1d)'
+        format: date-time
+        in: query
+        name: from
+        required: false
+        type: string
+      - default: false
+        description: If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint.
+        in: query
+        name: request_limit_info
+        required: false
+        type: boolean
+      - description: 'End of requested time interval (default: `now`)'
+        format: date-time
+        in: query
+        name: until
+        required: false
+        type: string
+      responses:
+        '200':
+          description: Vessel ETA & Destination Change Events - get events response
+          schema:
+            $ref: '#/definitions/lng_vessel_events-response-listing'
+        '401':
+          description: The server could not verify that you are authorized to access the URL.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-401
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 401
+            description: The server could not verify that you are authorized to access the URL requested.
+            message: Unauthorized
+            status: error
+        '403':
+          description: The provided credentials were correct but the API is not yet fully configured.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-403
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 403
+            description: The API is not yet fully configured.
+            message: Forbidden
+            status: error
+        '405':
+          description: The used HTTP method is not allowed for this URL.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-405
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 405
+            description: The method is not allowed for the requested URL.
+            message: Method Not Allowed
+            status: error
+        '422':
+          description: A required parameter is missing or has a wrong structure.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-422
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 422
+            description: The request was well-formed but was unable to be followed due to semantic errors.
+            message: Unprocessable Entity
+            status: error
+        '429':
+          description: The client requested the resource too many times. (rate limit)
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-429
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 429
+            description: Only 200 requests per 30 days are allowed for this endpoint.
+            message: Too Many Requests
+            status: error
+      security:
+      - apikey: []
+      - apikey_authorization_header: []
+      - apikey_header: []
+      summary: Delivers ETA & Destination Changes for vessels.
+      tags:
+      - Vessel ETA & Destination Change Events
+  /lng_vessel/events/{vessel_id}:
+    get:
+      description: ''
+      operationId: get-lng_vessel_events-detail
+      parameters:
+      - description: ID of vessel to get events for
+        format: int64
+        in: path
+        name: vessel_id
+        required: true
+        type: integer
+      - default: EtaChanged
+        description: Type of event that should be delivered
+        enum:
+        - DestinationChanged
+        - EtaChanged
+        format: ascii
+        in: query
+        name: event_type
+        required: true
+        type: string
+      - description: 'Start of requested time interval (default: `until` - 1d)'
+        format: date-time
+        in: query
+        name: from
+        required: false
+        type: string
+      - default: false
+        description: If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint.
+        in: query
+        name: request_limit_info
+        required: false
+        type: boolean
+      - description: 'End of requested time interval (default: `now`)'
+        format: date-time
+        in: query
+        name: until
+        required: false
+        type: string
+      responses:
+        '200':
+          description: Vessel ETA & Destination Change Events - get event response
+          schema:
+            $ref: '#/definitions/lng_vessel_events-response-listing-single'
+        '401':
+          description: The server could not verify that you are authorized to access the URL.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-401
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 401
+            description: The server could not verify that you are authorized to access the URL requested.
+            message: Unauthorized
+            status: error
+        '403':
+          description: The provided credentials were correct but the API is not yet fully configured.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-403
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 403
+            description: The API is not yet fully configured.
+            message: Forbidden
+            status: error
+        '404':
+          description: Requested item does not exist.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-404
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 404
+            description: The requested item was not found on the server.
+            message: Not Found
+            status: error
+        '405':
+          description: The used HTTP method is not allowed for this URL.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-405
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 405
+            description: The method is not allowed for the requested URL.
+            message: Method Not Allowed
+            status: error
+        '422':
+          description: A required parameter is missing or has a wrong structure.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-422
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 422
+            description: The request was well-formed but was unable to be followed due to semantic errors.
+            message: Unprocessable Entity
+            status: error
+        '429':
+          description: The client requested the resource too many times. (rate limit)
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-429
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 429
+            description: Only 200 requests per 30 days are allowed for this endpoint.
+            message: Too Many Requests
+            status: error
+      security:
+      - apikey: []
+      - apikey_authorization_header: []
+      - apikey_header: []
+      summary: Delivers ETA & Destination Changes for a single vessel.
+      tags:
+      - Vessel ETA & Destination Change Events
+definitions:
+  lng_vessel_events-response-event:
+    properties:
+      event_type:
+        type: string
+        xml:
+          x-add-datatype: true
+      new_value:
+        type: string
+        xml:
+          x-add-datatype: true
+      old_value:
+        type: string
+        xml:
+          x-add-datatype: true
+      timestamp:
+        format: date-time
+        type: string
+        xml:
+          x-add-datatype: true
+      vessel:
+        $ref: '#/definitions/lng_vessel_events-response-event-vessel'
+    required:
+    - vessel
+    - timestamp
+    - event_type
+    - old_value
+    - new_value
+    title: event
+    type: object
+    xml:
+      name: event
+      x-add-datatype: true
+  lng_vessel_events-response-listing-single:
+    properties:
+      events:
+        items:
+          $ref: '#/definitions/lng_vessel_events-response-listing-single-event'
+        type: array
+        xml:
+          wrapped: true
+          x-add-datatype: true
+      request_limit_info:
+        description: Information about usage and limits of this endpoint. Included if query parameter `request_limit_info` is `true`
+        properties:
+          left_requests:
+            description: Number of requests left at this moment to detail URLs of this endpoint. If not included there is no limit.
+            type: integer
+            xml:
+              x-add-datatype: true
+          left_requests_overall:
+            description: Number of requests left at this moment to this endpoint. If not included there is no limit.
+            type: integer
+            xml:
+              x-add-datatype: true
+          max_requests:
+            description: Maximum number of requests to detail URLs of this endpoint within 30 days. If not included there is no limit.
+            type: integer
+            xml:
+              x-add-datatype: true
+          max_requests_overall:
+            description: Maximum number of requests to this endpoint within 30 days. If not included there is no limit.
+            type: integer
+            xml:
+              x-add-datatype: true
+          used_requests:
+            description: Number of requests to detail URLs of this endpoint within the last 30 days.
+            type: integer
+            xml:
+              x-add-datatype: true
+          used_requests_overall:
+            description: Number of requests to this endpoint within the last 30 days.
+            type: integer
+            xml:
+              x-add-datatype: true
+        required:
+        - used_requests_overall
+        - used_requests
+        title: request-limit-info
+        type: object
+        xml:
+          x-add-datatype: true
+    required:
+    - events
+    title: lng-vessel-events
+    type: object
+    xml:
+      name: response
+      namespace: https://apiv2.fleetmon.com
+      x-extra-attributes:
+        timestamp:
+          type: date-time
+  error-message-response:
+    properties:
+      code:
+        description: correlates to the HTTP status code
+        format: int32
+        type: integer
+        xml:
+          x-add-datatype: true
+      description:
+        description: more detailed description
+        type: string
+        xml:
+          x-add-datatype: true
+      message:
+        description: short error message
+        type: string
+        xml:
+          x-add-datatype: true
+      status:
+        description: '"error"'
+        example: error
+        format: ascii
+        type: string
+        xml:
+          x-add-datatype: true
+    required:
+    - status
+    - message
+    - description
+    - code
+    type: object
+  lng_vessel_events-response-listing-single-vessel:
+    description: vessel object
+    properties:
+      mmsi_number:
+        description: vessel mmsi number
+        format: int64
+        type: integer
+        xml:
+          x-add-datatype: true
+      name:
+        description: vessel name
+        type: string
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      vessel_id:
+        format: int64
+        type: integer
+        xml:
+          x-add-datatype: true
+    required:
+    - vessel_id
+    - mmsi_number
+    - name
+    title: vessel
+    type: object
+    xml:
+      name: vessel
+      x-add-datatype: true
+  lng_vessel_events-response-event-vessel:
+    description: vessel object
+    properties:
+      mmsi_number:
+        description: vessel mmsi number
+        format: int64
+        type: integer
+        xml:
+          x-add-datatype: true
+      name:
+        description: vessel name
+        type: string
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      vessel_id:
+        format: int64
+        type: integer
+        xml:
+          x-add-datatype: true
+    required:
+    - vessel_id
+    - mmsi_number
+    - name
+    title: vessel
+    type: object
+    xml:
+      name: vessel
+      x-add-datatype: true
+  lng_vessel_events-response-listing:
+    properties:
+      events:
+        items:
+          $ref: '#/definitions/lng_vessel_events-response-event'
+        type: array
+        xml:
+          wrapped: true
+          x-add-datatype: true
+      request_limit_info:
+        description: Information about usage and limits of this endpoint. Included if query parameter `request_limit_info` is `true`
+        properties:
+          left_requests:
+            description: Number of requests left at this moment to listing URL of this endpoint. If not included there is no limit.
+            type: integer
+            xml:
+              x-add-datatype: true
+          left_requests_overall:
+            description: Number of requests left at this moment to this endpoint. If not included there is no limit.
+            type: integer
+            xml:
+              x-add-datatype: true
+          max_requests:
+            description: Maximum number of requests to listing URL of this endpoint within 30 days. If not included there is no limit.
+            type: integer
+            xml:
+              x-add-datatype: true
+          max_requests_overall:
+            description: Maximum number of requests to this endpoint within 30 days. If not included there is no limit.
+            type: integer
+            xml:
+              x-add-datatype: true
+          used_requests:
+            description: Number of requests to listing URL of this endpoint within the last 30 days.
+            type: integer
+            xml:
+              x-add-datatype: true
+          used_requests_overall:
+            description: Number of requests to this endpoint within the last 30 days.
+            type: integer
+            xml:
+              x-add-datatype: true
+        required:
+        - used_requests_overall
+        - used_requests
+        title: request-limit-info
+        type: object
+        xml:
+          x-add-datatype: true
+    required:
+    - events
+    title: lng-vessel-events
+    type: object
+    xml:
+      name: response
+      namespace: https://apiv2.fleetmon.com
+      x-extra-attributes:
+        timestamp:
+          type: date-time
+  lng_vessel_events-response-listing-single-event:
+    properties:
+      event_type:
+        type: string
+        xml:
+          x-add-datatype: true
+      new_value:
+        type: string
+        xml:
+          x-add-datatype: true
+      old_value:
+        type: string
+        xml:
+          x-add-datatype: true
+      timestamp:
+        format: date-time
+        type: string
+        xml:
+          x-add-datatype: true
+      vessel:
+        $ref: '#/definitions/lng_vessel_events-response-listing-single-vessel'
+    required:
+    - vessel
+    - timestamp
+    - event_type
+    - old_value
+    - new_value
+    title: event
+    type: object
+    xml:
+      name: event
+      x-add-datatype: true
+securityDefinitions:
+  apikey:
+    description: Auth via API-Key Query-Parameter
+    in: query
+    name: apikey
+    type: apiKey
+  apikey_authorization_header:
+    description: 'Auth via API-Key in ''Authorization'' header field in the form ''Authorization: Token <apikey>'''
+    in: header
+    name: Authorization
+    type: apiKey
+  apikey_header:
+    description: Auth via API-Key in 'Api-Key' header field
+    in: header
+    name: Api-Key
+    type: apiKey
+x-tagGroups:
+- name: My
+  tags:
+  - My API Keys
+  - My Client
+  - My User Notification Setting
+  - My User Alert Addresses
+  - Login Token
+- name: Vessels
+  tags:
+  - Vessel Search
+  - Vessel Photo
+  - Vessel Schedule
+  - Next Port / ETA Calculation
+  - Vessel History
+  - Vessel Positions Only
+  - Vessel Identity
+  - Vessel Route To Next Port
+  - Vessels Nearby
+  - Vessels Near Position
+  - Historical AIS Static Messages
+  - Historical Track API
+  - Vessel Positions with Extended Vessel Data
+  - Port Calls per Vessel
+  - Vessel Coarse Type
+  - ETA Reports
+  - Basic Vessel Data
+  - Non AIS Vessel Particulars
+  - Vessel Time to Port
+  - Vessel Change Events
+  - Voyage Planning
+  - Vessel Dynamic AIS
+- name: Ports
+  tags:
+  - Expected Port Arrivals
+  - Vessels in Port
+  - Port Search
+  - Port Calls per Port
+- name: Fleets
+  tags:
+  - Fleet Tracker
+  - My Fleet Positions
+  - Dry and Bulk Cargo Fleet
+- name: Logistics
+  tags:
+  - Logistics
+  - RoRo Ferry Terminal Demo
+  - Vessel ETA & Destination Change Events
+  - Terminals
+  - Estimated Laytime - Specific Vessel
+- name: Zone
+  tags:
+  - Regional AIS
+  - Zone Call
+  - Zone Information
+  - User Zones
+- name: Routing
+  tags:
+  - Route To Port
+  - Distance To Port
+  - Vessel Route To Next Port
+  - Vessel Route From Last Port
+- name: Weather & Water
+  tags:
+  - Weather
+  - Water
+  - Current

@@ -1,0 +1,2296 @@
+swagger: '2.0'
+info:
+  description: 'ARCHIVED SPECIFICATION - RETIRED API. This is the final publicly archived Swagger 2.0 definition of the FleetMon API (apiv2.fleetmon.com), preserved from the Internet Archive Wayback Machine (schema.json capture 2021-12-08; the developer portal at developer.fleetmon.com remained online through early 2025). FleetMon was acquired by Kpler in 2023, the FleetMon platform and API were phased out beginning January 2024 and migrated into MarineTraffic, and as of 2026 the fleetmon.com domain (including apiv2.fleetmon.com and developer.fleetmon.com) no longer resolves. None of the endpoints below are live. The successor surface is the MarineTraffic API portfolio / Kpler AIS (servicedocs.marinetraffic.com).
+
+
+    --- Original description follows ---
+
+
+    Welcome to our API reference!
+
+
+    You can view JSON response samples in the area to the right.
+
+    If you need help with the API, just [contact us](https://www.fleetmon.com/company/contact/).
+
+
+    Follow us on [Facebook](https://www.facebook.com/fleetmon) and [Twitter](https://twitter.com/fleetmon) for the latest updates and news on the platform.
+
+
+    With the use of the FleetMon API, you agree with the [Terms of Service](https://www.fleetmon.com/terms-of-service/).
+
+    '
+  title: FleetMon API Reference Basic Vessel Data Fleet Tracker API
+  version: Version 2.4.2
+  x-archived:
+    status: retired
+    retiredNote: FleetMon product offerings, logins, and the apiv2.fleetmon.com API were discontinued during the 2024 migration into MarineTraffic following the 2023 Kpler acquisition; fleetmon.com DNS no longer resolves as of 2026.
+    archiveSource: http://web.archive.org/web/20211208160310/https://apiv2.fleetmon.com/schema.json
+    archivedDeveloperPortal: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+    successor: https://servicedocs.marinetraffic.com/
+    archivedBy: API Evangelist
+    archivedDate: '2026-07-11'
+host: apiv2.fleetmon.com
+basePath: /
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+tags:
+- description: Tracking of current positions for a modifiable list of vessels.
+  name: Fleet Tracker
+  x-codename: fleet
+  x-tag-group: Professional Monitoring
+paths:
+  /fleet/:
+    delete:
+      description: ''
+      operationId: delete-fleet-listing
+      parameters:
+      - default: false
+        description: If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint.
+        in: query
+        name: request_limit_info
+        required: false
+        type: boolean
+      - default: false
+        description: If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint.
+        in: query
+        name: size_limit_info
+        required: false
+        type: boolean
+      responses:
+        '200':
+          description: Fleet Tracker - clear vessels response
+          schema:
+            $ref: '#/definitions/fleet-response-delete'
+        '401':
+          description: The server could not verify that you are authorized to access the URL.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-401
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 401
+            description: The server could not verify that you are authorized to access the URL requested.
+            message: Unauthorized
+            status: error
+        '403':
+          description: The provided credentials were correct but the API is not yet fully configured.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-403
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 403
+            description: The API is not yet fully configured.
+            message: Forbidden
+            status: error
+        '405':
+          description: The used HTTP method is not allowed for this URL.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-405
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 405
+            description: The method is not allowed for the requested URL.
+            message: Method Not Allowed
+            status: error
+        '429':
+          description: The client requested the resource too many times. (rate limit)
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-429
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 429
+            description: Only 200 requests per 30 days are allowed for this endpoint.
+            message: Too Many Requests
+            status: error
+      security:
+      - apikey: []
+      - apikey_authorization_header: []
+      - apikey_header: []
+      summary: Empties the fleet completely.
+      tags:
+      - Fleet Tracker
+    get:
+      description: ''
+      operationId: get-fleet-listing
+      parameters:
+      - default: false
+        description: If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint.
+        in: query
+        name: request_limit_info
+        required: false
+        type: boolean
+      - default: false
+        description: If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint.
+        in: query
+        name: size_limit_info
+        required: false
+        type: boolean
+      - description: optional filter by tag name
+        in: query
+        name: tag
+        required: false
+        type: string
+      responses:
+        '200':
+          description: Fleet Tracker - vessels response
+          schema:
+            $ref: '#/definitions/fleet-response-listing'
+        '401':
+          description: The server could not verify that you are authorized to access the URL.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-401
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 401
+            description: The server could not verify that you are authorized to access the URL requested.
+            message: Unauthorized
+            status: error
+        '403':
+          description: The provided credentials were correct but the API is not yet fully configured.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-403
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 403
+            description: The API is not yet fully configured.
+            message: Forbidden
+            status: error
+        '405':
+          description: The used HTTP method is not allowed for this URL.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-405
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 405
+            description: The method is not allowed for the requested URL.
+            message: Method Not Allowed
+            status: error
+        '422':
+          description: A required parameter is missing or has a wrong structure.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-422
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 422
+            description: The request was well-formed but was unable to be followed due to semantic errors.
+            message: Unprocessable Entity
+            status: error
+        '429':
+          description: The client requested the resource too many times. (rate limit)
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-429
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 429
+            description: Only 200 requests per 30 days are allowed for this endpoint.
+            message: Too Many Requests
+            status: error
+      security:
+      - apikey: []
+      - apikey_authorization_header: []
+      - apikey_header: []
+      summary: Delivers the fleet.
+      tags:
+      - Fleet Tracker
+    post:
+      description: ''
+      operationId: post-fleet-listing
+      parameters:
+      - default: false
+        description: If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint.
+        in: query
+        name: request_limit_info
+        required: false
+        type: boolean
+      - default: false
+        description: If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint.
+        in: query
+        name: size_limit_info
+        required: false
+        type: boolean
+      - description: Fleet Tracker - replace vessels request
+        in: body
+        name: fleet-listing-replace
+        required: true
+        schema:
+          $ref: '#/definitions/fleet-listing-replace'
+      responses:
+        '200':
+          description: Fleet Tracker - replace vessels response
+          schema:
+            $ref: '#/definitions/fleet-response-listing-replace'
+        '400':
+          description: The request body could not be parsed.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-400
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 400
+            description: You sent a request that this server could not understand.
+            message: Bad Request
+            status: error
+        '401':
+          description: The server could not verify that you are authorized to access the URL.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-401
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 401
+            description: The server could not verify that you are authorized to access the URL requested.
+            message: Unauthorized
+            status: error
+        '403':
+          description: The provided credentials were correct but the API is not yet fully configured.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-403
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 403
+            description: The API is not yet fully configured.
+            message: Forbidden
+            status: error
+        '405':
+          description: The used HTTP method is not allowed for this URL.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-405
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 405
+            description: The method is not allowed for the requested URL.
+            message: Method Not Allowed
+            status: error
+        '422':
+          description: A required parameter is missing or has a wrong structure.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-422
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 422
+            description: The request was well-formed but was unable to be followed due to semantic errors.
+            message: Unprocessable Entity
+            status: error
+        '429':
+          description: The client requested the resource too many times. (rate limit)
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-429
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 429
+            description: Only 200 requests per 30 days are allowed for this endpoint.
+            message: Too Many Requests
+            status: error
+      security:
+      - apikey: []
+      - apikey_authorization_header: []
+      - apikey_header: []
+      summary: Replaces the fleet with new vessels.
+      tags:
+      - Fleet Tracker
+    put:
+      description: ''
+      operationId: put-fleet-listing
+      parameters:
+      - default: false
+        description: If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint.
+        in: query
+        name: request_limit_info
+        required: false
+        type: boolean
+      - default: false
+        description: If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint.
+        in: query
+        name: size_limit_info
+        required: false
+        type: boolean
+      - description: Fleet Tracker - add vessels request
+        in: body
+        name: fleet-listing-add
+        required: true
+        schema:
+          $ref: '#/definitions/fleet-listing-add'
+      responses:
+        '200':
+          description: Fleet Tracker - add vessels response
+          schema:
+            $ref: '#/definitions/fleet-response-listing-add'
+        '400':
+          description: The request body could not be parsed.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-400
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 400
+            description: You sent a request that this server could not understand.
+            message: Bad Request
+            status: error
+        '401':
+          description: The server could not verify that you are authorized to access the URL.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-401
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 401
+            description: The server could not verify that you are authorized to access the URL requested.
+            message: Unauthorized
+            status: error
+        '403':
+          description: The provided credentials were correct but the API is not yet fully configured.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-403
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 403
+            description: The API is not yet fully configured.
+            message: Forbidden
+            status: error
+        '405':
+          description: The used HTTP method is not allowed for this URL.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-405
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 405
+            description: The method is not allowed for the requested URL.
+            message: Method Not Allowed
+            status: error
+        '422':
+          description: A required parameter is missing or has a wrong structure.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-422
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 422
+            description: The request was well-formed but was unable to be followed due to semantic errors.
+            message: Unprocessable Entity
+            status: error
+        '429':
+          description: The client requested the resource too many times. (rate limit)
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-429
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 429
+            description: Only 200 requests per 30 days are allowed for this endpoint.
+            message: Too Many Requests
+            status: error
+      security:
+      - apikey: []
+      - apikey_authorization_header: []
+      - apikey_header: []
+      summary: Adds vessels to the fleet.
+      tags:
+      - Fleet Tracker
+  /fleet/{vessel_id}:
+    delete:
+      description: ''
+      operationId: delete-fleet-detail
+      parameters:
+      - description: vessel ID
+        format: int64
+        in: path
+        name: vessel_id
+        required: true
+        type: integer
+      - default: false
+        description: If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint.
+        in: query
+        name: request_limit_info
+        required: false
+        type: boolean
+      - default: false
+        description: If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint.
+        in: query
+        name: size_limit_info
+        required: false
+        type: boolean
+      responses:
+        '200':
+          description: Fleet Tracker - remove vessel response
+          schema:
+            $ref: '#/definitions/fleet-response-delete'
+        '401':
+          description: The server could not verify that you are authorized to access the URL.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-401
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 401
+            description: The server could not verify that you are authorized to access the URL requested.
+            message: Unauthorized
+            status: error
+        '403':
+          description: The provided credentials were correct but the API is not yet fully configured.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-403
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 403
+            description: The API is not yet fully configured.
+            message: Forbidden
+            status: error
+        '404':
+          description: Requested item does not exist.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-404
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 404
+            description: The requested item was not found on the server.
+            message: Not Found
+            status: error
+        '405':
+          description: The used HTTP method is not allowed for this URL.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-405
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 405
+            description: The method is not allowed for the requested URL.
+            message: Method Not Allowed
+            status: error
+        '422':
+          description: A required parameter is missing or has a wrong structure.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-422
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 422
+            description: The request was well-formed but was unable to be followed due to semantic errors.
+            message: Unprocessable Entity
+            status: error
+        '429':
+          description: The client requested the resource too many times. (rate limit)
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-429
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 429
+            description: Only 200 requests per 30 days are allowed for this endpoint.
+            message: Too Many Requests
+            status: error
+      security:
+      - apikey: []
+      - apikey_authorization_header: []
+      - apikey_header: []
+      summary: Removes a single vessel from the fleet.
+      tags:
+      - Fleet Tracker
+    get:
+      description: ''
+      operationId: get-fleet-detail
+      parameters:
+      - description: vessel ID
+        format: int64
+        in: path
+        name: vessel_id
+        required: true
+        type: integer
+      - default: false
+        description: If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint.
+        in: query
+        name: request_limit_info
+        required: false
+        type: boolean
+      - default: false
+        description: If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint.
+        in: query
+        name: size_limit_info
+        required: false
+        type: boolean
+      responses:
+        '200':
+          description: Fleet Tracker - vessel response
+          schema:
+            $ref: '#/definitions/fleet-response-vessel'
+        '401':
+          description: The server could not verify that you are authorized to access the URL.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-401
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 401
+            description: The server could not verify that you are authorized to access the URL requested.
+            message: Unauthorized
+            status: error
+        '403':
+          description: The provided credentials were correct but the API is not yet fully configured.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-403
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 403
+            description: The API is not yet fully configured.
+            message: Forbidden
+            status: error
+        '404':
+          description: Requested item does not exist.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-404
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 404
+            description: The requested item was not found on the server.
+            message: Not Found
+            status: error
+        '405':
+          description: The used HTTP method is not allowed for this URL.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-405
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 405
+            description: The method is not allowed for the requested URL.
+            message: Method Not Allowed
+            status: error
+        '422':
+          description: A required parameter is missing or has a wrong structure.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-422
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 422
+            description: The request was well-formed but was unable to be followed due to semantic errors.
+            message: Unprocessable Entity
+            status: error
+        '429':
+          description: The client requested the resource too many times. (rate limit)
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-429
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 429
+            description: Only 200 requests per 30 days are allowed for this endpoint.
+            message: Too Many Requests
+            status: error
+      security:
+      - apikey: []
+      - apikey_authorization_header: []
+      - apikey_header: []
+      summary: Delivers a single vessel from the fleet.
+      tags:
+      - Fleet Tracker
+    put:
+      description: ''
+      operationId: put-fleet-detail
+      parameters:
+      - description: vessel ID
+        format: int64
+        in: path
+        name: vessel_id
+        required: true
+        type: integer
+      - default: false
+        description: If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint.
+        in: query
+        name: request_limit_info
+        required: false
+        type: boolean
+      - default: false
+        description: If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint.
+        in: query
+        name: size_limit_info
+        required: false
+        type: boolean
+      - description: Fleet Tracker - edit vessel request
+        in: body
+        name: fleet-request-edit-vessel
+        required: true
+        schema:
+          $ref: '#/definitions/fleet-request-edit-vessel'
+      responses:
+        '200':
+          description: Fleet Tracker - edit vessel response
+          schema:
+            $ref: '#/definitions/fleet-response-edit'
+        '400':
+          description: The request body could not be parsed.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-400
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 400
+            description: You sent a request that this server could not understand.
+            message: Bad Request
+            status: error
+        '401':
+          description: The server could not verify that you are authorized to access the URL.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-401
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 401
+            description: The server could not verify that you are authorized to access the URL requested.
+            message: Unauthorized
+            status: error
+        '403':
+          description: The provided credentials were correct but the API is not yet fully configured.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-403
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 403
+            description: The API is not yet fully configured.
+            message: Forbidden
+            status: error
+        '404':
+          description: Requested item does not exist.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-404
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 404
+            description: The requested item was not found on the server.
+            message: Not Found
+            status: error
+        '405':
+          description: The used HTTP method is not allowed for this URL.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-405
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 405
+            description: The method is not allowed for the requested URL.
+            message: Method Not Allowed
+            status: error
+        '422':
+          description: A required parameter is missing or has a wrong structure.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-422
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 422
+            description: The request was well-formed but was unable to be followed due to semantic errors.
+            message: Unprocessable Entity
+            status: error
+        '429':
+          description: The client requested the resource too many times. (rate limit)
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-429
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 429
+            description: Only 200 requests per 30 days are allowed for this endpoint.
+            message: Too Many Requests
+            status: error
+      security:
+      - apikey: []
+      - apikey_authorization_header: []
+      - apikey_header: []
+      summary: Modifies custom attributes of a single vessel.
+      tags:
+      - Fleet Tracker
+definitions:
+  fleet-response-listing-replace:
+    properties:
+      items_added:
+        items:
+          $ref: '#/definitions/fleet-response-add-vessel-done'
+        type: array
+        xml:
+          wrapped: true
+          x-add-datatype: true
+      items_failed:
+        items:
+          $ref: '#/definitions/fleet-response-add-vessel-failed'
+        type: array
+        xml:
+          wrapped: true
+          x-add-datatype: true
+      request_limit_info:
+        description: Information about usage and limits of this endpoint. Included if query parameter `request_limit_info` is `true`
+        properties:
+          left_requests:
+            description: Number of requests left at this moment to listing URL of this endpoint. If not included there is no limit.
+            type: integer
+            xml:
+              x-add-datatype: true
+          left_requests_overall:
+            description: Number of requests left at this moment to this endpoint. If not included there is no limit.
+            type: integer
+            xml:
+              x-add-datatype: true
+          max_requests:
+            description: Maximum number of requests to listing URL of this endpoint within 30 days. If not included there is no limit.
+            type: integer
+            xml:
+              x-add-datatype: true
+          max_requests_overall:
+            description: Maximum number of requests to this endpoint within 30 days. If not included there is no limit.
+            type: integer
+            xml:
+              x-add-datatype: true
+          used_requests:
+            description: Number of requests to listing URL of this endpoint within the last 30 days.
+            type: integer
+            xml:
+              x-add-datatype: true
+          used_requests_overall:
+            description: Number of requests to this endpoint within the last 30 days.
+            type: integer
+            xml:
+              x-add-datatype: true
+        required:
+        - used_requests_overall
+        - used_requests
+        title: request-limit-info
+        type: object
+        xml:
+          x-add-datatype: true
+      size_limit_info:
+        description: Information about usage and limits of this endpoint. Included if query parameter `size_limit_info` is `true`
+        properties:
+          current_changes:
+            description: Number of vessel changes in this endpoint within the last 30 days.
+            type: integer
+            xml:
+              x-add-datatype: true
+          current_list_size:
+            description: Number of vessels currently in this endpoint.
+            type: integer
+            xml:
+              x-add-datatype: true
+          max_changes:
+            description: Maximum number of vessel changes in this endpoint within the last 30 days.
+            type: integer
+            xml:
+              x-add-datatype: true
+          max_list_size:
+            description: Maximum number of vessels in this endpoint.
+            type: integer
+            xml:
+              x-add-datatype: true
+        required:
+        - current_changes
+        - current_list_size
+        - max_changes
+        - max_list_size
+        title: size-limit-info
+        type: object
+        xml:
+          x-add-datatype: true
+      success:
+        type: boolean
+        xml:
+          x-add-datatype: true
+    required:
+    - success
+    type: object
+    xml:
+      name: response
+      namespace: https://apiv2.fleetmon.com
+      x-extra-attributes:
+        timestamp:
+          type: date-time
+  fleet-response-vessel-voyage:
+    properties:
+      destination:
+        description: current destination received via AIS (static message)
+        format: ascii
+        type: string
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      draught:
+        description: current draught received via AIS (static message)
+        format: float
+        type: number
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      eta:
+        description: current ETA by Vessel received via AIS (static message)
+        format: date-time
+        type: string
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+    required:
+    - draught
+    - destination
+    - eta
+    title: voyage
+    type: object
+    xml:
+      x-add-datatype: true
+  fleet-listing-add:
+    properties:
+      vessels:
+        items:
+          $ref: '#/definitions/fleet-listing-add-vessel'
+        type: array
+        xml:
+          wrapped: true
+          x-add-datatype: true
+    required:
+    - vessels
+    type: object
+    xml:
+      name: fleet_listing_add
+      namespace: https://apiv2.fleetmon.com
+  fleet-listing-replace:
+    properties:
+      vessels:
+        items:
+          $ref: '#/definitions/fleet-listing-add-vessel'
+        type: array
+        xml:
+          wrapped: true
+          x-add-datatype: true
+    required:
+    - vessels
+    type: object
+    xml:
+      name: fleet_listing_replace
+      namespace: https://apiv2.fleetmon.com
+  error-message-response:
+    properties:
+      code:
+        description: correlates to the HTTP status code
+        format: int32
+        type: integer
+        xml:
+          x-add-datatype: true
+      description:
+        description: more detailed description
+        type: string
+        xml:
+          x-add-datatype: true
+      message:
+        description: short error message
+        type: string
+        xml:
+          x-add-datatype: true
+      status:
+        description: '"error"'
+        example: error
+        format: ascii
+        type: string
+        xml:
+          x-add-datatype: true
+    required:
+    - status
+    - message
+    - description
+    - code
+    type: object
+  fleet-response-edit:
+    properties:
+      changed:
+        description: list of changed attributes
+        items:
+          type: string
+          xml:
+            name: item
+            x-add-datatype: true
+        type: array
+        xml:
+          wrapped: true
+          x-add-datatype: true
+      message:
+        type: string
+        xml:
+          x-add-datatype: true
+      request_limit_info:
+        description: Information about usage and limits of this endpoint. Included if query parameter `request_limit_info` is `true`
+        properties:
+          left_requests:
+            description: Number of requests left at this moment to detail URLs of this endpoint. If not included there is no limit.
+            type: integer
+            xml:
+              x-add-datatype: true
+          left_requests_overall:
+            description: Number of requests left at this moment to this endpoint. If not included there is no limit.
+            type: integer
+            xml:
+              x-add-datatype: true
+          max_requests:
+            description: Maximum number of requests to detail URLs of this endpoint within 30 days. If not included there is no limit.
+            type: integer
+            xml:
+              x-add-datatype: true
+          max_requests_overall:
+            description: Maximum number of requests to this endpoint within 30 days. If not included there is no limit.
+            type: integer
+            xml:
+              x-add-datatype: true
+          used_requests:
+            description: Number of requests to detail URLs of this endpoint within the last 30 days.
+            type: integer
+            xml:
+              x-add-datatype: true
+          used_requests_overall:
+            description: Number of requests to this endpoint within the last 30 days.
+            type: integer
+            xml:
+              x-add-datatype: true
+        required:
+        - used_requests_overall
+        - used_requests
+        title: request-limit-info
+        type: object
+        xml:
+          x-add-datatype: true
+      size_limit_info:
+        description: Information about usage and limits of this endpoint. Included if query parameter `size_limit_info` is `true`
+        properties:
+          current_changes:
+            description: Number of vessel changes in this endpoint within the last 30 days.
+            type: integer
+            xml:
+              x-add-datatype: true
+          current_list_size:
+            description: Number of vessels currently in this endpoint.
+            type: integer
+            xml:
+              x-add-datatype: true
+          max_changes:
+            description: Maximum number of vessel changes in this endpoint within the last 30 days.
+            type: integer
+            xml:
+              x-add-datatype: true
+          max_list_size:
+            description: Maximum number of vessels in this endpoint.
+            type: integer
+            xml:
+              x-add-datatype: true
+        required:
+        - current_changes
+        - current_list_size
+        - max_changes
+        - max_list_size
+        title: size-limit-info
+        type: object
+        xml:
+          x-add-datatype: true
+      status:
+        description: '"success"'
+        example: success
+        type: string
+        xml:
+          x-add-datatype: true
+    required:
+    - status
+    - message
+    - changed
+    type: object
+    xml:
+      name: response
+      namespace: https://apiv2.fleetmon.com
+      x-extra-attributes:
+        timestamp:
+          type: date-time
+  fleet-response-add-vessel-done:
+    allOf:
+    - $ref: '#/definitions/fleet-listing-add-vessel'
+    - properties:
+        detail_url:
+          description: URL path to this item
+          type: string
+      required:
+      - detail_url
+      type: object
+    xml:
+      name: item
+      x-add-datatype: true
+  fleet-listing-add-vessel:
+    properties:
+      extra:
+        additionalProperties: true
+        description: client-specific extra informations for this vessel
+        title: fleet-listing-add-vessel-extra
+        type: object
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      imo_number:
+        description: unique International Maritime Organization (IMO) vessel number
+        format: int64
+        type: integer
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      mmsi_number:
+        description: 9 decimal digits Maritime Mobile Service Identity (connector between AIS message typs)
+        format: int64
+        type: integer
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      note:
+        default: ''
+        type: string
+        xml:
+          x-add-datatype: true
+      tags:
+        items:
+          format: ascii
+          type: string
+          xml:
+            name: item
+            x-add-datatype: true
+        type: array
+        x-nullable: true
+        xml:
+          wrapped: true
+          x-add-datatype: true
+      vessel_id:
+        default: -1
+        description: vessel ID
+        format: int64
+        type: integer
+        xml:
+          x-add-datatype: true
+    type: object
+    xml:
+      name: vessel
+      x-add-datatype: true
+  fleet-response-listing:
+    properties:
+      request_limit_info:
+        description: Information about usage and limits of this endpoint. Included if query parameter `request_limit_info` is `true`
+        properties:
+          left_requests:
+            description: Number of requests left at this moment to listing URL of this endpoint. If not included there is no limit.
+            type: integer
+            xml:
+              x-add-datatype: true
+          left_requests_overall:
+            description: Number of requests left at this moment to this endpoint. If not included there is no limit.
+            type: integer
+            xml:
+              x-add-datatype: true
+          max_requests:
+            description: Maximum number of requests to listing URL of this endpoint within 30 days. If not included there is no limit.
+            type: integer
+            xml:
+              x-add-datatype: true
+          max_requests_overall:
+            description: Maximum number of requests to this endpoint within 30 days. If not included there is no limit.
+            type: integer
+            xml:
+              x-add-datatype: true
+          used_requests:
+            description: Number of requests to listing URL of this endpoint within the last 30 days.
+            type: integer
+            xml:
+              x-add-datatype: true
+          used_requests_overall:
+            description: Number of requests to this endpoint within the last 30 days.
+            type: integer
+            xml:
+              x-add-datatype: true
+        required:
+        - used_requests_overall
+        - used_requests
+        title: request-limit-info
+        type: object
+        xml:
+          x-add-datatype: true
+      size_limit_info:
+        description: Information about usage and limits of this endpoint. Included if query parameter `size_limit_info` is `true`
+        properties:
+          current_changes:
+            description: Number of vessel changes in this endpoint within the last 30 days.
+            type: integer
+            xml:
+              x-add-datatype: true
+          current_list_size:
+            description: Number of vessels currently in this endpoint.
+            type: integer
+            xml:
+              x-add-datatype: true
+          max_changes:
+            description: Maximum number of vessel changes in this endpoint within the last 30 days.
+            type: integer
+            xml:
+              x-add-datatype: true
+          max_list_size:
+            description: Maximum number of vessels in this endpoint.
+            type: integer
+            xml:
+              x-add-datatype: true
+        required:
+        - current_changes
+        - current_list_size
+        - max_changes
+        - max_list_size
+        title: size-limit-info
+        type: object
+        xml:
+          x-add-datatype: true
+      vessels:
+        items:
+          $ref: '#/definitions/fleet-response-listing-vessel'
+        type: array
+        xml:
+          wrapped: true
+          x-add-datatype: true
+    required:
+    - vessels
+    type: object
+    xml:
+      name: response
+      namespace: https://apiv2.fleetmon.com
+      x-extra-attributes:
+        timestamp:
+          type: date-time
+  fleet-response-listing-vessel-voyage:
+    properties:
+      destination:
+        description: current destination received via AIS (static message)
+        format: ascii
+        type: string
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      draught:
+        description: current draught received via AIS (static message)
+        format: float
+        type: number
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      eta:
+        description: current ETA by Vessel received via AIS (static message)
+        format: date-time
+        type: string
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+    required:
+    - draught
+    - destination
+    - eta
+    title: voyage
+    type: object
+    xml:
+      x-add-datatype: true
+  fleet-response-vessel:
+    properties:
+      callsign:
+        format: ascii
+        type: string
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      cn_iso2:
+        format: ascii
+        type: string
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      cn_name:
+        type: string
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      extra:
+        additionalProperties: true
+        description: client-specific extra informations for this vessel
+        title: fleet-response-vessel-extra
+        type: object
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      fleetmon_url:
+        description: FleetMon URL to vessel
+        format: ascii
+        type: string
+        xml:
+          x-add-datatype: true
+      image_url:
+        description: URL to master image if available
+        format: ascii
+        type: string
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      imo_number:
+        description: unique International Maritime Organization (IMO) vessel number
+        format: int64
+        type: integer
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      mmsi_number:
+        description: 9 decimal digits Maritime Mobile Service Identity (connector between AIS message typs)
+        format: int64
+        type: integer
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      modified:
+        format: date-time
+        type: string
+        xml:
+          x-add-datatype: true
+      name:
+        type: string
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      note:
+        default: ''
+        type: string
+        xml:
+          x-add-datatype: true
+      position:
+        $ref: '#/definitions/fleet-response-vessel-position'
+      request_limit_info:
+        description: Information about usage and limits of this endpoint. Included if query parameter `request_limit_info` is `true`
+        properties:
+          left_requests:
+            description: Number of requests left at this moment to detail URLs of this endpoint. If not included there is no limit.
+            type: integer
+            xml:
+              x-add-datatype: true
+          left_requests_overall:
+            description: Number of requests left at this moment to this endpoint. If not included there is no limit.
+            type: integer
+            xml:
+              x-add-datatype: true
+          max_requests:
+            description: Maximum number of requests to detail URLs of this endpoint within 30 days. If not included there is no limit.
+            type: integer
+            xml:
+              x-add-datatype: true
+          max_requests_overall:
+            description: Maximum number of requests to this endpoint within 30 days. If not included there is no limit.
+            type: integer
+            xml:
+              x-add-datatype: true
+          used_requests:
+            description: Number of requests to detail URLs of this endpoint within the last 30 days.
+            type: integer
+            xml:
+              x-add-datatype: true
+          used_requests_overall:
+            description: Number of requests to this endpoint within the last 30 days.
+            type: integer
+            xml:
+              x-add-datatype: true
+        required:
+        - used_requests_overall
+        - used_requests
+        title: request-limit-info
+        type: object
+        xml:
+          x-add-datatype: true
+      size_limit_info:
+        description: Information about usage and limits of this endpoint. Included if query parameter `size_limit_info` is `true`
+        properties:
+          current_changes:
+            description: Number of vessel changes in this endpoint within the last 30 days.
+            type: integer
+            xml:
+              x-add-datatype: true
+          current_list_size:
+            description: Number of vessels currently in this endpoint.
+            type: integer
+            xml:
+              x-add-datatype: true
+          max_changes:
+            description: Maximum number of vessel changes in this endpoint within the last 30 days.
+            type: integer
+            xml:
+              x-add-datatype: true
+          max_list_size:
+            description: Maximum number of vessels in this endpoint.
+            type: integer
+            xml:
+              x-add-datatype: true
+        required:
+        - current_changes
+        - current_list_size
+        - max_changes
+        - max_list_size
+        title: size-limit-info
+        type: object
+        xml:
+          x-add-datatype: true
+      tags:
+        items:
+          format: ascii
+          type: string
+          xml:
+            name: item
+            x-add-datatype: true
+        type: array
+        x-nullable: true
+        xml:
+          wrapped: true
+          x-add-datatype: true
+      type_class:
+        format: ascii
+        type: string
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      type_code:
+        format: ascii
+        type: string
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      vessel_id:
+        default: -1
+        description: vessel ID
+        format: int64
+        type: integer
+        xml:
+          x-add-datatype: true
+      voyage:
+        $ref: '#/definitions/fleet-response-vessel-voyage'
+      vt_verbose:
+        type: string
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+    required:
+    - voyage
+    - name
+    - cn_iso2
+    - imo_number
+    - extra
+    - vessel_id
+    - modified
+    - note
+    - mmsi_number
+    - callsign
+    - type_code
+    - vt_verbose
+    - cn_name
+    - position
+    - fleetmon_url
+    - image_url
+    - tags
+    - type_class
+    title: vessel
+    type: object
+    xml:
+      name: response
+      namespace: https://apiv2.fleetmon.com
+      x-extra-attributes:
+        timestamp:
+          type: date-time
+  fleet-response-vessel-position:
+    description: Last reported position
+    properties:
+      course_over_ground:
+        description: current course over ground via AIS (position message)
+        format: float
+        type: number
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      in_special_maneuver:
+        type: boolean
+        xml:
+          x-add-datatype: true
+      is_moving:
+        type: boolean
+        xml:
+          x-add-datatype: true
+      latitude:
+        description: current position latitude received via AIS (position message)
+        format: float
+        type: number
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      location_str:
+        description: verbal description of the current position
+        type: string
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      longitude:
+        description: current position longitude received via AIS (position message)
+        format: float
+        type: number
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      received:
+        description: time of received position message
+        format: date-time
+        type: string
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      source:
+        description: either "terrestrial" or "satellite"
+        format: ascii
+        type: string
+        xml:
+          x-add-datatype: true
+      speed:
+        description: current speed received via AIS (position message)
+        format: float
+        type: number
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      true_heading:
+        description: current true heading of keel (hull) via AIS (position message)
+        format: int64
+        type: integer
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+    required:
+    - location_str
+    - is_moving
+    - received
+    - true_heading
+    - longitude
+    - source
+    - in_special_maneuver
+    - latitude
+    - course_over_ground
+    - speed
+    title: position
+    type: object
+    x-nullable: true
+    xml:
+      x-add-datatype: true
+  fleet-request-edit-vessel:
+    properties:
+      extra:
+        additionalProperties: true
+        description: client-specific extra informations for this vessel
+        title: fleet-request-edit-vessel-extra
+        type: object
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      note:
+        default: ''
+        type: string
+        xml:
+          x-add-datatype: true
+      tags:
+        items:
+          format: ascii
+          type: string
+          xml:
+            name: item
+            x-add-datatype: true
+        type: array
+        x-nullable: true
+        xml:
+          wrapped: true
+          x-add-datatype: true
+    type: object
+    xml:
+      name: fleet_request_edit_vessel
+      namespace: https://apiv2.fleetmon.com
+  fleet-response-listing-add:
+    properties:
+      items_added:
+        items:
+          $ref: '#/definitions/fleet-response-add-vessel-done'
+        type: array
+        xml:
+          wrapped: true
+          x-add-datatype: true
+      items_existing:
+        items:
+          $ref: '#/definitions/fleet-response-add-vessel-done'
+        type: array
+        xml:
+          wrapped: true
+          x-add-datatype: true
+      items_failed:
+        items:
+          $ref: '#/definitions/fleet-response-add-vessel-failed'
+        type: array
+        xml:
+          wrapped: true
+          x-add-datatype: true
+      request_limit_info:
+        description: Information about usage and limits of this endpoint. Included if query parameter `request_limit_info` is `true`
+        properties:
+          left_requests:
+            description: Number of requests left at this moment to listing URL of this endpoint. If not included there is no limit.
+            type: integer
+            xml:
+              x-add-datatype: true
+          left_requests_overall:
+            description: Number of requests left at this moment to this endpoint. If not included there is no limit.
+            type: integer
+            xml:
+              x-add-datatype: true
+          max_requests:
+            description: Maximum number of requests to listing URL of this endpoint within 30 days. If not included there is no limit.
+            type: integer
+            xml:
+              x-add-datatype: true
+          max_requests_overall:
+            description: Maximum number of requests to this endpoint within 30 days. If not included there is no limit.
+            type: integer
+            xml:
+              x-add-datatype: true
+          used_requests:
+            description: Number of requests to listing URL of this endpoint within the last 30 days.
+            type: integer
+            xml:
+              x-add-datatype: true
+          used_requests_overall:
+            description: Number of requests to this endpoint within the last 30 days.
+            type: integer
+            xml:
+              x-add-datatype: true
+        required:
+        - used_requests_overall
+        - used_requests
+        title: request-limit-info
+        type: object
+        xml:
+          x-add-datatype: true
+      size_limit_info:
+        description: Information about usage and limits of this endpoint. Included if query parameter `size_limit_info` is `true`
+        properties:
+          current_changes:
+            description: Number of vessel changes in this endpoint within the last 30 days.
+            type: integer
+            xml:
+              x-add-datatype: true
+          current_list_size:
+            description: Number of vessels currently in this endpoint.
+            type: integer
+            xml:
+              x-add-datatype: true
+          max_changes:
+            description: Maximum number of vessel changes in this endpoint within the last 30 days.
+            type: integer
+            xml:
+              x-add-datatype: true
+          max_list_size:
+            description: Maximum number of vessels in this endpoint.
+            type: integer
+            xml:
+              x-add-datatype: true
+        required:
+        - current_changes
+        - current_list_size
+        - max_changes
+        - max_list_size
+        title: size-limit-info
+        type: object
+        xml:
+          x-add-datatype: true
+      success:
+        type: boolean
+        xml:
+          x-add-datatype: true
+    required:
+    - success
+    type: object
+    xml:
+      name: response
+      namespace: https://apiv2.fleetmon.com
+      x-extra-attributes:
+        timestamp:
+          type: date-time
+  fleet-response-add-vessel-failed:
+    allOf:
+    - $ref: '#/definitions/fleet-listing-add-vessel'
+    - properties:
+        message:
+          description: description for failure
+          type: string
+      required:
+      - message
+      type: object
+    xml:
+      name: item
+      x-add-datatype: true
+  fleet-response-delete:
+    properties:
+      items_removed:
+        description: number of removed items
+        format: int64
+        type: integer
+        xml:
+          x-add-datatype: true
+      message:
+        type: string
+        xml:
+          x-add-datatype: true
+      request_limit_info:
+        description: Information about usage and limits of this endpoint. Included if query parameter `request_limit_info` is `true`
+        properties:
+          left_requests:
+            description: Number of requests left at this moment to detail URLs of this endpoint. If not included there is no limit.
+            type: integer
+            xml:
+              x-add-datatype: true
+          left_requests_overall:
+            description: Number of requests left at this moment to this endpoint. If not included there is no limit.
+            type: integer
+            xml:
+              x-add-datatype: true
+          max_requests:
+            description: Maximum number of requests to detail URLs of this endpoint within 30 days. If not included there is no limit.
+            type: integer
+            xml:
+              x-add-datatype: true
+          max_requests_overall:
+            description: Maximum number of requests to this endpoint within 30 days. If not included there is no limit.
+            type: integer
+            xml:
+              x-add-datatype: true
+          used_requests:
+            description: Number of requests to detail URLs of this endpoint within the last 30 days.
+            type: integer
+            xml:
+              x-add-datatype: true
+          used_requests_overall:
+            description: Number of requests to this endpoint within the last 30 days.
+            type: integer
+            xml:
+              x-add-datatype: true
+        required:
+        - used_requests_overall
+        - used_requests
+        title: request-limit-info
+        type: object
+        xml:
+          x-add-datatype: true
+      size_limit_info:
+        description: Information about usage and limits of this endpoint. Included if query parameter `size_limit_info` is `true`
+        properties:
+          current_changes:
+            description: Number of vessel changes in this endpoint within the last 30 days.
+            type: integer
+            xml:
+              x-add-datatype: true
+          current_list_size:
+            description: Number of vessels currently in this endpoint.
+            type: integer
+            xml:
+              x-add-datatype: true
+          max_changes:
+            description: Maximum number of vessel changes in this endpoint within the last 30 days.
+            type: integer
+            xml:
+              x-add-datatype: true
+          max_list_size:
+            description: Maximum number of vessels in this endpoint.
+            type: integer
+            xml:
+              x-add-datatype: true
+        required:
+        - current_changes
+        - current_list_size
+        - max_changes
+        - max_list_size
+        title: size-limit-info
+        type: object
+        xml:
+          x-add-datatype: true
+      status:
+        description: '"success"'
+        example: success
+        type: string
+        xml:
+          x-add-datatype: true
+    required:
+    - status
+    - message
+    - items_removed
+    type: object
+    xml:
+      name: response
+      namespace: https://apiv2.fleetmon.com
+      x-extra-attributes:
+        timestamp:
+          type: date-time
+  fleet-response-listing-vessel-position:
+    description: Last reported position
+    properties:
+      course_over_ground:
+        description: current course over ground via AIS (position message)
+        format: float
+        type: number
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      in_special_maneuver:
+        type: boolean
+        xml:
+          x-add-datatype: true
+      is_moving:
+        type: boolean
+        xml:
+          x-add-datatype: true
+      latitude:
+        description: current position latitude received via AIS (position message)
+        format: float
+        type: number
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      location_str:
+        description: verbal description of the current position
+        type: string
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      longitude:
+        description: current position longitude received via AIS (position message)
+        format: float
+        type: number
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      received:
+        description: time of received position message
+        format: date-time
+        type: string
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      source:
+        description: either "terrestrial" or "satellite"
+        format: ascii
+        type: string
+        xml:
+          x-add-datatype: true
+      speed:
+        description: current speed received via AIS (position message)
+        format: float
+        type: number
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      true_heading:
+        description: current true heading of keel (hull) via AIS (position message)
+        format: int64
+        type: integer
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+    required:
+    - location_str
+    - is_moving
+    - received
+    - true_heading
+    - longitude
+    - source
+    - in_special_maneuver
+    - latitude
+    - course_over_ground
+    - speed
+    title: position
+    type: object
+    x-nullable: true
+    xml:
+      x-add-datatype: true
+  fleet-response-listing-vessel:
+    properties:
+      callsign:
+        format: ascii
+        type: string
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      cn_iso2:
+        format: ascii
+        type: string
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      cn_name:
+        type: string
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      detail_url:
+        description: URL path to this item
+        type: string
+        xml:
+          x-add-datatype: true
+      extra:
+        additionalProperties: true
+        description: client-specific extra informations for this vessel
+        title: fleet-response-listing-vessel-extra
+        type: object
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      fleetmon_url:
+        description: FleetMon URL to vessel
+        format: ascii
+        type: string
+        xml:
+          x-add-datatype: true
+      image_url:
+        description: URL to master image if available
+        format: ascii
+        type: string
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      imo_number:
+        description: unique International Maritime Organization (IMO) vessel number
+        format: int64
+        type: integer
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      mmsi_number:
+        description: 9 decimal digits Maritime Mobile Service Identity (connector between AIS message typs)
+        format: int64
+        type: integer
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      modified:
+        format: date-time
+        type: string
+        xml:
+          x-add-datatype: true
+      name:
+        type: string
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      note:
+        default: ''
+        type: string
+        xml:
+          x-add-datatype: true
+      position:
+        $ref: '#/definitions/fleet-response-listing-vessel-position'
+      tags:
+        items:
+          format: ascii
+          type: string
+          xml:
+            name: item
+            x-add-datatype: true
+        type: array
+        x-nullable: true
+        xml:
+          wrapped: true
+          x-add-datatype: true
+      type_class:
+        format: ascii
+        type: string
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      type_code:
+        format: ascii
+        type: string
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      vessel_id:
+        default: -1
+        description: vessel ID
+        format: int64
+        type: integer
+        xml:
+          x-add-datatype: true
+      voyage:
+        $ref: '#/definitions/fleet-response-listing-vessel-voyage'
+      vt_verbose:
+        type: string
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+    required:
+    - voyage
+    - name
+    - cn_iso2
+    - imo_number
+    - extra
+    - vessel_id
+    - modified
+    - note
+    - mmsi_number
+    - callsign
+    - type_code
+    - vt_verbose
+    - cn_name
+    - position
+    - fleetmon_url
+    - image_url
+    - tags
+    - type_class
+    - detail_url
+    title: vessel
+    type: object
+    xml:
+      name: vessel
+      x-add-datatype: true
+securityDefinitions:
+  apikey:
+    description: Auth via API-Key Query-Parameter
+    in: query
+    name: apikey
+    type: apiKey
+  apikey_authorization_header:
+    description: 'Auth via API-Key in ''Authorization'' header field in the form ''Authorization: Token <apikey>'''
+    in: header
+    name: Authorization
+    type: apiKey
+  apikey_header:
+    description: Auth via API-Key in 'Api-Key' header field
+    in: header
+    name: Api-Key
+    type: apiKey
+x-tagGroups:
+- name: My
+  tags:
+  - My API Keys
+  - My Client
+  - My User Notification Setting
+  - My User Alert Addresses
+  - Login Token
+- name: Vessels
+  tags:
+  - Vessel Search
+  - Vessel Photo
+  - Vessel Schedule
+  - Next Port / ETA Calculation
+  - Vessel History
+  - Vessel Positions Only
+  - Vessel Identity
+  - Vessel Route To Next Port
+  - Vessels Nearby
+  - Vessels Near Position
+  - Historical AIS Static Messages
+  - Historical Track API
+  - Vessel Positions with Extended Vessel Data
+  - Port Calls per Vessel
+  - Vessel Coarse Type
+  - ETA Reports
+  - Basic Vessel Data
+  - Non AIS Vessel Particulars
+  - Vessel Time to Port
+  - Vessel Change Events
+  - Voyage Planning
+  - Vessel Dynamic AIS
+- name: Ports
+  tags:
+  - Expected Port Arrivals
+  - Vessels in Port
+  - Port Search
+  - Port Calls per Port
+- name: Fleets
+  tags:
+  - Fleet Tracker
+  - My Fleet Positions
+  - Dry and Bulk Cargo Fleet
+- name: Logistics
+  tags:
+  - Logistics
+  - RoRo Ferry Terminal Demo
+  - Vessel ETA & Destination Change Events
+  - Terminals
+  - Estimated Laytime - Specific Vessel
+- name: Zone
+  tags:
+  - Regional AIS
+  - Zone Call
+  - Zone Information
+  - User Zones
+- name: Routing
+  tags:
+  - Route To Port
+  - Distance To Port
+  - Vessel Route To Next Port
+  - Vessel Route From Last Port
+- name: Weather & Water
+  tags:
+  - Weather
+  - Water
+  - Current

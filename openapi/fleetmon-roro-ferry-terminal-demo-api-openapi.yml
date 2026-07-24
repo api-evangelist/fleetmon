@@ -1,0 +1,482 @@
+swagger: '2.0'
+info:
+  description: 'ARCHIVED SPECIFICATION - RETIRED API. This is the final publicly archived Swagger 2.0 definition of the FleetMon API (apiv2.fleetmon.com), preserved from the Internet Archive Wayback Machine (schema.json capture 2021-12-08; the developer portal at developer.fleetmon.com remained online through early 2025). FleetMon was acquired by Kpler in 2023, the FleetMon platform and API were phased out beginning January 2024 and migrated into MarineTraffic, and as of 2026 the fleetmon.com domain (including apiv2.fleetmon.com and developer.fleetmon.com) no longer resolves. None of the endpoints below are live. The successor surface is the MarineTraffic API portfolio / Kpler AIS (servicedocs.marinetraffic.com).
+
+
+    --- Original description follows ---
+
+
+    Welcome to our API reference!
+
+
+    You can view JSON response samples in the area to the right.
+
+    If you need help with the API, just [contact us](https://www.fleetmon.com/company/contact/).
+
+
+    Follow us on [Facebook](https://www.facebook.com/fleetmon) and [Twitter](https://twitter.com/fleetmon) for the latest updates and news on the platform.
+
+
+    With the use of the FleetMon API, you agree with the [Terms of Service](https://www.fleetmon.com/terms-of-service/).
+
+    '
+  title: FleetMon API Reference Basic Vessel Data RoRo Ferry Terminal Demo API
+  version: Version 2.4.2
+  x-archived:
+    status: retired
+    retiredNote: FleetMon product offerings, logins, and the apiv2.fleetmon.com API were discontinued during the 2024 migration into MarineTraffic following the 2023 Kpler acquisition; fleetmon.com DNS no longer resolves as of 2026.
+    archiveSource: http://web.archive.org/web/20211208160310/https://apiv2.fleetmon.com/schema.json
+    archivedDeveloperPortal: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+    successor: https://servicedocs.marinetraffic.com/
+    archivedBy: API Evangelist
+    archivedDate: '2026-07-11'
+host: apiv2.fleetmon.com
+basePath: /
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+tags:
+- description: "This API deliver the enter and left event of the RoRo-Ferry-Terminal Rostock. It is no API key necessary. The look back is 48h.\r\nIt will be provides information about the Terminal Call itself, information's about the vessel in moment of arrival and depute as well as additional vessel information like length or call sigh."
+  name: RoRo Ferry Terminal Demo
+  x-codename: terminal_call_demo
+paths:
+  /terminal/call/demo/:
+    get:
+      description: ''
+      operationId: get-terminal_call_demo-listing
+      parameters:
+      - default: false
+        description: If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint.
+        in: query
+        name: request_limit_info
+        required: false
+        type: boolean
+      responses:
+        '200':
+          description: RoRo Ferry Terminal Demo - get calls response
+          schema:
+            $ref: '#/definitions/terminal_call_demo-response-calls'
+        '401':
+          description: The server could not verify that you are authorized to access the URL.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-401
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 401
+            description: The server could not verify that you are authorized to access the URL requested.
+            message: Unauthorized
+            status: error
+        '403':
+          description: The provided credentials were correct but the API is not yet fully configured.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-403
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 403
+            description: The API is not yet fully configured.
+            message: Forbidden
+            status: error
+        '405':
+          description: The used HTTP method is not allowed for this URL.
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-405
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 405
+            description: The method is not allowed for the requested URL.
+            message: Method Not Allowed
+            status: error
+        '429':
+          description: The client requested the resource too many times. (rate limit)
+          schema:
+            allOf:
+            - $ref: '#/definitions/error-message-response'
+            - title: response-status-429
+            xml:
+              name: response
+              namespace: https://apiv2.fleetmon.com
+              x-extra-attributes:
+                timestamp:
+                  type: date-time
+          x-example-object:
+            code: 429
+            description: Only 200 requests per 30 days are allowed for this endpoint.
+            message: Too Many Requests
+            status: error
+      security: []
+      summary: Delivers a list of terminal calls
+      tags:
+      - RoRo Ferry Terminal Demo
+definitions:
+  terminal_call_demo-zone:
+    description: zone object
+    properties:
+      latitude:
+        description: zone area centroid latitude
+        format: float
+        type: number
+        xml:
+          x-add-datatype: true
+      location_description:
+        description: zone location description
+        type: string
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      longitude:
+        description: zone area centroid longitude
+        format: float
+        type: number
+        xml:
+          x-add-datatype: true
+      name:
+        description: zone name
+        type: string
+        xml:
+          x-add-datatype: true
+      port_name:
+        description: associated port name
+        type: string
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      zone_id:
+        description: zone id
+        format: int64
+        type: integer
+        xml:
+          x-add-datatype: true
+    required:
+    - zone_id
+    - latitude
+    - longitude
+    - name
+    - location_description
+    - port_name
+    title: zone
+    type: object
+    xml:
+      x-add-datatype: true
+  terminal_call_demo-response-call:
+    properties:
+      duration:
+        description: terminal call duration in seconds
+        type: integer
+        xml:
+          x-add-datatype: true
+      entered_event:
+        $ref: '#/definitions/terminal_call_demo-event'
+      id:
+        description: unique call id
+        type: string
+        xml:
+          x-add-datatype: true
+      left_event:
+        $ref: '#/definitions/terminal_call_demo-event'
+      vessel:
+        $ref: '#/definitions/terminal_call_demo-vessel'
+      zone:
+        $ref: '#/definitions/terminal_call_demo-zone'
+    required:
+    - id
+    - vessel
+    - zone
+    - entered_event
+    title: terminal-call
+    type: object
+    xml:
+      name: call
+      x-add-datatype: true
+  error-message-response:
+    properties:
+      code:
+        description: correlates to the HTTP status code
+        format: int32
+        type: integer
+        xml:
+          x-add-datatype: true
+      description:
+        description: more detailed description
+        type: string
+        xml:
+          x-add-datatype: true
+      message:
+        description: short error message
+        type: string
+        xml:
+          x-add-datatype: true
+      status:
+        description: '"error"'
+        example: error
+        format: ascii
+        type: string
+        xml:
+          x-add-datatype: true
+    required:
+    - status
+    - message
+    - description
+    - code
+    type: object
+  terminal_call_demo-event:
+    description: zone event
+    properties:
+      destination:
+        description: Vessel's destination, when event occured
+        type: string
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      draught:
+        description: Vessel' draught, when event occured
+        format: float
+        type: number
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      eta:
+        description: Vessel's ETA, when event occured
+        format: date-time
+        type: string
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      latitude:
+        description: Latitude of vessel position, when event occured
+        format: float
+        type: number
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      longitude:
+        description: Longitude of vessel position, when event occured
+        format: float
+        type: number
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      timestamp:
+        format: date-time
+        type: string
+        xml:
+          x-add-datatype: true
+    required:
+    - timestamp
+    - draught
+    - eta
+    - destination
+    - latitude
+    - longitude
+    title: event
+    type: object
+    xml:
+      x-add-datatype: true
+  terminal_call_demo-vessel:
+    description: vessel object
+    properties:
+      callsign:
+        description: vessel callsign
+        type: string
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      imo:
+        description: vessel imo number
+        format: int64
+        type: integer
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      length:
+        description: vessel length
+        format: float
+        type: number
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      mmsi:
+        description: vessel mmsi number
+        format: int64
+        type: integer
+        xml:
+          x-add-datatype: true
+      name:
+        description: vessel name
+        type: string
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+      vessel_id:
+        description: vessel id
+        format: int64
+        type: integer
+        xml:
+          x-add-datatype: true
+      width:
+        description: vessel width
+        format: float
+        type: number
+        x-nullable: true
+        xml:
+          x-add-datatype: true
+    required:
+    - vessel_id
+    - mmsi
+    - imo
+    - name
+    - callsign
+    - length
+    - width
+    title: vessel
+    type: object
+    xml:
+      x-add-datatype: true
+  terminal_call_demo-response-calls:
+    properties:
+      calls:
+        items:
+          $ref: '#/definitions/terminal_call_demo-response-call'
+        type: array
+        xml:
+          wrapped: true
+          x-add-datatype: true
+      request_limit_info:
+        description: Information about usage and limits of this endpoint. Included if query parameter `request_limit_info` is `true`
+        properties:
+          left_requests:
+            description: Number of requests left at this moment to this endpoint. If not included there is no limit.
+            type: integer
+            xml:
+              x-add-datatype: true
+          max_requests:
+            description: Maximum number of requests to this endpoint within 30 days. If not included there is no limit.
+            type: integer
+            xml:
+              x-add-datatype: true
+          used_requests:
+            description: Number of requests to this endpoint within the last 30 days.
+            type: integer
+            xml:
+              x-add-datatype: true
+        required:
+        - used_requests
+        title: request-limit-info
+        type: object
+        xml:
+          x-add-datatype: true
+    required:
+    - calls
+    type: object
+    xml:
+      name: response
+      namespace: https://apiv2.fleetmon.com
+      x-extra-attributes:
+        timestamp:
+          type: date-time
+securityDefinitions:
+  apikey:
+    description: Auth via API-Key Query-Parameter
+    in: query
+    name: apikey
+    type: apiKey
+  apikey_authorization_header:
+    description: 'Auth via API-Key in ''Authorization'' header field in the form ''Authorization: Token <apikey>'''
+    in: header
+    name: Authorization
+    type: apiKey
+  apikey_header:
+    description: Auth via API-Key in 'Api-Key' header field
+    in: header
+    name: Api-Key
+    type: apiKey
+x-tagGroups:
+- name: My
+  tags:
+  - My API Keys
+  - My Client
+  - My User Notification Setting
+  - My User Alert Addresses
+  - Login Token
+- name: Vessels
+  tags:
+  - Vessel Search
+  - Vessel Photo
+  - Vessel Schedule
+  - Next Port / ETA Calculation
+  - Vessel History
+  - Vessel Positions Only
+  - Vessel Identity
+  - Vessel Route To Next Port
+  - Vessels Nearby
+  - Vessels Near Position
+  - Historical AIS Static Messages
+  - Historical Track API
+  - Vessel Positions with Extended Vessel Data
+  - Port Calls per Vessel
+  - Vessel Coarse Type
+  - ETA Reports
+  - Basic Vessel Data
+  - Non AIS Vessel Particulars
+  - Vessel Time to Port
+  - Vessel Change Events
+  - Voyage Planning
+  - Vessel Dynamic AIS
+- name: Ports
+  tags:
+  - Expected Port Arrivals
+  - Vessels in Port
+  - Port Search
+  - Port Calls per Port
+- name: Fleets
+  tags:
+  - Fleet Tracker
+  - My Fleet Positions
+  - Dry and Bulk Cargo Fleet
+- name: Logistics
+  tags:
+  - Logistics
+  - RoRo Ferry Terminal Demo
+  - Vessel ETA & Destination Change Events
+  - Terminals
+  - Estimated Laytime - Specific Vessel
+- name: Zone
+  tags:
+  - Regional AIS
+  - Zone Call
+  - Zone Information
+  - User Zones
+- name: Routing
+  tags:
+  - Route To Port
+  - Distance To Port
+  - Vessel Route To Next Port
+  - Vessel Route From Last Port
+- name: Weather & Water
+  tags:
+  - Weather
+  - Water
+  - Current
