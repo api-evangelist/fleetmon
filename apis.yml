@@ -12,7 +12,19 @@ description: FleetMon was a Rostock, Germany based vessel tracking and maritime 
   brand. As of 2026 the fleetmon.com domain, developer portal, and API no longer
   resolve - this entry preserves the final archived API surface and points to the
   Kpler / MarineTraffic successor services.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/fleetmon.png
 tags:
 - Vessel Tracking
 - Maritime
@@ -26,72 +38,459 @@ created: '2026-07-11'
 modified: '2026-07-11'
 specificationVersion: '0.19'
 apis:
-- aid: fleetmon:fleetmon-vessels-api
-  name: FleetMon Vessels API (Retired)
+- aid: fleetmon:fleetmon-basic-vessel-data-api
+  name: FleetMon Basic Vessel Data API
+  description: Delivers basic static data for a vessel.
+  humanURL: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+  baseURL: https://apiv2.fleetmon.com
   tags:
-  - Vessels
+  - Basic Vessel Data
+  properties:
+  - type: OpenAPI
+    url: openapi/fleetmon-basic-vessel-data-api-openapi.yml
+  - type: ArchivedAPIReference
+    url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+- aid: fleetmon:fleetmon-current-api
+  name: FleetMon Current API
+  description: Returns current info for lat/lon (and timestamp).
+  humanURL: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+  baseURL: https://apiv2.fleetmon.com
+  tags:
+  - Current
+  properties:
+  - type: OpenAPI
+    url: openapi/fleetmon-current-api-openapi.yml
+  - type: ArchivedAPIReference
+    url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+- aid: fleetmon:fleetmon-distance-to-port-api
+  name: FleetMon Distance To Port API
+  description: >-
+    Returns the high level summary of a route to port, only including distance, costs, and the count of
+    edges from the routing graph.
+  humanURL: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+  baseURL: https://apiv2.fleetmon.com
+  tags:
+  - Distance To Port
+  properties:
+  - type: OpenAPI
+    url: openapi/fleetmon-distance-to-port-api-openapi.yml
+  - type: ArchivedAPIReference
+    url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+- aid: fleetmon:fleetmon-estimated-laytime-specific-vessel-api
+  name: FleetMon Estimated Laytime - Specific Vessel API
+  description: This API returns an estimated laytime for a vessel in all terminals of a port.
+  humanURL: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+  baseURL: https://apiv2.fleetmon.com
+  tags:
+  - Estimated Laytime - Specific Vessel
+  properties:
+  - type: OpenAPI
+    url: openapi/fleetmon-estimated-laytime-specific-vessel-api-openapi.yml
+  - type: ArchivedAPIReference
+    url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+- aid: fleetmon:fleetmon-expected-port-arrivals-api
+  name: FleetMon Expected Port Arrivals API
+  description: Lists vessels heading for a specific port, matched by AIS destination.
+  humanURL: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+  baseURL: https://apiv2.fleetmon.com
+  tags:
+  - Expected Port Arrivals
+  properties:
+  - type: OpenAPI
+    url: openapi/fleetmon-expected-port-arrivals-api-openapi.yml
+  - type: ArchivedAPIReference
+    url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+- aid: fleetmon:fleetmon-fleet-tracker-api
+  name: FleetMon Fleet Tracker API
+  description: Tracking of current positions for a modifiable list of vessels.
+  humanURL: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+  baseURL: https://apiv2.fleetmon.com
+  tags:
+  - Fleet Tracker
+  properties:
+  - type: OpenAPI
+    url: openapi/fleetmon-fleet-tracker-api-openapi.yml
+  - type: ArchivedAPIReference
+    url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+- aid: fleetmon:fleetmon-historical-ais-static-messages-api
+  name: FleetMon Historical AIS Static Messages API
+  description: Delivers AIS messages of type 5, 19 & 24 for a specified MMSI number.
+  humanURL: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+  baseURL: https://apiv2.fleetmon.com
+  tags:
+  - Historical AIS Static Messages
+  properties:
+  - type: OpenAPI
+    url: openapi/fleetmon-historical-ais-static-messages-api-openapi.yml
+  - type: ArchivedAPIReference
+    url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+- aid: fleetmon:fleetmon-historical-track-api-api
+  name: FleetMon Historical Track API API
+  description: Returns historical AIS position reports with fixed period and rate, by MMSI.
+  humanURL: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+  baseURL: https://apiv2.fleetmon.com
+  tags:
+  - Historical Track API
+  properties:
+  - type: OpenAPI
+    url: openapi/fleetmon-historical-track-api-api-openapi.yml
+  - type: ArchivedAPIReference
+    url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+- aid: fleetmon:fleetmon-login-token-api
+  name: FleetMon Login Token API
+  description: Generate new Login Tokens with Token Keys
+  humanURL: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+  baseURL: https://apiv2.fleetmon.com
+  tags:
+  - Login Token
+  properties:
+  - type: OpenAPI
+    url: openapi/fleetmon-login-token-api-openapi.yml
+  - type: ArchivedAPIReference
+    url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+- aid: fleetmon:fleetmon-logistics-api
+  name: FleetMon Logistics API
+  description: >-
+    Delivers information about the vessels current state and the next port it is heading for.
+  humanURL: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+  baseURL: https://apiv2.fleetmon.com
+  tags:
+  - Logistics
+  properties:
+  - type: OpenAPI
+    url: openapi/fleetmon-logistics-api-openapi.yml
+  - type: ArchivedAPIReference
+    url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+- aid: fleetmon:fleetmon-my-fleet-positions-api
+  name: FleetMon My Fleet Positions API
+  description: Delivers your MyFleet or a single vessel of it.
+  humanURL: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+  baseURL: https://apiv2.fleetmon.com
+  tags:
+  - My Fleet Positions
+  properties:
+  - type: OpenAPI
+    url: openapi/fleetmon-my-fleet-positions-api-openapi.yml
+  - type: ArchivedAPIReference
+    url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+- aid: fleetmon:fleetmon-next-port-eta-calculation-api
+  name: FleetMon Next Port / ETA Calculation API
+  description: >-
+    Delivers information about the next port, provided by the vessel itself via AIS destination.
+  humanURL: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+  baseURL: https://apiv2.fleetmon.com
+  tags:
+  - Next Port / ETA Calculation
+  properties:
+  - type: OpenAPI
+    url: openapi/fleetmon-next-port-eta-calculation-api-openapi.yml
+  - type: ArchivedAPIReference
+    url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+- aid: fleetmon:fleetmon-non-ais-vessel-particulars-api
+  name: FleetMon Non AIS Vessel Particulars API
+  description: Delivers owner, manager, DWT, GT and a photo-URL for a vessel, if it's available.
+  humanURL: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+  baseURL: https://apiv2.fleetmon.com
+  tags:
+  - Non AIS Vessel Particulars
+  properties:
+  - type: OpenAPI
+    url: openapi/fleetmon-non-ais-vessel-particulars-api-openapi.yml
+  - type: ArchivedAPIReference
+    url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+- aid: fleetmon:fleetmon-port-calls-per-port-api
+  name: FleetMon Port Calls per Port API
+  description: Delivers portcalls for a port.
+  humanURL: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+  baseURL: https://apiv2.fleetmon.com
+  tags:
+  - Port Calls per Port
+  properties:
+  - type: OpenAPI
+    url: openapi/fleetmon-port-calls-per-port-api-openapi.yml
+  - type: ArchivedAPIReference
+    url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+- aid: fleetmon:fleetmon-port-calls-per-vessel-api
+  name: FleetMon Port Calls per Vessel API
+  description: Delivers portcalls for a vessel.
+  humanURL: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+  baseURL: https://apiv2.fleetmon.com
+  tags:
+  - Port Calls per Vessel
+  properties:
+  - type: OpenAPI
+    url: openapi/fleetmon-port-calls-per-vessel-api-openapi.yml
+  - type: ArchivedAPIReference
+    url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+- aid: fleetmon:fleetmon-port-search-api
+  name: FleetMon Port Search API
+  description: Allows lookup of ports by UN/LOCODE, name and/or country.
+  humanURL: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+  baseURL: https://apiv2.fleetmon.com
+  tags:
+  - Port Search
+  properties:
+  - type: OpenAPI
+    url: openapi/fleetmon-port-search-api-openapi.yml
+  - type: ArchivedAPIReference
+    url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+- aid: fleetmon:fleetmon-regional-ais-api
+  name: FleetMon Regional AIS API
+  description: delivers AIS informations for a predefined bounding box
+  humanURL: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+  baseURL: https://apiv2.fleetmon.com
+  tags:
+  - Regional AIS
+  properties:
+  - type: OpenAPI
+    url: openapi/fleetmon-regional-ais-api-openapi.yml
+  - type: ArchivedAPIReference
+    url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+- aid: fleetmon:fleetmon-roro-ferry-terminal-demo-api
+  name: FleetMon RoRo Ferry Terminal Demo API
+  description: "This API deliver the enter and left event of the RoRo-Ferry-Terminal Rostock. It is no\
+    \ API key necessary. The look back is 48h.\r\nIt will be provides information about the Terminal Call\
+    \ itself, information's about the vessel in moment of arrival and depute as well as additional vessel\
+    \ information like length or call sigh."
+  humanURL: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+  baseURL: https://apiv2.fleetmon.com
+  tags:
+  - RoRo Ferry Terminal Demo
+  properties:
+  - type: OpenAPI
+    url: openapi/fleetmon-roro-ferry-terminal-demo-api-openapi.yml
+  - type: ArchivedAPIReference
+    url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+- aid: fleetmon:fleetmon-vessel-change-events-api
+  name: FleetMon Vessel Change Events API
+  description: Delivers change events for vessels.
+  humanURL: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+  baseURL: https://apiv2.fleetmon.com
+  tags:
+  - Vessel Change Events
+  properties:
+  - type: OpenAPI
+    url: openapi/fleetmon-vessel-change-events-api-openapi.yml
+  - type: ArchivedAPIReference
+    url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+- aid: fleetmon:fleetmon-vessel-dynamic-ais-api
+  name: FleetMon Vessel Dynamic AIS API
+  description: Live Dynamic AIS data from requested vessel
+  humanURL: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+  baseURL: https://apiv2.fleetmon.com
+  tags:
+  - Vessel Dynamic AIS
+  properties:
+  - type: OpenAPI
+    url: openapi/fleetmon-vessel-dynamic-ais-api-openapi.yml
+  - type: ArchivedAPIReference
+    url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+- aid: fleetmon:fleetmon-vessel-eta-destination-change-events-api
+  name: FleetMon Vessel ETA & Destination Change Events API
+  description: Delivers ETA & Destination Change for vessels.
+  humanURL: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+  baseURL: https://apiv2.fleetmon.com
+  tags:
+  - Vessel ETA & Destination Change Events
+  properties:
+  - type: OpenAPI
+    url: openapi/fleetmon-vessel-eta-destination-change-events-api-openapi.yml
+  - type: ArchivedAPIReference
+    url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+- aid: fleetmon:fleetmon-vessel-identity-api
+  name: FleetMon Vessel Identity API
+  description: Returns the identifying attributes of the provided vessel.
+  humanURL: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+  baseURL: https://apiv2.fleetmon.com
+  tags:
+  - Vessel Identity
+  properties:
+  - type: OpenAPI
+    url: openapi/fleetmon-vessel-identity-api-openapi.yml
+  - type: ArchivedAPIReference
+    url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+- aid: fleetmon:fleetmon-vessel-photo-api
+  name: FleetMon Vessel Photo API
+  description: >-
+    Delivers the URL to the main photo for a vessel. Look-up can be done by Vessel ID or IMO-number.
+  humanURL: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+  baseURL: https://apiv2.fleetmon.com
+  tags:
+  - Vessel Photo
+  properties:
+  - type: OpenAPI
+    url: openapi/fleetmon-vessel-photo-api-openapi.yml
+  - type: ArchivedAPIReference
+    url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+- aid: fleetmon:fleetmon-vessel-positions-only-api
+  name: FleetMon Vessel Positions Only API
+  description: Returns the latest received position.
+  humanURL: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+  baseURL: https://apiv2.fleetmon.com
+  tags:
+  - Vessel Positions Only
+  properties:
+  - type: OpenAPI
+    url: openapi/fleetmon-vessel-positions-only-api-openapi.yml
+  - type: ArchivedAPIReference
+    url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+- aid: fleetmon:fleetmon-vessel-positions-with-extended-vessel-data-api
+  name: FleetMon Vessel Positions with Extended Vessel Data API
+  description: Delivers position and extended detailed information for a single vessel.
+  humanURL: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+  baseURL: https://apiv2.fleetmon.com
+  tags:
+  - Vessel Positions with Extended Vessel Data
+  properties:
+  - type: OpenAPI
+    url: openapi/fleetmon-vessel-positions-with-extended-vessel-data-api-openapi.yml
+  - type: ArchivedAPIReference
+    url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+- aid: fleetmon:fleetmon-vessel-route-from-last-port-api
+  name: FleetMon Vessel Route From Last Port API
+  description: Returns the actual route from last port to latest position.
+  humanURL: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+  baseURL: https://apiv2.fleetmon.com
+  tags:
+  - Vessel Route From Last Port
+  properties:
+  - type: OpenAPI
+    url: openapi/fleetmon-vessel-route-from-last-port-api-openapi.yml
+  - type: ArchivedAPIReference
+    url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+- aid: fleetmon:fleetmon-vessel-route-to-next-port-api
+  name: FleetMon Vessel Route To Next Port API
+  description: Returns the route to the next port of a vessel (using ObjectID).
+  humanURL: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+  baseURL: https://apiv2.fleetmon.com
+  tags:
+  - Vessel Route To Next Port
+  properties:
+  - type: OpenAPI
+    url: openapi/fleetmon-vessel-route-to-next-port-api-openapi.yml
+  - type: ArchivedAPIReference
+    url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+- aid: fleetmon:fleetmon-vessel-schedule-api
+  name: FleetMon Vessel Schedule API
+  description: This endpoint provides schedules for vessels, e.g. container schedules.
+  humanURL: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+  baseURL: https://apiv2.fleetmon.com
+  tags:
+  - Vessel Schedule
+  properties:
+  - type: OpenAPI
+    url: openapi/fleetmon-vessel-schedule-api-openapi.yml
+  - type: ArchivedAPIReference
+    url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+- aid: fleetmon:fleetmon-vessel-search-api
+  name: FleetMon Vessel Search API
+  description: >-
+    Allows searching over the FleetMon vessel database by name, IMO-number, MMSI-number and/or callsign.
+  humanURL: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+  baseURL: https://apiv2.fleetmon.com
+  tags:
   - Vessel Search
-  - Vessel Database
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  properties:
+  - type: OpenAPI
+    url: openapi/fleetmon-vessel-search-api-openapi.yml
+  - type: ArchivedAPIReference
+    url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+- aid: fleetmon:fleetmon-vessels-in-port-api
+  name: FleetMon Vessels in Port API
+  description: Lists vessels detected in port for the specified LOCODE.
   humanURL: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
   baseURL: https://apiv2.fleetmon.com
-  properties:
-  - url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
-    type: ArchivedAPIReference
-  - url: openapi/fleetmon-openapi.yml
-    type: OpenAPI
-  description: 'Retired. Vessel master data surface of the FleetMon API - search
-    the vessel database (GET /vesselsearch/), fetch basic and extended vessel
-    particulars (GET /basicvessel/{vessel_id}, GET /vessel/{vessel_id}), vessel
-    identity attributes, non-AIS vessel particulars, vessel photos, and manage
-    tracked fleets (GET/POST/PUT/DELETE /fleet/). Authenticated with an API key
-    via apikey query parameter or Api-Key header. Endpoints are grounded in the
-    archived Swagger 2.0 definition but are no longer live - the surface migrated
-    to MarineTraffic / Kpler AIS.'
-- aid: fleetmon:fleetmon-vessel-positions-api
-  name: FleetMon Vessel Positions API (Retired)
   tags:
-  - AIS
-  - Positions
-  - Vessel Tracking
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  - Vessels in Port
+  properties:
+  - type: OpenAPI
+    url: openapi/fleetmon-vessels-in-port-api-openapi.yml
+  - type: ArchivedAPIReference
+    url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+- aid: fleetmon:fleetmon-vessels-near-position-api
+  name: FleetMon Vessels Near Position API
+  description: Vessels near requested position
   humanURL: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
   baseURL: https://apiv2.fleetmon.com
-  properties:
-  - url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
-    type: ArchivedAPIReference
-  - url: openapi/fleetmon-openapi.yml
-    type: OpenAPI
-  description: 'Retired. AIS position tracking surface of the FleetMon API - latest
-    vessel position (GET /vessel/{vessel_id}/position/), positions with extended
-    vessel data for your fleet (GET /myfleet/), historical AIS track reports
-    (GET /ais/position/), historical AIS static and voyage messages (GET /ais/static/),
-    dynamic AIS data, vessels inside a bounding box (GET /regional_ais/), and
-    vessels near a position (GET /vessel/near/). Endpoints are grounded in the
-    archived Swagger 2.0 definition but are no longer live - live AIS feeds now
-    ship as Kpler AIS via the MarineTraffic API portfolio.'
-- aid: fleetmon:fleetmon-port-calls-eta-api
-  name: FleetMon Port Calls & ETA API (Retired)
   tags:
-  - Port Calls
-  - Ports
-  - ETA
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  - Vessels Near Position
+  properties:
+  - type: OpenAPI
+    url: openapi/fleetmon-vessels-near-position-api-openapi.yml
+  - type: ArchivedAPIReference
+    url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+- aid: fleetmon:fleetmon-vessels-nearby-api
+  name: FleetMon Vessels Nearby API
+  description: Vessels nearby requested vessel
   humanURL: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
   baseURL: https://apiv2.fleetmon.com
+  tags:
+  - Vessels Nearby
   properties:
-  - url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
-    type: ArchivedAPIReference
-  - url: openapi/fleetmon-openapi.yml
-    type: OpenAPI
-  description: 'Retired. Port intelligence surface of the FleetMon API - port
-    search (GET /portsearch/), port calls per port and per vessel (GET /port/portcalls/,
-    GET /vessel/portcalls/), vessels currently in port (GET /port/inport/), expected
-    port arrivals (GET /port/arrivals/), next port and ETA calculation
-    (GET /vessel/{vessel_id}/ports/next/), distance to port, voyage planning ETA
-    and distance estimations (POST /voyage-planning/), and zone monitoring calls.
-    Endpoints are grounded in the archived Swagger 2.0 definition but are no
-    longer live - the surface migrated to MarineTraffic / Kpler AIS.'
+  - type: OpenAPI
+    url: openapi/fleetmon-vessels-nearby-api-openapi.yml
+  - type: ArchivedAPIReference
+    url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+- aid: fleetmon:fleetmon-voyage-planning-api
+  name: FleetMon Voyage Planning API
+  description: Delivers ETA & distance estimations for a route with multiple ports specified by LOCODE.
+  humanURL: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+  baseURL: https://apiv2.fleetmon.com
+  tags:
+  - Voyage Planning
+  properties:
+  - type: OpenAPI
+    url: openapi/fleetmon-voyage-planning-api-openapi.yml
+  - type: ArchivedAPIReference
+    url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+- aid: fleetmon:fleetmon-water-api
+  name: FleetMon Water API
+  description: Returns wave info for lat/lon (and timestamp).
+  humanURL: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+  baseURL: https://apiv2.fleetmon.com
+  tags:
+  - Water
+  properties:
+  - type: OpenAPI
+    url: openapi/fleetmon-water-api-openapi.yml
+  - type: ArchivedAPIReference
+    url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+- aid: fleetmon:fleetmon-weather-api
+  name: FleetMon Weather API
+  description: Returns weather info for lat/lon (and timestamp).
+  humanURL: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+  baseURL: https://apiv2.fleetmon.com
+  tags:
+  - Weather
+  properties:
+  - type: OpenAPI
+    url: openapi/fleetmon-weather-api-openapi.yml
+  - type: ArchivedAPIReference
+    url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+- aid: fleetmon:fleetmon-zone-call-api
+  name: FleetMon Zone Call API
+  description: Zone Call API
+  humanURL: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+  baseURL: https://apiv2.fleetmon.com
+  tags:
+  - Zone Call
+  properties:
+  - type: OpenAPI
+    url: openapi/fleetmon-zone-call-api-openapi.yml
+  - type: ArchivedAPIReference
+    url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+- aid: fleetmon:fleetmon-zone-information-api
+  name: FleetMon Zone Information API
+  description: Delivers an overview of your geo-zones.
+  humanURL: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
+  baseURL: https://apiv2.fleetmon.com
+  tags:
+  - Zone Information
+  properties:
+  - type: OpenAPI
+    url: openapi/fleetmon-zone-information-api-openapi.yml
+  - type: ArchivedAPIReference
+    url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
 common:
 - type: AgenticAccess
   url: agentic-access/fleetmon-agentic-access.yml
