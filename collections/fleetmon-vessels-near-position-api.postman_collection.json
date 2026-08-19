@@ -1,0 +1,516 @@
+{
+  "item": [
+    {
+      "id": "115ba59d-3355-40d4-9449-5506b52c441f",
+      "name": "Vessels Near Position",
+      "description": {
+        "content": "Vessels near requested position",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8951c8a3-f1c4-427a-8087-2afd4c3d55fc",
+          "name": "get-vessels near position-detail",
+          "request": {
+            "name": "get-vessels near position-detail",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vessel",
+                "near",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lat",
+                  "value": "<float>",
+                  "description": "(Required) Latitude in decimal notation for requested position"
+                },
+                {
+                  "disabled": false,
+                  "key": "lon",
+                  "value": "<float>",
+                  "description": "(Required) Longitude in decimal notation for requested position"
+                },
+                {
+                  "disabled": false,
+                  "key": "radius",
+                  "value": "<long>",
+                  "description": "Radius around the requested vessel in meter. Default and maximum radius is 2500 meter."
+                },
+                {
+                  "disabled": false,
+                  "key": "request_limit_info",
+                  "value": "false",
+                  "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "apikey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2d211ad3-8cb2-4cc4-aaa3-cd87c5335faf",
+              "name": "Vessels near position",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vessel",
+                    "near",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "lon",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request_limit_info\": {\n    \"used_requests\": 7194,\n    \"left_requests\": 9617,\n    \"max_requests\": 7383\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "74518f9f-5db9-4054-b2cc-ea6027c03d1b",
+              "name": "The server could not verify that you are authorized to access the URL.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vessel",
+                    "near",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "lon",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 1815\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "857c5f9a-2a52-4db7-ade8-f3aeeec6a034",
+              "name": "The provided credentials were correct but the API is not yet fully configured.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vessel",
+                    "near",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "lon",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 1759\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6413b56f-6496-4edf-86ea-1b564be20940",
+              "name": "Requested item does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vessel",
+                    "near",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "lon",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 9578\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2f4d48bd-40c5-4935-be87-3da80dfc88e1",
+              "name": "The used HTTP method is not allowed for this URL.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vessel",
+                    "near",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "lon",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 340\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e122658a-6f74-4959-ae15-5fffeab40220",
+              "name": "A required parameter is missing or has a wrong structure.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vessel",
+                    "near",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "lon",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 7171\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9d2af82d-904e-41ab-980f-1013fedce85d",
+              "name": "The client requested the resource too many times. (rate limit)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vessel",
+                    "near",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "lon",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 2246\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://apiv2.fleetmon.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "367c5712-dd68-4c31-ba79-2ea5ba6b90fa",
+    "name": "FleetMon API Reference Basic Vessel Data Vessels Near Position API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "ARCHIVED SPECIFICATION - RETIRED API. This is the final publicly archived Swagger 2.0 definition of the FleetMon API (apiv2.fleetmon.com), preserved from the Internet Archive Wayback Machine (schema.json capture 2021-12-08; the developer portal at developer.fleetmon.com remained online through early 2025). FleetMon was acquired by Kpler in 2023, the FleetMon platform and API were phased out beginning January 2024 and migrated into MarineTraffic, and as of 2026 the fleetmon.com domain (including apiv2.fleetmon.com and developer.fleetmon.com) no longer resolves. None of the endpoints below are live. The successor surface is the MarineTraffic API portfolio / Kpler AIS (servicedocs.marinetraffic.com).\n\n--- Original description follows ---\n\nWelcome to our API reference!\n\nYou can view JSON response samples in the area to the right.\nIf you need help with the API, just [contact us](https://www.fleetmon.com/company/contact/).\n\nFollow us on [Facebook](https://www.facebook.com/fleetmon) and [Twitter](https://twitter.com/fleetmon) for the latest updates and news on the platform.\n\nWith the use of the FleetMon API, you agree with the [Terms of Service](https://www.fleetmon.com/terms-of-service/).\n",
+      "type": "text/plain"
+    }
+  }
+}

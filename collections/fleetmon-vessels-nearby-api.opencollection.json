@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FleetMon API Reference Basic Vessel Data Vessels Nearby API",
+    "version": "Version 2.4.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Vessels Nearby",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "get-vessels_nearby-detail",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/vessel/:vessel_id/nearby/",
+            "params": [
+              {
+                "name": "vessel_id",
+                "value": "",
+                "type": "path",
+                "description": "FleetMon identifier for maritime objects like vessels"
+              },
+              {
+                "name": "radius",
+                "value": "",
+                "type": "query",
+                "description": "Radius around the requested vessel in meter. Default and maximum radius is 2500 meter."
+              },
+              {
+                "name": "request_limit_info",
+                "value": "",
+                "type": "query",
+                "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

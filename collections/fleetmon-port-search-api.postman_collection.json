@@ -1,0 +1,451 @@
+{
+  "item": [
+    {
+      "id": "afb578b5-7523-479a-8ec4-5a49ef5d343e",
+      "name": "Port Search",
+      "description": {
+        "content": "Allows lookup of ports by UN/LOCODE, name and/or country.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "11a23498-7eea-4372-a378-a7d38526b2fc",
+          "name": "Delivers the list of ports that matched the criteria",
+          "request": {
+            "name": "Delivers the list of ports that matched the criteria",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "portsearch",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "cn_iso2",
+                  "value": "<string>",
+                  "description": "countries ISO-alpha-2 code, only exact matching, 2 letters"
+                },
+                {
+                  "disabled": false,
+                  "key": "locode",
+                  "value": "<string>",
+                  "description": "UN/LOCODE, only exact matching, 5 letters"
+                },
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "sub-string matching, minium length is 3 characters"
+                },
+                {
+                  "disabled": false,
+                  "key": "request_limit_info",
+                  "value": "false",
+                  "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "apikey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3c92c2ca-de84-4d35-acf1-6063924c06b6",
+              "name": "Port Search - ports response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "portsearch",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cn_iso2",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "locode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ports\": [\n    {\n      \"name_alternatives\": [\n        \"string\",\n        \"string\"\n      ],\n      \"latitude\": 2735.9729556342295,\n      \"cn_name\": \"string\",\n      \"longitude\": 1748.4555511179035,\n      \"cn_iso2\": \"string\",\n      \"locode_alternatives\": [\n        \"string\",\n        \"string\"\n      ],\n      \"id\": 1570,\n      \"locode\": \"string\",\n      \"name\": \"string\"\n    },\n    {\n      \"name_alternatives\": [\n        \"string\",\n        \"string\"\n      ],\n      \"latitude\": 2227.5512252940266,\n      \"cn_name\": \"string\",\n      \"longitude\": 4339.8388489065,\n      \"cn_iso2\": \"string\",\n      \"locode_alternatives\": [\n        \"string\",\n        \"string\"\n      ],\n      \"id\": 5391,\n      \"locode\": \"string\",\n      \"name\": \"string\"\n    }\n  ],\n  \"request_limit_info\": {\n    \"used_requests\": 2264,\n    \"left_requests\": 27,\n    \"max_requests\": 7134\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e7374802-9e2c-4124-8fb7-3f0f6827f8b5",
+              "name": "The server could not verify that you are authorized to access the URL.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "portsearch",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cn_iso2",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "locode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 4623\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2efb7ca7-0883-4032-8036-edd10e80af97",
+              "name": "The provided credentials were correct but the API is not yet fully configured.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "portsearch",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cn_iso2",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "locode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 475\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eb64c76f-7d58-4935-93d6-980be7b303dc",
+              "name": "The used HTTP method is not allowed for this URL.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "portsearch",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cn_iso2",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "locode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 4901\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "388bad67-ab6d-470c-bee9-3904ea8a29a2",
+              "name": "A required parameter is missing or has a wrong structure.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "portsearch",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cn_iso2",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "locode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 4757\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "75378246-8cbe-4060-8ea3-ff7cda33cecb",
+              "name": "The client requested the resource too many times. (rate limit)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "portsearch",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cn_iso2",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "locode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 61\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://apiv2.fleetmon.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "bff2df36-2294-44e9-b6d4-31ece40f6fa6",
+    "name": "FleetMon API Reference Basic Vessel Data Port Search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "ARCHIVED SPECIFICATION - RETIRED API. This is the final publicly archived Swagger 2.0 definition of the FleetMon API (apiv2.fleetmon.com), preserved from the Internet Archive Wayback Machine (schema.json capture 2021-12-08; the developer portal at developer.fleetmon.com remained online through early 2025). FleetMon was acquired by Kpler in 2023, the FleetMon platform and API were phased out beginning January 2024 and migrated into MarineTraffic, and as of 2026 the fleetmon.com domain (including apiv2.fleetmon.com and developer.fleetmon.com) no longer resolves. None of the endpoints below are live. The successor surface is the MarineTraffic API portfolio / Kpler AIS (servicedocs.marinetraffic.com).\n\n--- Original description follows ---\n\nWelcome to our API reference!\n\nYou can view JSON response samples in the area to the right.\nIf you need help with the API, just [contact us](https://www.fleetmon.com/company/contact/).\n\nFollow us on [Facebook](https://www.facebook.com/fleetmon) and [Twitter](https://twitter.com/fleetmon) for the latest updates and news on the platform.\n\nWith the use of the FleetMon API, you agree with the [Terms of Service](https://www.fleetmon.com/terms-of-service/).\n",
+      "type": "text/plain"
+    }
+  }
+}

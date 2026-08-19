@@ -1,0 +1,554 @@
+{
+  "item": [
+    {
+      "id": "6a7832a4-d1b8-470b-9611-f062f694e9a2",
+      "name": "Estimated Laytime - Specific Vessel",
+      "description": {
+        "content": "This API returns an estimated laytime for a vessel in all terminals of a port.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "79eac9a0-b272-4e86-80e3-355de910a3b0",
+          "name": "Estimated laytime for vessel",
+          "request": {
+            "name": "Estimated laytime for vessel",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vessel",
+                ":vessel_id",
+                "port",
+                ":port_id",
+                "laytime",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lookback",
+                  "value": "365",
+                  "description": "Lookback time to calculate laytimes in days"
+                },
+                {
+                  "disabled": false,
+                  "key": "minimum_laytime",
+                  "value": "60",
+                  "description": "Minimum duration of vessel staying in the terminal."
+                },
+                {
+                  "disabled": false,
+                  "key": "request_limit_info",
+                  "value": "false",
+                  "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "port_id",
+                  "description": "(Required) FleetMon Port ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "vessel_id",
+                  "description": "(Required) FleetMon Vessel ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "apikey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b089f9b7-986a-450b-a5a4-b7e8e9179114",
+              "name": "Vessel Laytime",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vessel",
+                    ":vessel_id",
+                    "port",
+                    ":port_id",
+                    "laytime",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lookback",
+                      "value": "365"
+                    },
+                    {
+                      "key": "minimum_laytime",
+                      "value": "60"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "port_id",
+                      "description": "(Required) FleetMon Port ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "vessel_id",
+                      "description": "(Required) FleetMon Vessel ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request_limit_info\": {\n    \"used_requests\": 2849,\n    \"left_requests\": 5676,\n    \"max_requests\": 9205\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4d848a11-3029-4668-861f-82b37fcb95b6",
+              "name": "The server could not verify that you are authorized to access the URL.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vessel",
+                    ":vessel_id",
+                    "port",
+                    ":port_id",
+                    "laytime",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lookback",
+                      "value": "365"
+                    },
+                    {
+                      "key": "minimum_laytime",
+                      "value": "60"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "port_id",
+                      "description": "(Required) FleetMon Port ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "vessel_id",
+                      "description": "(Required) FleetMon Vessel ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 2633\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a2b7373f-9974-4446-be26-c61138654521",
+              "name": "The provided credentials were correct but the API is not yet fully configured.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vessel",
+                    ":vessel_id",
+                    "port",
+                    ":port_id",
+                    "laytime",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lookback",
+                      "value": "365"
+                    },
+                    {
+                      "key": "minimum_laytime",
+                      "value": "60"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "port_id",
+                      "description": "(Required) FleetMon Port ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "vessel_id",
+                      "description": "(Required) FleetMon Vessel ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 804\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "43a618d7-af98-468f-8079-b7021116543a",
+              "name": "The used HTTP method is not allowed for this URL.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vessel",
+                    ":vessel_id",
+                    "port",
+                    ":port_id",
+                    "laytime",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lookback",
+                      "value": "365"
+                    },
+                    {
+                      "key": "minimum_laytime",
+                      "value": "60"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "port_id",
+                      "description": "(Required) FleetMon Port ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "vessel_id",
+                      "description": "(Required) FleetMon Vessel ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 9609\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4110b004-5c71-489f-887c-6e11f2f92409",
+              "name": "A required parameter is missing or has a wrong structure.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vessel",
+                    ":vessel_id",
+                    "port",
+                    ":port_id",
+                    "laytime",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lookback",
+                      "value": "365"
+                    },
+                    {
+                      "key": "minimum_laytime",
+                      "value": "60"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "port_id",
+                      "description": "(Required) FleetMon Port ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "vessel_id",
+                      "description": "(Required) FleetMon Vessel ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 2779\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8fa8baf3-98c6-49b8-a0c4-2c087487d6f8",
+              "name": "The client requested the resource too many times. (rate limit)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vessel",
+                    ":vessel_id",
+                    "port",
+                    ":port_id",
+                    "laytime",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lookback",
+                      "value": "365"
+                    },
+                    {
+                      "key": "minimum_laytime",
+                      "value": "60"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "port_id",
+                      "description": "(Required) FleetMon Port ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "vessel_id",
+                      "description": "(Required) FleetMon Vessel ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 3664\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://apiv2.fleetmon.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "1b7e47d1-449a-4968-9357-5e8b65c6c5cf",
+    "name": "FleetMon API Reference Basic Vessel Data Estimated Laytime - Specific Vessel API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "ARCHIVED SPECIFICATION - RETIRED API. This is the final publicly archived Swagger 2.0 definition of the FleetMon API (apiv2.fleetmon.com), preserved from the Internet Archive Wayback Machine (schema.json capture 2021-12-08; the developer portal at developer.fleetmon.com remained online through early 2025). FleetMon was acquired by Kpler in 2023, the FleetMon platform and API were phased out beginning January 2024 and migrated into MarineTraffic, and as of 2026 the fleetmon.com domain (including apiv2.fleetmon.com and developer.fleetmon.com) no longer resolves. None of the endpoints below are live. The successor surface is the MarineTraffic API portfolio / Kpler AIS (servicedocs.marinetraffic.com).\n\n--- Original description follows ---\n\nWelcome to our API reference!\n\nYou can view JSON response samples in the area to the right.\nIf you need help with the API, just [contact us](https://www.fleetmon.com/company/contact/).\n\nFollow us on [Facebook](https://www.facebook.com/fleetmon) and [Twitter](https://twitter.com/fleetmon) for the latest updates and news on the platform.\n\nWith the use of the FleetMon API, you agree with the [Terms of Service](https://www.fleetmon.com/terms-of-service/).\n",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,470 @@
+{
+  "item": [
+    {
+      "id": "9ed8539e-6095-4cc7-806b-bc68bac3b961",
+      "name": "Basic Vessel Data",
+      "description": {
+        "content": "Delivers basic static data for a vessel.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e3337771-ab2c-4887-aa85-143f3242433b",
+          "name": "Delivers basic static data for a vessel.",
+          "request": {
+            "name": "Delivers basic static data for a vessel.",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "basicvessel",
+                ":vessel_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "request_limit_info",
+                  "value": "false",
+                  "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "vessel_id",
+                  "description": "(Required) FleetMon identifier for maritime objects like vessels"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "apikey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e358a908-38b0-4869-968b-e0a198decd02",
+              "name": "Basic Vessel Data - vessel response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "basicvessel",
+                    ":vessel_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "vessel_id",
+                      "description": "(Required) FleetMon identifier for maritime objects like vessels"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"mmsi_number\": 2031,\n  \"ais_type_of_ship_str\": \"string\",\n  \"length\": 3394,\n  \"vessel_id\": 519,\n  \"width\": 7223,\n  \"cn_iso2\": \"string\",\n  \"callsign\": \"string\",\n  \"image_url\": \"string\",\n  \"type_code\": \"string\",\n  \"imo_number\": 2814,\n  \"cn_name\": \"string\",\n  \"fleetmon_url\": \"string\",\n  \"type\": \"string\",\n  \"ais_type_of_ship\": 7564,\n  \"type_class\": \"string\",\n  \"request_limit_info\": {\n    \"used_requests\": 8817,\n    \"left_requests\": 7776,\n    \"max_requests\": 4799\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e0682392-b8c4-412f-84a9-5474c56cf04f",
+              "name": "The server could not verify that you are authorized to access the URL.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "basicvessel",
+                    ":vessel_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "vessel_id",
+                      "description": "(Required) FleetMon identifier for maritime objects like vessels"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 6247\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d67ef3a2-d3c9-4ca3-934a-dda5ba3d0799",
+              "name": "The provided credentials were correct but the API is not yet fully configured.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "basicvessel",
+                    ":vessel_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "vessel_id",
+                      "description": "(Required) FleetMon identifier for maritime objects like vessels"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 2160\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c850ef58-0382-4347-8201-33da1f1a823c",
+              "name": "Requested item does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "basicvessel",
+                    ":vessel_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "vessel_id",
+                      "description": "(Required) FleetMon identifier for maritime objects like vessels"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 9238\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a229e736-4d92-4c6b-ae9c-899385faa840",
+              "name": "The used HTTP method is not allowed for this URL.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "basicvessel",
+                    ":vessel_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "vessel_id",
+                      "description": "(Required) FleetMon identifier for maritime objects like vessels"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 9266\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bf361cb5-44b4-4533-8f01-ec1aeed77fed",
+              "name": "A required parameter is missing or has a wrong structure.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "basicvessel",
+                    ":vessel_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "vessel_id",
+                      "description": "(Required) FleetMon identifier for maritime objects like vessels"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 573\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2e145f04-be7c-4192-9829-f8ec43880ec7",
+              "name": "The client requested the resource too many times. (rate limit)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "basicvessel",
+                    ":vessel_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "vessel_id",
+                      "description": "(Required) FleetMon identifier for maritime objects like vessels"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 5033\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://apiv2.fleetmon.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c12ec7a6-9fba-48de-9d5e-cac0b310aede",
+    "name": "FleetMon API Reference Basic Vessel Data API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "ARCHIVED SPECIFICATION - RETIRED API. This is the final publicly archived Swagger 2.0 definition of the FleetMon API (apiv2.fleetmon.com), preserved from the Internet Archive Wayback Machine (schema.json capture 2021-12-08; the developer portal at developer.fleetmon.com remained online through early 2025). FleetMon was acquired by Kpler in 2023, the FleetMon platform and API were phased out beginning January 2024 and migrated into MarineTraffic, and as of 2026 the fleetmon.com domain (including apiv2.fleetmon.com and developer.fleetmon.com) no longer resolves. None of the endpoints below are live. The successor surface is the MarineTraffic API portfolio / Kpler AIS (servicedocs.marinetraffic.com).\n\n--- Original description follows ---\n\nWelcome to our API reference!\n\nYou can view JSON response samples in the area to the right.\nIf you need help with the API, just [contact us](https://www.fleetmon.com/company/contact/).\n\nFollow us on [Facebook](https://www.facebook.com/fleetmon) and [Twitter](https://twitter.com/fleetmon) for the latest updates and news on the platform.\n\nWith the use of the FleetMon API, you agree with the [Terms of Service](https://www.fleetmon.com/terms-of-service/).\n",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,622 @@
+{
+  "item": [
+    {
+      "id": "6eb54a7b-e00d-41ec-a07e-782d6e52969f",
+      "name": "Distance To Port",
+      "description": {
+        "content": "Returns the high level summary of a route to port, only including distance, costs, and the count of edges from the routing graph. ",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5d9a9c6e-469b-4c3e-944c-5cf3875518c2",
+          "name": "Returns a summary of the calculated route to the given port",
+          "request": {
+            "name": "Returns a summary of the calculated route to the given port",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "distance",
+                "to",
+                "port",
+                ":to_port"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "draught",
+                  "value": "<float>",
+                  "description": "Draught of vessel in meters (default: 1.0)"
+                },
+                {
+                  "disabled": false,
+                  "key": "from_latlon",
+                  "value": "<string>",
+                  "description": "Start coordinates, two floats seperated with comma (54.875,12.305)"
+                },
+                {
+                  "disabled": false,
+                  "key": "from_port",
+                  "value": "<long>",
+                  "description": "Start Port (expected FleetMon PortID )"
+                },
+                {
+                  "disabled": false,
+                  "key": "request_limit_info",
+                  "value": "false",
+                  "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+                },
+                {
+                  "disabled": false,
+                  "key": "speed",
+                  "value": "<float>",
+                  "description": "Speed of vessel in knots (default: 20.0)"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "to_port",
+                  "description": "(Required) Destination Port (expected FleetMon PortID )"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "apikey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "67fd2b90-53bd-419a-80d7-b10ca27322b2",
+              "name": "Distance To Port Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "distance",
+                    "to",
+                    "port",
+                    ":to_port"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "draught",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "from_latlon",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from_port",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "speed",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "to_port",
+                      "description": "(Required) Destination Port (expected FleetMon PortID )"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total_cost\": 3467,\n  \"total_distance\": 830.3102472282864,\n  \"edge_count\": 8261,\n  \"request_limit_info\": {\n    \"used_requests\": 6413,\n    \"left_requests\": 6585,\n    \"max_requests\": 1435\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6083f4ec-4403-4851-a1e7-beb67f725057",
+              "name": "The server could not verify that you are authorized to access the URL.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "distance",
+                    "to",
+                    "port",
+                    ":to_port"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "draught",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "from_latlon",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from_port",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "speed",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "to_port",
+                      "description": "(Required) Destination Port (expected FleetMon PortID )"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 2337\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8958145d-adaa-4995-b317-f0471d4ecf51",
+              "name": "The provided credentials were correct but the API is not yet fully configured.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "distance",
+                    "to",
+                    "port",
+                    ":to_port"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "draught",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "from_latlon",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from_port",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "speed",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "to_port",
+                      "description": "(Required) Destination Port (expected FleetMon PortID )"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 3825\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "de7dbded-e36c-4e67-b852-1c1c91d2eedc",
+              "name": "Requested item does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "distance",
+                    "to",
+                    "port",
+                    ":to_port"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "draught",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "from_latlon",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from_port",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "speed",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "to_port",
+                      "description": "(Required) Destination Port (expected FleetMon PortID )"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 2439\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3cb85ea6-803a-40e9-9646-fac1383b556f",
+              "name": "The used HTTP method is not allowed for this URL.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "distance",
+                    "to",
+                    "port",
+                    ":to_port"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "draught",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "from_latlon",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from_port",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "speed",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "to_port",
+                      "description": "(Required) Destination Port (expected FleetMon PortID )"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 2397\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c9c9cab5-c731-4b32-ab2f-f171ad9f73f0",
+              "name": "A required parameter is missing or has a wrong structure.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "distance",
+                    "to",
+                    "port",
+                    ":to_port"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "draught",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "from_latlon",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from_port",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "speed",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "to_port",
+                      "description": "(Required) Destination Port (expected FleetMon PortID )"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 454\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f73da9d0-4094-4331-a491-bcb07ff81959",
+              "name": "The client requested the resource too many times. (rate limit)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "distance",
+                    "to",
+                    "port",
+                    ":to_port"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "draught",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "from_latlon",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from_port",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "speed",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "to_port",
+                      "description": "(Required) Destination Port (expected FleetMon PortID )"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 8458\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://apiv2.fleetmon.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a2c5f6c6-318c-46c3-aa73-38cc76871d3a",
+    "name": "FleetMon API Reference Basic Vessel Data Distance To Port API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "ARCHIVED SPECIFICATION - RETIRED API. This is the final publicly archived Swagger 2.0 definition of the FleetMon API (apiv2.fleetmon.com), preserved from the Internet Archive Wayback Machine (schema.json capture 2021-12-08; the developer portal at developer.fleetmon.com remained online through early 2025). FleetMon was acquired by Kpler in 2023, the FleetMon platform and API were phased out beginning January 2024 and migrated into MarineTraffic, and as of 2026 the fleetmon.com domain (including apiv2.fleetmon.com and developer.fleetmon.com) no longer resolves. None of the endpoints below are live. The successor surface is the MarineTraffic API portfolio / Kpler AIS (servicedocs.marinetraffic.com).\n\n--- Original description follows ---\n\nWelcome to our API reference!\n\nYou can view JSON response samples in the area to the right.\nIf you need help with the API, just [contact us](https://www.fleetmon.com/company/contact/).\n\nFollow us on [Facebook](https://www.facebook.com/fleetmon) and [Twitter](https://twitter.com/fleetmon) for the latest updates and news on the platform.\n\nWith the use of the FleetMon API, you agree with the [Terms of Service](https://www.fleetmon.com/terms-of-service/).\n",
+      "type": "text/plain"
+    }
+  }
+}

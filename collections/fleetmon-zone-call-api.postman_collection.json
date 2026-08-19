@@ -1,0 +1,1262 @@
+{
+  "item": [
+    {
+      "id": "f808b350-9228-4cb3-9c36-11dc4061ffec",
+      "name": "Zone Call",
+      "description": {
+        "content": "Zone Call API",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "05c2f167-a9de-408d-8937-9108c695f296",
+          "name": "Delivers a list of call items",
+          "request": {
+            "name": "Delivers a list of call items",
+            "description": {
+              "content": "Delivers a list of call items for your zones. Each call contains zone information, vessel information, entered event and left event.\r\nThe events contain latitude, longitude, draft, destination and ETA at the time of entry/leaving.\r\nIt is possible to specify the time frame and whether to include closed and/or open calls.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "zone",
+                "calls",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "closed",
+                  "value": "true",
+                  "description": "Include closed zone calls"
+                },
+                {
+                  "disabled": false,
+                  "key": "collect_time",
+                  "value": "3600",
+                  "description": "Collect subsequent calls into one, when `departure` - `arrival` < `collect_time`"
+                },
+                {
+                  "disabled": false,
+                  "key": "duration_min",
+                  "value": "0",
+                  "description": "Minimun duration of call, Shorter calls will be discarded"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "Start of requested time interval (default: `until` - 1d)"
+                },
+                {
+                  "disabled": false,
+                  "key": "open",
+                  "value": "false",
+                  "description": "Include open zone calls"
+                },
+                {
+                  "disabled": false,
+                  "key": "request_limit_info",
+                  "value": "false",
+                  "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+                },
+                {
+                  "disabled": false,
+                  "key": "until",
+                  "value": "<dateTime>",
+                  "description": "End of requested time interval (default: now)"
+                },
+                {
+                  "disabled": false,
+                  "key": "zone_id",
+                  "value": "<long>",
+                  "description": "ID of zone to get calls for"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "apikey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f95c3707-adce-4a0a-94f5-693f44bc695e",
+              "name": "Zone Call - get zone call response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "zone",
+                    "calls",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "closed",
+                      "value": "true"
+                    },
+                    {
+                      "key": "collect_time",
+                      "value": "3600"
+                    },
+                    {
+                      "key": "duration_min",
+                      "value": "0"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "open",
+                      "value": "false"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "until",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "zone_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"calls\": [\n    {\n      \"id\": \"string\",\n      \"vessel\": {\n        \"vessel_id\": 5560,\n        \"mmsi\": 5471,\n        \"imo\": 9880,\n        \"name\": \"string\",\n        \"callsign\": \"string\",\n        \"length\": 5858.952842398097,\n        \"width\": 1879.554773000245\n      },\n      \"zone\": {\n        \"zone_id\": 9655,\n        \"latitude\": 1213.9722237674189,\n        \"longitude\": 341.21908329251437,\n        \"name\": \"string\",\n        \"location_description\": \"string\",\n        \"port_name\": \"string\"\n      },\n      \"entered_event\": {\n        \"timestamp\": \"1969-08-12T03:21:08.949Z\",\n        \"draught\": 5907.919495928161,\n        \"eta\": \"2018-07-17T17:03:38.696Z\",\n        \"destination\": \"string\",\n        \"latitude\": 1722.601541136346,\n        \"longitude\": 4267.019325461843\n      },\n      \"duration\": 9271,\n      \"left_event\": {\n        \"timestamp\": \"1970-12-05T01:21:12.319Z\",\n        \"draught\": 5662.707326245426,\n        \"eta\": \"1990-01-29T09:37:21.678Z\",\n        \"destination\": \"string\",\n        \"latitude\": 439.5759819919098,\n        \"longitude\": 1940.7162469233829\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"vessel\": {\n        \"vessel_id\": 2987,\n        \"mmsi\": 4996,\n        \"imo\": 1166,\n        \"name\": \"string\",\n        \"callsign\": \"string\",\n        \"length\": 3816.743247971438,\n        \"width\": 5344.029506513592\n      },\n      \"zone\": {\n        \"zone_id\": 9817,\n        \"latitude\": 5506.037637376247,\n        \"longitude\": 8581.114735127245,\n        \"name\": \"string\",\n        \"location_description\": \"string\",\n        \"port_name\": \"string\"\n      },\n      \"entered_event\": {\n        \"timestamp\": \"2015-09-24T18:43:14.336Z\",\n        \"draught\": 7687.36998465156,\n        \"eta\": \"1979-10-13T13:35:10.156Z\",\n        \"destination\": \"string\",\n        \"latitude\": 4850.2247904582055,\n        \"longitude\": 4095.806610316259\n      },\n      \"duration\": 4101,\n      \"left_event\": {\n        \"timestamp\": \"2015-05-05T01:26:30.170Z\",\n        \"draught\": 8106.343865579175,\n        \"eta\": \"2021-06-18T13:21:56.753Z\",\n        \"destination\": \"string\",\n        \"latitude\": 9805.29045250315,\n        \"longitude\": 859.1328041872814\n      }\n    }\n  ],\n  \"request_limit_info\": {\n    \"used_requests_overall\": 3395,\n    \"used_requests\": 5428,\n    \"left_requests\": 8980,\n    \"left_requests_overall\": 7028,\n    \"max_requests\": 2093,\n    \"max_requests_overall\": 7371\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ee261d0e-4131-4637-bcba-8a63f23176c0",
+              "name": "The server could not verify that you are authorized to access the URL.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "zone",
+                    "calls",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "closed",
+                      "value": "true"
+                    },
+                    {
+                      "key": "collect_time",
+                      "value": "3600"
+                    },
+                    {
+                      "key": "duration_min",
+                      "value": "0"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "open",
+                      "value": "false"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "until",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "zone_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 523\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eb98ee48-b367-4932-83fb-3f2ca9737577",
+              "name": "The provided credentials were correct but the API is not yet fully configured.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "zone",
+                    "calls",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "closed",
+                      "value": "true"
+                    },
+                    {
+                      "key": "collect_time",
+                      "value": "3600"
+                    },
+                    {
+                      "key": "duration_min",
+                      "value": "0"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "open",
+                      "value": "false"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "until",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "zone_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 8275\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6f3635ed-099d-41e1-b350-893b9c9287f0",
+              "name": "The used HTTP method is not allowed for this URL.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "zone",
+                    "calls",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "closed",
+                      "value": "true"
+                    },
+                    {
+                      "key": "collect_time",
+                      "value": "3600"
+                    },
+                    {
+                      "key": "duration_min",
+                      "value": "0"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "open",
+                      "value": "false"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "until",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "zone_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 4462\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "684e3a1f-7cb3-4c33-a74f-3a2aebaad16d",
+              "name": "A required parameter is missing or has a wrong structure.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "zone",
+                    "calls",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "closed",
+                      "value": "true"
+                    },
+                    {
+                      "key": "collect_time",
+                      "value": "3600"
+                    },
+                    {
+                      "key": "duration_min",
+                      "value": "0"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "open",
+                      "value": "false"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "until",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "zone_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 3857\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cb6535ec-c6ae-4f0b-991d-c33197832d57",
+              "name": "The client requested the resource too many times. (rate limit)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "zone",
+                    "calls",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "closed",
+                      "value": "true"
+                    },
+                    {
+                      "key": "collect_time",
+                      "value": "3600"
+                    },
+                    {
+                      "key": "duration_min",
+                      "value": "0"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "open",
+                      "value": "false"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "until",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "zone_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 4706\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "44c5877a-0caa-4302-8588-bdf49836eae6",
+          "name": "Delivers a list of call items",
+          "request": {
+            "name": "Delivers a list of call items",
+            "description": {
+              "content": "Delivers a list of call items for one of your zones. Each call contains zone information, basic vessel information, entered event and left event.\r\nThe events contain latitude, longitude, draft, destination and ETA at the time of entry/leaving.\r\nIt is possible to specify the time frame and whether to include closed and/or open calls.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "zone",
+                "calls",
+                ":zone_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "closed",
+                  "value": "true",
+                  "description": "Include closed zone calls"
+                },
+                {
+                  "disabled": false,
+                  "key": "collect_time",
+                  "value": "3600",
+                  "description": "Collect subsequent calls into one, when `departure` - `arrival` < `collect_time`"
+                },
+                {
+                  "disabled": false,
+                  "key": "duration_min",
+                  "value": "0",
+                  "description": "Minimun duration of call, Shorter calls will be discarded"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "Start of requested time interval (default: `until` - 1d)"
+                },
+                {
+                  "disabled": false,
+                  "key": "open",
+                  "value": "false",
+                  "description": "Include open zone calls"
+                },
+                {
+                  "disabled": false,
+                  "key": "request_limit_info",
+                  "value": "false",
+                  "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+                },
+                {
+                  "disabled": false,
+                  "key": "until",
+                  "value": "<dateTime>",
+                  "description": "End of requested time interval (default: now)"
+                },
+                {
+                  "disabled": false,
+                  "key": "zone_id",
+                  "value": "<long>",
+                  "description": "ID of zone to get calls for"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "zone_id",
+                  "description": "(Required) ID of zone to get calls for"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "apikey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "490c94b3-c632-4b2e-905c-48179089bf35",
+              "name": "Zone Call - get zone calls response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "zone",
+                    "calls",
+                    ":zone_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "closed",
+                      "value": "true"
+                    },
+                    {
+                      "key": "collect_time",
+                      "value": "3600"
+                    },
+                    {
+                      "key": "duration_min",
+                      "value": "0"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "open",
+                      "value": "false"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "until",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "zone_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "zone_id",
+                      "description": "(Required) ID of zone to get calls for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"calls\": [\n    {\n      \"id\": \"string\",\n      \"vessel\": {\n        \"vessel_id\": 1424,\n        \"mmsi\": 6168,\n        \"imo\": 9643,\n        \"name\": \"string\",\n        \"callsign\": \"string\",\n        \"length\": 9209.508952726492,\n        \"width\": 582.5347103179379\n      },\n      \"zone\": {\n        \"zone_id\": 4830,\n        \"latitude\": 1608.1506601332708,\n        \"longitude\": 4052.37490002023,\n        \"name\": \"string\",\n        \"location_description\": \"string\",\n        \"port_name\": \"string\"\n      },\n      \"entered_event\": {\n        \"timestamp\": \"1987-10-18T07:50:44.252Z\",\n        \"draught\": 1773.8430729320044,\n        \"eta\": \"1978-09-22T07:58:10.243Z\",\n        \"destination\": \"string\",\n        \"latitude\": 2790.083261757984,\n        \"longitude\": 4211.462934253261\n      },\n      \"duration\": 4038,\n      \"left_event\": {\n        \"timestamp\": \"1950-12-07T02:49:59.752Z\",\n        \"draught\": 6119.1334990131545,\n        \"eta\": \"1957-10-25T06:14:06.865Z\",\n        \"destination\": \"string\",\n        \"latitude\": 1224.5757720117233,\n        \"longitude\": 6734.947202526212\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"vessel\": {\n        \"vessel_id\": 6716,\n        \"mmsi\": 2764,\n        \"imo\": 327,\n        \"name\": \"string\",\n        \"callsign\": \"string\",\n        \"length\": 6074.184087384924,\n        \"width\": 7569.419247489361\n      },\n      \"zone\": {\n        \"zone_id\": 6593,\n        \"latitude\": 7793.2422341213705,\n        \"longitude\": 3143.5392766285,\n        \"name\": \"string\",\n        \"location_description\": \"string\",\n        \"port_name\": \"string\"\n      },\n      \"entered_event\": {\n        \"timestamp\": \"1947-02-08T17:24:02.209Z\",\n        \"draught\": 97.19238414302889,\n        \"eta\": \"1995-05-26T10:04:53.014Z\",\n        \"destination\": \"string\",\n        \"latitude\": 4722.396556531446,\n        \"longitude\": 6929.565328116722\n      },\n      \"duration\": 8032,\n      \"left_event\": {\n        \"timestamp\": \"1979-09-27T19:21:27.703Z\",\n        \"draught\": 6200.739409203191,\n        \"eta\": \"1947-08-22T13:51:46.023Z\",\n        \"destination\": \"string\",\n        \"latitude\": 9167.886189197923,\n        \"longitude\": 9098.730618373975\n      }\n    }\n  ],\n  \"request_limit_info\": {\n    \"used_requests_overall\": 4680,\n    \"used_requests\": 3478,\n    \"left_requests\": 9424,\n    \"left_requests_overall\": 3204,\n    \"max_requests\": 3889,\n    \"max_requests_overall\": 1061\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dafd56f2-0703-43f0-907b-cb139c689362",
+              "name": "The server could not verify that you are authorized to access the URL.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "zone",
+                    "calls",
+                    ":zone_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "closed",
+                      "value": "true"
+                    },
+                    {
+                      "key": "collect_time",
+                      "value": "3600"
+                    },
+                    {
+                      "key": "duration_min",
+                      "value": "0"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "open",
+                      "value": "false"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "until",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "zone_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "zone_id",
+                      "description": "(Required) ID of zone to get calls for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 523\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3fbda4bc-73f2-4d67-aa82-b776dd39f86f",
+              "name": "The provided credentials were correct but the API is not yet fully configured.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "zone",
+                    "calls",
+                    ":zone_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "closed",
+                      "value": "true"
+                    },
+                    {
+                      "key": "collect_time",
+                      "value": "3600"
+                    },
+                    {
+                      "key": "duration_min",
+                      "value": "0"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "open",
+                      "value": "false"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "until",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "zone_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "zone_id",
+                      "description": "(Required) ID of zone to get calls for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 8275\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ee63c7aa-fef3-4dbc-b347-061ca35d54af",
+              "name": "Requested item does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "zone",
+                    "calls",
+                    ":zone_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "closed",
+                      "value": "true"
+                    },
+                    {
+                      "key": "collect_time",
+                      "value": "3600"
+                    },
+                    {
+                      "key": "duration_min",
+                      "value": "0"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "open",
+                      "value": "false"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "until",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "zone_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "zone_id",
+                      "description": "(Required) ID of zone to get calls for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 2660\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3640fd8e-a9f4-47f5-ac44-722639a4b30c",
+              "name": "The used HTTP method is not allowed for this URL.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "zone",
+                    "calls",
+                    ":zone_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "closed",
+                      "value": "true"
+                    },
+                    {
+                      "key": "collect_time",
+                      "value": "3600"
+                    },
+                    {
+                      "key": "duration_min",
+                      "value": "0"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "open",
+                      "value": "false"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "until",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "zone_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "zone_id",
+                      "description": "(Required) ID of zone to get calls for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 4462\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a7360197-2a97-463a-a441-f9bb0cea384c",
+              "name": "A required parameter is missing or has a wrong structure.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "zone",
+                    "calls",
+                    ":zone_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "closed",
+                      "value": "true"
+                    },
+                    {
+                      "key": "collect_time",
+                      "value": "3600"
+                    },
+                    {
+                      "key": "duration_min",
+                      "value": "0"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "open",
+                      "value": "false"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "until",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "zone_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "zone_id",
+                      "description": "(Required) ID of zone to get calls for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 3857\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2686c328-df0c-483b-967a-65d25872b853",
+              "name": "The client requested the resource too many times. (rate limit)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "zone",
+                    "calls",
+                    ":zone_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "closed",
+                      "value": "true"
+                    },
+                    {
+                      "key": "collect_time",
+                      "value": "3600"
+                    },
+                    {
+                      "key": "duration_min",
+                      "value": "0"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "open",
+                      "value": "false"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "until",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "zone_id",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "zone_id",
+                      "description": "(Required) ID of zone to get calls for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 4706\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://apiv2.fleetmon.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "fb79197b-50e9-44a8-bdd2-7db13a185b9c",
+    "name": "FleetMon API Reference Basic Vessel Data Zone Call API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "ARCHIVED SPECIFICATION - RETIRED API. This is the final publicly archived Swagger 2.0 definition of the FleetMon API (apiv2.fleetmon.com), preserved from the Internet Archive Wayback Machine (schema.json capture 2021-12-08; the developer portal at developer.fleetmon.com remained online through early 2025). FleetMon was acquired by Kpler in 2023, the FleetMon platform and API were phased out beginning January 2024 and migrated into MarineTraffic, and as of 2026 the fleetmon.com domain (including apiv2.fleetmon.com and developer.fleetmon.com) no longer resolves. None of the endpoints below are live. The successor surface is the MarineTraffic API portfolio / Kpler AIS (servicedocs.marinetraffic.com).\n\n--- Original description follows ---\n\nWelcome to our API reference!\n\nYou can view JSON response samples in the area to the right.\nIf you need help with the API, just [contact us](https://www.fleetmon.com/company/contact/).\n\nFollow us on [Facebook](https://www.facebook.com/fleetmon) and [Twitter](https://twitter.com/fleetmon) for the latest updates and news on the platform.\n\nWith the use of the FleetMon API, you agree with the [Terms of Service](https://www.fleetmon.com/terms-of-service/).\n",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FleetMon API Reference Basic Vessel Data Historical AIS Static Messages API",
+    "version": "Version 2.4.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Historical AIS Static Messages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "AIS static and voyage related data reports",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ais/static/",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "start time for messages"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "maximum number of messages to return"
+              },
+              {
+                "name": "mmsi",
+                "value": "",
+                "type": "query",
+                "description": "MMSI number"
+              },
+              {
+                "name": "request_limit_info",
+                "value": "",
+                "type": "query",
+                "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "sorting of items"
+              },
+              {
+                "name": "until",
+                "value": "",
+                "type": "query",
+                "description": "end time for messages"
+              }
+            ]
+          },
+          "docs": "AIS static and voyage related data reports"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

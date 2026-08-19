@@ -1,0 +1,458 @@
+{
+  "item": [
+    {
+      "id": "3c5bf42c-8f60-4706-a5f3-537958cf8134",
+      "name": "Expected Port Arrivals",
+      "description": {
+        "content": "Lists vessels heading for a specific port, matched by AIS destination.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "60d100af-384d-4083-ab34-0b34e8b043d6",
+          "name": "Delivers the list of vessels.",
+          "request": {
+            "name": "Delivers the list of vessels.",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "port",
+                "arrivals",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "locode",
+                  "value": "<ascii>",
+                  "description": "(Required) UN/LOCODE for the port to lookup"
+                },
+                {
+                  "disabled": false,
+                  "key": "request_limit_info",
+                  "value": "false",
+                  "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+                },
+                {
+                  "disabled": false,
+                  "key": "type_coarse",
+                  "value": "<string>",
+                  "description": "optional vessel coarse type for filtering the result set"
+                },
+                {
+                  "disabled": false,
+                  "key": "type_code",
+                  "value": "<string>",
+                  "description": "optional vessel type code for filtering the result set"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "apikey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "46134809-5e13-4ede-b611-f3cb069178fc",
+              "name": "Expected Port Arrivals - vessels response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "port",
+                    "arrivals",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "locode",
+                      "value": "<ascii>"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "type_coarse",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"vessels\": [\n    {\n      \"voyage\": {\n        \"draught\": 3550.6149859889892,\n        \"destination\": \"string\",\n        \"eta\": \"1999-03-06T03:33:19.190Z\"\n      },\n      \"name\": \"string\",\n      \"type_coarse\": \"string\",\n      \"imo_number\": 9271,\n      \"mmsi_number\": 4991,\n      \"cn_iso2\": \"string\",\n      \"callsign\": \"string\",\n      \"type_code\": \"string\",\n      \"country\": \"string\",\n      \"position\": {\n        \"received\": \"1965-10-16T04:55:47.429Z\",\n        \"course_over_ground\": 3993.57003194505,\n        \"true_heading\": 6806,\n        \"longitude\": 1489.5170176067363,\n        \"source\": \"string\",\n        \"latitude\": 6984.862482393829,\n        \"speed\": 401.6570503489347\n      },\n      \"type\": \"string\",\n      \"vessel_id\": 7979\n    },\n    {\n      \"voyage\": {\n        \"draught\": 7962.05247557704,\n        \"destination\": \"string\",\n        \"eta\": \"2001-11-14T05:20:03.126Z\"\n      },\n      \"name\": \"string\",\n      \"type_coarse\": \"string\",\n      \"imo_number\": 4732,\n      \"mmsi_number\": 2399,\n      \"cn_iso2\": \"string\",\n      \"callsign\": \"string\",\n      \"type_code\": \"string\",\n      \"country\": \"string\",\n      \"position\": {\n        \"received\": \"2026-02-18T09:00:46.873Z\",\n        \"course_over_ground\": 3122.579484723873,\n        \"true_heading\": 9496,\n        \"longitude\": 6938.334177160755,\n        \"source\": \"string\",\n        \"latitude\": 9381.247360881503,\n        \"speed\": 812.04123931503\n      },\n      \"type\": \"string\",\n      \"vessel_id\": 8267\n    }\n  ],\n  \"request_limit_info\": {\n    \"used_requests\": 8592,\n    \"left_requests\": 3549,\n    \"max_requests\": 5302\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0d64099c-bf8e-4753-93f3-7c3098a6647b",
+              "name": "The server could not verify that you are authorized to access the URL.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "port",
+                    "arrivals",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "locode",
+                      "value": "<ascii>"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "type_coarse",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 9113\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c07c3cf3-26c3-443b-a464-d43fe453e483",
+              "name": "The provided credentials were correct but the API is not yet fully configured.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "port",
+                    "arrivals",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "locode",
+                      "value": "<ascii>"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "type_coarse",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 7615\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a846a46f-4f7c-4c7a-8da8-6ffb70170c90",
+              "name": "The used HTTP method is not allowed for this URL.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "port",
+                    "arrivals",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "locode",
+                      "value": "<ascii>"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "type_coarse",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 2484\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9f662c62-b3e6-4af2-a836-4fbfbe3b0cb9",
+              "name": "A required parameter is missing or has a wrong structure.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "port",
+                    "arrivals",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "locode",
+                      "value": "<ascii>"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "type_coarse",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 6681\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e04ccd6b-05ec-4f5d-97c7-98de9e5a75ea",
+              "name": "The client requested the resource too many times. (rate limit)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "port",
+                    "arrivals",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "locode",
+                      "value": "<ascii>"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "type_coarse",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 7167\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://apiv2.fleetmon.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "15be2cf5-e8fb-4bf8-9eb2-a4598622cc49",
+    "name": "FleetMon API Reference Basic Vessel Data Expected Port Arrivals API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "ARCHIVED SPECIFICATION - RETIRED API. This is the final publicly archived Swagger 2.0 definition of the FleetMon API (apiv2.fleetmon.com), preserved from the Internet Archive Wayback Machine (schema.json capture 2021-12-08; the developer portal at developer.fleetmon.com remained online through early 2025). FleetMon was acquired by Kpler in 2023, the FleetMon platform and API were phased out beginning January 2024 and migrated into MarineTraffic, and as of 2026 the fleetmon.com domain (including apiv2.fleetmon.com and developer.fleetmon.com) no longer resolves. None of the endpoints below are live. The successor surface is the MarineTraffic API portfolio / Kpler AIS (servicedocs.marinetraffic.com).\n\n--- Original description follows ---\n\nWelcome to our API reference!\n\nYou can view JSON response samples in the area to the right.\nIf you need help with the API, just [contact us](https://www.fleetmon.com/company/contact/).\n\nFollow us on [Facebook](https://www.facebook.com/fleetmon) and [Twitter](https://twitter.com/fleetmon) for the latest updates and news on the platform.\n\nWith the use of the FleetMon API, you agree with the [Terms of Service](https://www.fleetmon.com/terms-of-service/).\n",
+      "type": "text/plain"
+    }
+  }
+}

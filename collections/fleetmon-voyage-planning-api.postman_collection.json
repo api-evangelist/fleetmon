@@ -1,0 +1,475 @@
+{
+  "item": [
+    {
+      "id": "9eee64ec-46f8-4265-9e81-229944ddead8",
+      "name": "Voyage Planning",
+      "description": {
+        "content": "Delivers ETA & distance estimations for a route with multiple ports specified by LOCODE.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1f040335-ce21-4ca5-913a-d9de208337b1",
+          "name": "Delivers ETA & distance estimations for a voyage",
+          "request": {
+            "name": "Delivers ETA & distance estimations for a voyage",
+            "description": {
+              "content": "It is possible to specify multiple stops by LOCODE together with roadstead time and laytime.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "voyage-planning",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "request_limit_info",
+                  "value": "false",
+                  "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "apikey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"vessel_id\": \"<long>\",\n  \"stops\": [\n    {\n      \"locode\": \"<string>\",\n      \"laytime\": \"<long>\",\n      \"roadstead\": \"<long>\"\n    },\n    {\n      \"locode\": \"<string>\",\n      \"laytime\": \"<long>\",\n      \"roadstead\": \"<long>\"\n    }\n  ],\n  \"start\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "189b9351-8e31-41c6-89d9-6943d2b47fc9",
+              "name": "Voayage Planning Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "voyage-planning",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vessel_id\": \"<long>\",\n  \"stops\": [\n    {\n      \"locode\": \"<string>\",\n      \"laytime\": \"<long>\",\n      \"roadstead\": \"<long>\"\n    },\n    {\n      \"locode\": \"<string>\",\n      \"laytime\": \"<long>\",\n      \"roadstead\": \"<long>\"\n    }\n  ],\n  \"start\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"vessel_id\": 1378,\n  \"name\": \"string\",\n  \"imo_number\": 2003,\n  \"mmsi_number\": 7168,\n  \"callsign\": \"string\",\n  \"latitude\": 8852.02083714088,\n  \"longitude\": 5278.6854916704315,\n  \"stops\": [\n    {\n      \"eta\": \"2020-02-03T12:55:54.292Z\",\n      \"etd\": \"2019-12-07T19:37:05.567Z\",\n      \"distance\": 9561.498047499472,\n      \"message\": \"string\",\n      \"port_locode\": \"string\",\n      \"port_name\": \"string\"\n    },\n    {\n      \"eta\": \"1981-12-17T20:17:16.436Z\",\n      \"etd\": \"2007-12-03T12:04:47.319Z\",\n      \"distance\": 9848.697998407077,\n      \"message\": \"string\",\n      \"port_locode\": \"string\",\n      \"port_name\": \"string\"\n    }\n  ],\n  \"request_limit_info\": {\n    \"used_requests\": 7283,\n    \"left_requests\": 7427,\n    \"max_requests\": 8723\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d656a549-b7c7-471d-a9bd-9f925263d4fd",
+              "name": "The request body could not be parsed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "voyage-planning",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vessel_id\": \"<long>\",\n  \"stops\": [\n    {\n      \"locode\": \"<string>\",\n      \"laytime\": \"<long>\",\n      \"roadstead\": \"<long>\"\n    },\n    {\n      \"locode\": \"<string>\",\n      \"laytime\": \"<long>\",\n      \"roadstead\": \"<long>\"\n    }\n  ],\n  \"start\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 5103\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4b9f7929-ddaf-48ba-aec2-a18db51c5812",
+              "name": "The server could not verify that you are authorized to access the URL.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "voyage-planning",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vessel_id\": \"<long>\",\n  \"stops\": [\n    {\n      \"locode\": \"<string>\",\n      \"laytime\": \"<long>\",\n      \"roadstead\": \"<long>\"\n    },\n    {\n      \"locode\": \"<string>\",\n      \"laytime\": \"<long>\",\n      \"roadstead\": \"<long>\"\n    }\n  ],\n  \"start\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 3820\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b521f5e1-9cb4-4015-a020-366f7400140a",
+              "name": "The provided credentials were correct but the API is not yet fully configured.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "voyage-planning",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vessel_id\": \"<long>\",\n  \"stops\": [\n    {\n      \"locode\": \"<string>\",\n      \"laytime\": \"<long>\",\n      \"roadstead\": \"<long>\"\n    },\n    {\n      \"locode\": \"<string>\",\n      \"laytime\": \"<long>\",\n      \"roadstead\": \"<long>\"\n    }\n  ],\n  \"start\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 1169\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e58bea5d-a0d9-425c-bcaf-1ad383ada5c3",
+              "name": "The used HTTP method is not allowed for this URL.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "voyage-planning",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vessel_id\": \"<long>\",\n  \"stops\": [\n    {\n      \"locode\": \"<string>\",\n      \"laytime\": \"<long>\",\n      \"roadstead\": \"<long>\"\n    },\n    {\n      \"locode\": \"<string>\",\n      \"laytime\": \"<long>\",\n      \"roadstead\": \"<long>\"\n    }\n  ],\n  \"start\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 5842\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "37f71afe-1740-4555-b26b-e62dc0a68c3e",
+              "name": "A required parameter is missing or has a wrong structure.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "voyage-planning",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vessel_id\": \"<long>\",\n  \"stops\": [\n    {\n      \"locode\": \"<string>\",\n      \"laytime\": \"<long>\",\n      \"roadstead\": \"<long>\"\n    },\n    {\n      \"locode\": \"<string>\",\n      \"laytime\": \"<long>\",\n      \"roadstead\": \"<long>\"\n    }\n  ],\n  \"start\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 5758\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a165c048-8b75-4746-8754-e9db4a76e6c3",
+              "name": "The client requested the resource too many times. (rate limit)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "voyage-planning",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vessel_id\": \"<long>\",\n  \"stops\": [\n    {\n      \"locode\": \"<string>\",\n      \"laytime\": \"<long>\",\n      \"roadstead\": \"<long>\"\n    },\n    {\n      \"locode\": \"<string>\",\n      \"laytime\": \"<long>\",\n      \"roadstead\": \"<long>\"\n    }\n  ],\n  \"start\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 2267\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://apiv2.fleetmon.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "28fc9c2e-a5c2-48b3-82b3-513c4fe49aeb",
+    "name": "FleetMon API Reference Basic Vessel Data Voyage Planning API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "ARCHIVED SPECIFICATION - RETIRED API. This is the final publicly archived Swagger 2.0 definition of the FleetMon API (apiv2.fleetmon.com), preserved from the Internet Archive Wayback Machine (schema.json capture 2021-12-08; the developer portal at developer.fleetmon.com remained online through early 2025). FleetMon was acquired by Kpler in 2023, the FleetMon platform and API were phased out beginning January 2024 and migrated into MarineTraffic, and as of 2026 the fleetmon.com domain (including apiv2.fleetmon.com and developer.fleetmon.com) no longer resolves. None of the endpoints below are live. The successor surface is the MarineTraffic API portfolio / Kpler AIS (servicedocs.marinetraffic.com).\n\n--- Original description follows ---\n\nWelcome to our API reference!\n\nYou can view JSON response samples in the area to the right.\nIf you need help with the API, just [contact us](https://www.fleetmon.com/company/contact/).\n\nFollow us on [Facebook](https://www.facebook.com/fleetmon) and [Twitter](https://twitter.com/fleetmon) for the latest updates and news on the platform.\n\nWith the use of the FleetMon API, you agree with the [Terms of Service](https://www.fleetmon.com/terms-of-service/).\n",
+      "type": "text/plain"
+    }
+  }
+}

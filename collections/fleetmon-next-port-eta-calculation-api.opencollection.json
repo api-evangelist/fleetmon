@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FleetMon API Reference Basic Vessel Data Next Port / ETA Calculation API",
+    "version": "Version 2.4.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Next Port / ETA Calculation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Next Port",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/vessel/:vessel_id/ports/next/",
+            "params": [
+              {
+                "name": "vessel_id",
+                "value": "",
+                "type": "path",
+                "description": "FleetMon Vessel ID"
+              },
+              {
+                "name": "request_limit_info",
+                "value": "",
+                "type": "query",
+                "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+              }
+            ]
+          },
+          "docs": "Delivers information about the next port given by a vessels AIS data."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

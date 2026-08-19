@@ -1,0 +1,292 @@
+{
+  "item": [
+    {
+      "id": "fe3449de-2bcf-49ca-b32e-800ab8542b72",
+      "name": "RoRo Ferry Terminal Demo",
+      "description": {
+        "content": "This API deliver the enter and left event of the RoRo-Ferry-Terminal Rostock. It is no API key necessary. The look back is 48h.\r\nIt will be provides information about the Terminal Call itself, information's about the vessel in moment of arrival and depute as well as additional vessel information like length or call sigh.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a9483e5d-deee-4e5a-a2c2-7b5e8c87e543",
+          "name": "Delivers a list of terminal calls",
+          "request": {
+            "name": "Delivers a list of terminal calls",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "terminal",
+                "call",
+                "demo",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "request_limit_info",
+                  "value": "false",
+                  "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "52eaf8b2-b3ed-457e-b133-181a2354291f",
+              "name": "RoRo Ferry Terminal Demo - get calls response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "terminal",
+                    "call",
+                    "demo",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"calls\": [\n    {\n      \"id\": \"string\",\n      \"vessel\": {\n        \"vessel_id\": 7663,\n        \"mmsi\": 6727,\n        \"imo\": 3686,\n        \"name\": \"string\",\n        \"callsign\": \"string\",\n        \"length\": 4742.298474489908,\n        \"width\": 2701.4009226503445\n      },\n      \"zone\": {\n        \"zone_id\": 8726,\n        \"latitude\": 6029.047048488961,\n        \"longitude\": 5333.860978771004,\n        \"name\": \"string\",\n        \"location_description\": \"string\",\n        \"port_name\": \"string\"\n      },\n      \"entered_event\": {\n        \"timestamp\": \"2009-11-14T22:42:35.587Z\",\n        \"draught\": 5202.151953154365,\n        \"eta\": \"1947-07-16T13:54:53.598Z\",\n        \"destination\": \"string\",\n        \"latitude\": 2810.823629715842,\n        \"longitude\": 1483.4011162360482\n      },\n      \"duration\": 243,\n      \"left_event\": {\n        \"timestamp\": \"1958-05-01T07:36:34.536Z\",\n        \"draught\": 4093.8527331503315,\n        \"eta\": \"1946-12-19T03:07:41.325Z\",\n        \"destination\": \"string\",\n        \"latitude\": 4801.510628575738,\n        \"longitude\": 2782.317253855837\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"vessel\": {\n        \"vessel_id\": 4895,\n        \"mmsi\": 1742,\n        \"imo\": 9605,\n        \"name\": \"string\",\n        \"callsign\": \"string\",\n        \"length\": 3203.561366074086,\n        \"width\": 7463.172414749033\n      },\n      \"zone\": {\n        \"zone_id\": 6200,\n        \"latitude\": 5710.752484854806,\n        \"longitude\": 3615.307720543259,\n        \"name\": \"string\",\n        \"location_description\": \"string\",\n        \"port_name\": \"string\"\n      },\n      \"entered_event\": {\n        \"timestamp\": \"2012-11-10T03:28:14.681Z\",\n        \"draught\": 7466.431378302425,\n        \"eta\": \"1987-07-04T09:47:13.697Z\",\n        \"destination\": \"string\",\n        \"latitude\": 7991.108019947081,\n        \"longitude\": 8276.92591061544\n      },\n      \"duration\": 7556,\n      \"left_event\": {\n        \"timestamp\": \"1966-03-06T23:14:47.769Z\",\n        \"draught\": 2388.4288515318485,\n        \"eta\": \"2024-12-19T03:21:01.435Z\",\n        \"destination\": \"string\",\n        \"latitude\": 2728.02740845512,\n        \"longitude\": 1910.2722317737741\n      }\n    }\n  ],\n  \"request_limit_info\": {\n    \"used_requests\": 2460,\n    \"left_requests\": 4096,\n    \"max_requests\": 5011\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3f3c50b7-1fcd-476f-99ee-0babca4f4029",
+              "name": "The server could not verify that you are authorized to access the URL.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "terminal",
+                    "call",
+                    "demo",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 5973\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b56a2737-6d82-4fd0-8984-35d77b32315e",
+              "name": "The provided credentials were correct but the API is not yet fully configured.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "terminal",
+                    "call",
+                    "demo",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 3313\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c4df64b0-0218-4368-a111-a9f126b8ab4f",
+              "name": "The used HTTP method is not allowed for this URL.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "terminal",
+                    "call",
+                    "demo",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 5200\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fb7661a1-c3cd-4d31-9803-7edf953650d8",
+              "name": "The client requested the resource too many times. (rate limit)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "terminal",
+                    "call",
+                    "demo",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 8859\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://apiv2.fleetmon.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a0644ac0-40a8-4b34-bee6-1ca2f0aae9ec",
+    "name": "FleetMon API Reference Basic Vessel Data RoRo Ferry Terminal Demo API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "ARCHIVED SPECIFICATION - RETIRED API. This is the final publicly archived Swagger 2.0 definition of the FleetMon API (apiv2.fleetmon.com), preserved from the Internet Archive Wayback Machine (schema.json capture 2021-12-08; the developer portal at developer.fleetmon.com remained online through early 2025). FleetMon was acquired by Kpler in 2023, the FleetMon platform and API were phased out beginning January 2024 and migrated into MarineTraffic, and as of 2026 the fleetmon.com domain (including apiv2.fleetmon.com and developer.fleetmon.com) no longer resolves. None of the endpoints below are live. The successor surface is the MarineTraffic API portfolio / Kpler AIS (servicedocs.marinetraffic.com).\n\n--- Original description follows ---\n\nWelcome to our API reference!\n\nYou can view JSON response samples in the area to the right.\nIf you need help with the API, just [contact us](https://www.fleetmon.com/company/contact/).\n\nFollow us on [Facebook](https://www.facebook.com/fleetmon) and [Twitter](https://twitter.com/fleetmon) for the latest updates and news on the platform.\n\nWith the use of the FleetMon API, you agree with the [Terms of Service](https://www.fleetmon.com/terms-of-service/).\n",
+      "type": "text/plain"
+    }
+  }
+}

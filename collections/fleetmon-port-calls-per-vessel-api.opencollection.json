@@ -1,0 +1,42 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FleetMon API Reference Basic Vessel Data Port Calls per Vessel API",
+    "version": "Version 2.4.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Port Calls per Vessel",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Delivers portcalls for a vessel",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/vessel/portcalls/",
+            "params": [
+              {
+                "name": "request_limit_info",
+                "value": "",
+                "type": "query",
+                "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+              },
+              {
+                "name": "vessel_id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Delivers portcalls for a vessel"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

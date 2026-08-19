@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FleetMon API Reference Basic Vessel Data Vessel Change Events API",
+    "version": "Version 2.4.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Vessel Change Events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Delivers change events for a vessels.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/vessel/events/:vessel_id",
+            "params": [
+              {
+                "name": "vessel_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of vessel to get events for"
+              },
+              {
+                "name": "event_type",
+                "value": "",
+                "type": "query",
+                "description": "Type of event that should be delivered"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "End of requested time interval (default: `until` - 1d)"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit number of results, <0 means descending order, >0 means ascending order"
+              },
+              {
+                "name": "request_limit_info",
+                "value": "",
+                "type": "query",
+                "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+              },
+              {
+                "name": "until",
+                "value": "",
+                "type": "query",
+                "description": "Start of requested time interval (default: now)"
+              }
+            ]
+          },
+          "docs": "Delivers change events for a vessels."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

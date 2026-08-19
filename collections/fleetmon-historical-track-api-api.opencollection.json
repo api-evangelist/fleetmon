@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FleetMon API Reference Basic Vessel Data Historical Track API API",
+    "version": "Version 2.4.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Historical Track API",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns historical AIS position reports with fixed period and rate. Input: MMSI",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ais/position/",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "start time for track"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "maximum number of messages to return"
+              },
+              {
+                "name": "mmsi",
+                "value": "",
+                "type": "query",
+                "description": "MMSI number"
+              },
+              {
+                "name": "request_limit_info",
+                "value": "",
+                "type": "query",
+                "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "sorting of items"
+              },
+              {
+                "name": "time_res",
+                "value": "",
+                "type": "query",
+                "description": "resolution of track in seconds"
+              },
+              {
+                "name": "until",
+                "value": "",
+                "type": "query",
+                "description": "end time for track"
+              }
+            ]
+          },
+          "docs": "Returns historical AIS position reports with fixed period and rate. Input: MMSI"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FleetMon API Reference Basic Vessel Data Vessel Route To Next Port API",
+    "version": "Version 2.4.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Vessel Route To Next Port",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch route to next port for provided vessel.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/vessel/:vessel_id/route/port/next/",
+            "params": [
+              {
+                "name": "vessel_id",
+                "value": "",
+                "type": "path",
+                "description": "FleetMon identifier for maritime objects like vessels"
+              },
+              {
+                "name": "draught",
+                "value": "",
+                "type": "query",
+                "description": "Draught of vessel in meters (default: latest reported draught from vessel or 1 if draught is unavailable or 0)"
+              },
+              {
+                "name": "min_draught",
+                "value": "",
+                "type": "query",
+                "description": "Minimum draught of vessel in meters (default: minimum reported draught from vessel or 1 if draught is unavailable or 0)"
+              },
+              {
+                "name": "min_speed",
+                "value": "",
+                "type": "query",
+                "description": "Minimum speed of vessel in knots (default: average vessel speed or 20 if speed is unavailble or 0)"
+              },
+              {
+                "name": "request_limit_info",
+                "value": "",
+                "type": "query",
+                "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+              },
+              {
+                "name": "speed",
+                "value": "",
+                "type": "query",
+                "description": "Speed of vessel in knots (default: latest resported speed from vessel or 20 if speed is unavailble or 0)"
+              }
+            ]
+          },
+          "docs": "Returns the route to the next port of a provided FleetMon vessel identifier."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

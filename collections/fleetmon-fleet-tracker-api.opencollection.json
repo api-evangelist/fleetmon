@@ -1,0 +1,217 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FleetMon API Reference Basic Vessel Data Fleet Tracker API",
+    "version": "Version 2.4.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Fleet Tracker",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Delivers the fleet.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/fleet/",
+            "params": [
+              {
+                "name": "request_limit_info",
+                "value": "",
+                "type": "query",
+                "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+              },
+              {
+                "name": "size_limit_info",
+                "value": "",
+                "type": "query",
+                "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+              },
+              {
+                "name": "tag",
+                "value": "",
+                "type": "query",
+                "description": "optional filter by tag name"
+              }
+            ]
+          },
+          "docs": "Delivers the fleet."
+        },
+        {
+          "info": {
+            "name": "Replaces the fleet with new vessels.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/fleet/",
+            "params": [
+              {
+                "name": "request_limit_info",
+                "value": "",
+                "type": "query",
+                "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+              },
+              {
+                "name": "size_limit_info",
+                "value": "",
+                "type": "query",
+                "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+              }
+            ]
+          },
+          "docs": "Replaces the fleet with new vessels."
+        },
+        {
+          "info": {
+            "name": "Adds vessels to the fleet.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/fleet/",
+            "params": [
+              {
+                "name": "request_limit_info",
+                "value": "",
+                "type": "query",
+                "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+              },
+              {
+                "name": "size_limit_info",
+                "value": "",
+                "type": "query",
+                "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+              }
+            ]
+          },
+          "docs": "Adds vessels to the fleet."
+        },
+        {
+          "info": {
+            "name": "Empties the fleet completely.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/fleet/",
+            "params": [
+              {
+                "name": "request_limit_info",
+                "value": "",
+                "type": "query",
+                "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+              },
+              {
+                "name": "size_limit_info",
+                "value": "",
+                "type": "query",
+                "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+              }
+            ]
+          },
+          "docs": "Empties the fleet completely."
+        },
+        {
+          "info": {
+            "name": "Delivers a single vessel from the fleet.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/fleet/:vessel_id",
+            "params": [
+              {
+                "name": "vessel_id",
+                "value": "",
+                "type": "path",
+                "description": "vessel ID"
+              },
+              {
+                "name": "request_limit_info",
+                "value": "",
+                "type": "query",
+                "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+              },
+              {
+                "name": "size_limit_info",
+                "value": "",
+                "type": "query",
+                "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+              }
+            ]
+          },
+          "docs": "Delivers a single vessel from the fleet."
+        },
+        {
+          "info": {
+            "name": "Modifies custom attributes of a single vessel.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/fleet/:vessel_id",
+            "params": [
+              {
+                "name": "vessel_id",
+                "value": "",
+                "type": "path",
+                "description": "vessel ID"
+              },
+              {
+                "name": "request_limit_info",
+                "value": "",
+                "type": "query",
+                "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+              },
+              {
+                "name": "size_limit_info",
+                "value": "",
+                "type": "query",
+                "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+              }
+            ]
+          },
+          "docs": "Modifies custom attributes of a single vessel."
+        },
+        {
+          "info": {
+            "name": "Removes a single vessel from the fleet.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/fleet/:vessel_id",
+            "params": [
+              {
+                "name": "vessel_id",
+                "value": "",
+                "type": "path",
+                "description": "vessel ID"
+              },
+              {
+                "name": "request_limit_info",
+                "value": "",
+                "type": "query",
+                "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+              },
+              {
+                "name": "size_limit_info",
+                "value": "",
+                "type": "query",
+                "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+              }
+            ]
+          },
+          "docs": "Removes a single vessel from the fleet."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

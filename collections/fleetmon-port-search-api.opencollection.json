@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FleetMon API Reference Basic Vessel Data Port Search API",
+    "version": "Version 2.4.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Port Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Delivers the list of ports that matched the criteria",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/portsearch/",
+            "params": [
+              {
+                "name": "cn_iso2",
+                "value": "",
+                "type": "query",
+                "description": "countries ISO-alpha-2 code, only exact matching, 2 letters"
+              },
+              {
+                "name": "locode",
+                "value": "",
+                "type": "query",
+                "description": "UN/LOCODE, only exact matching, 5 letters"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "sub-string matching, minium length is 3 characters"
+              },
+              {
+                "name": "request_limit_info",
+                "value": "",
+                "type": "query",
+                "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+              }
+            ]
+          },
+          "docs": "Delivers the list of ports that matched the criteria"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

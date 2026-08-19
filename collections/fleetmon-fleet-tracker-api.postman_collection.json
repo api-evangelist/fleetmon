@@ -1,0 +1,3235 @@
+{
+  "item": [
+    {
+      "id": "905ea17b-2995-4c2f-ad52-54e09cd29bab",
+      "name": "Fleet Tracker",
+      "description": {
+        "content": "Tracking of current positions for a modifiable list of vessels.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1e482303-7bca-4761-b5b6-19d110ddb8c6",
+          "name": "Empties the fleet completely.",
+          "request": {
+            "name": "Empties the fleet completely.",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fleet",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "request_limit_info",
+                  "value": "false",
+                  "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+                },
+                {
+                  "disabled": false,
+                  "key": "size_limit_info",
+                  "value": "false",
+                  "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "apikey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "60b04e63-1e89-420e-b1e0-2e67d16db740",
+              "name": "Fleet Tracker - clear vessels response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"string\",\n  \"items_removed\": 615,\n  \"request_limit_info\": {\n    \"used_requests_overall\": 1258,\n    \"used_requests\": 1916,\n    \"left_requests\": 5507,\n    \"left_requests_overall\": 6756,\n    \"max_requests\": 8508,\n    \"max_requests_overall\": 4228\n  },\n  \"size_limit_info\": {\n    \"current_changes\": 4029,\n    \"current_list_size\": 8698,\n    \"max_changes\": 293,\n    \"max_list_size\": 1164\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "98dc8c59-b297-4c4b-8622-73aa4a77ab6b",
+              "name": "The server could not verify that you are authorized to access the URL.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 751\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "86bb29b8-962d-497f-aa06-73b67e09ebbd",
+              "name": "The provided credentials were correct but the API is not yet fully configured.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 1022\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d8e8b152-ec85-4d7c-8843-6bdc9b4c6a68",
+              "name": "The used HTTP method is not allowed for this URL.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 3384\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5aeeca61-343c-4dc4-abd0-ac8b8b00e466",
+              "name": "The client requested the resource too many times. (rate limit)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 2308\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b2ea1167-6d79-4e36-b7d5-cb8d4c5f8149",
+          "name": "Delivers the fleet.",
+          "request": {
+            "name": "Delivers the fleet.",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fleet",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "request_limit_info",
+                  "value": "false",
+                  "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+                },
+                {
+                  "disabled": false,
+                  "key": "size_limit_info",
+                  "value": "false",
+                  "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+                },
+                {
+                  "disabled": false,
+                  "key": "tag",
+                  "value": "<string>",
+                  "description": "optional filter by tag name"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "apikey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1e910d95-8461-490d-a12c-421914b40fa3",
+              "name": "Fleet Tracker - vessels response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "tag",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"vessels\": [\n    {\n      \"voyage\": {\n        \"draught\": 603.3528678144907,\n        \"destination\": \"string\",\n        \"eta\": \"1959-03-16T21:47:11.405Z\"\n      },\n      \"name\": \"string\",\n      \"cn_iso2\": \"string\",\n      \"imo_number\": 2443,\n      \"extra\": {\n        \"key_0\": false\n      },\n      \"vessel_id\": -1,\n      \"modified\": \"2026-01-26T18:40:53.762Z\",\n      \"note\": \"\",\n      \"mmsi_number\": 3264,\n      \"callsign\": \"string\",\n      \"type_code\": \"string\",\n      \"vt_verbose\": \"string\",\n      \"cn_name\": \"string\",\n      \"position\": {\n        \"location_str\": \"string\",\n        \"is_moving\": true,\n        \"received\": \"2008-05-26T08:38:57.426Z\",\n        \"true_heading\": 5541,\n        \"longitude\": 296.961479476503,\n        \"source\": \"string\",\n        \"in_special_maneuver\": false,\n        \"latitude\": 5917.009116533187,\n        \"course_over_ground\": 3913.6813099855126,\n        \"speed\": 1206.5809959548335\n      },\n      \"fleetmon_url\": \"string\",\n      \"image_url\": \"string\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"type_class\": \"string\",\n      \"detail_url\": \"string\"\n    },\n    {\n      \"voyage\": {\n        \"draught\": 2134.7694704752153,\n        \"destination\": \"string\",\n        \"eta\": \"1947-05-06T03:09:01.158Z\"\n      },\n      \"name\": \"string\",\n      \"cn_iso2\": \"string\",\n      \"imo_number\": 5170,\n      \"extra\": {\n        \"key_0\": true\n      },\n      \"vessel_id\": -1,\n      \"modified\": \"1998-04-09T16:52:16.739Z\",\n      \"note\": \"\",\n      \"mmsi_number\": 7449,\n      \"callsign\": \"string\",\n      \"type_code\": \"string\",\n      \"vt_verbose\": \"string\",\n      \"cn_name\": \"string\",\n      \"position\": {\n        \"location_str\": \"string\",\n        \"is_moving\": true,\n        \"received\": \"1952-07-03T12:38:10.578Z\",\n        \"true_heading\": 8930,\n        \"longitude\": 2980.3950936291403,\n        \"source\": \"string\",\n        \"in_special_maneuver\": true,\n        \"latitude\": 5624.0864770703765,\n        \"course_over_ground\": 7236.55718221786,\n        \"speed\": 2223.9417488636504\n      },\n      \"fleetmon_url\": \"string\",\n      \"image_url\": \"string\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"type_class\": \"string\",\n      \"detail_url\": \"string\"\n    }\n  ],\n  \"request_limit_info\": {\n    \"used_requests_overall\": 8748,\n    \"used_requests\": 9728,\n    \"left_requests\": 9622,\n    \"left_requests_overall\": 6048,\n    \"max_requests\": 4599,\n    \"max_requests_overall\": 8730\n  },\n  \"size_limit_info\": {\n    \"current_changes\": 6150,\n    \"current_list_size\": 9886,\n    \"max_changes\": 9524,\n    \"max_list_size\": 578\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a08e0c3f-96d5-4a84-84b4-3041b329bc60",
+              "name": "The server could not verify that you are authorized to access the URL.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "tag",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 751\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "81d79808-6098-4d5c-bb21-5314d6ebb302",
+              "name": "The provided credentials were correct but the API is not yet fully configured.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "tag",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 1022\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "239bbaf4-2b81-4a3b-b431-0c5326bdd452",
+              "name": "The used HTTP method is not allowed for this URL.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "tag",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 3384\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ed0944c4-b2a3-4263-ad59-97e5816e74dd",
+              "name": "A required parameter is missing or has a wrong structure.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "tag",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 5035\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "33c1bd28-36cc-4c1d-b08a-dd14ee6480fb",
+              "name": "The client requested the resource too many times. (rate limit)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "tag",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 2308\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b4e85e68-479d-4c39-a9f1-c747e67579d5",
+          "name": "Replaces the fleet with new vessels.",
+          "request": {
+            "name": "Replaces the fleet with new vessels.",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fleet",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "request_limit_info",
+                  "value": "false",
+                  "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+                },
+                {
+                  "disabled": false,
+                  "key": "size_limit_info",
+                  "value": "false",
+                  "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "apikey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"vessels\": [\n    {\n      \"extra\": {\n        \"key_0\": \"string\"\n      },\n      \"imo_number\": \"<long>\",\n      \"mmsi_number\": \"<long>\",\n      \"note\": \"\",\n      \"tags\": [\n        \"<ascii>\",\n        \"<ascii>\"\n      ],\n      \"vessel_id\": -1\n    },\n    {\n      \"extra\": {\n        \"key_0\": true,\n        \"key_1\": 6469\n      },\n      \"imo_number\": \"<long>\",\n      \"mmsi_number\": \"<long>\",\n      \"note\": \"\",\n      \"tags\": [\n        \"<ascii>\",\n        \"<ascii>\"\n      ],\n      \"vessel_id\": -1\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c82ec0f0-84e1-4fc1-9fc5-7878743a9a52",
+              "name": "Fleet Tracker - replace vessels response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vessels\": [\n    {\n      \"extra\": {\n        \"key_0\": 1031.6038614986733\n      },\n      \"imo_number\": \"<long>\",\n      \"mmsi_number\": \"<long>\",\n      \"note\": \"\",\n      \"tags\": [\n        \"<ascii>\",\n        \"<ascii>\"\n      ],\n      \"vessel_id\": -1\n    },\n    {\n      \"extra\": {\n        \"key_0\": 8877.748305413892\n      },\n      \"imo_number\": \"<long>\",\n      \"mmsi_number\": \"<long>\",\n      \"note\": \"\",\n      \"tags\": [\n        \"<ascii>\",\n        \"<ascii>\"\n      ],\n      \"vessel_id\": -1\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"items_added\": [\n    {\n      \"detail_url\": \"string\",\n      \"extra\": {\n        \"key_0\": \"string\"\n      },\n      \"imo_number\": \"<long>\",\n      \"mmsi_number\": \"<long>\",\n      \"note\": \"\",\n      \"tags\": [\n        \"<ascii>\",\n        \"<ascii>\"\n      ],\n      \"vessel_id\": -1\n    },\n    {\n      \"detail_url\": \"string\",\n      \"extra\": {\n        \"key_0\": 6854.597070591817,\n        \"key_1\": \"string\"\n      },\n      \"imo_number\": \"<long>\",\n      \"mmsi_number\": \"<long>\",\n      \"note\": \"\",\n      \"tags\": [\n        \"<ascii>\",\n        \"<ascii>\"\n      ],\n      \"vessel_id\": -1\n    }\n  ],\n  \"items_failed\": [\n    {\n      \"message\": \"string\",\n      \"extra\": {\n        \"key_0\": \"string\",\n        \"key_1\": true,\n        \"key_2\": \"string\"\n      },\n      \"imo_number\": \"<long>\",\n      \"mmsi_number\": \"<long>\",\n      \"note\": \"\",\n      \"tags\": [\n        \"<ascii>\",\n        \"<ascii>\"\n      ],\n      \"vessel_id\": -1\n    },\n    {\n      \"message\": \"string\",\n      \"extra\": {\n        \"key_0\": false\n      },\n      \"imo_number\": \"<long>\",\n      \"mmsi_number\": \"<long>\",\n      \"note\": \"\",\n      \"tags\": [\n        \"<ascii>\",\n        \"<ascii>\"\n      ],\n      \"vessel_id\": -1\n    }\n  ],\n  \"request_limit_info\": {\n    \"used_requests_overall\": 9491,\n    \"used_requests\": 6130,\n    \"left_requests\": 6607,\n    \"left_requests_overall\": 658,\n    \"max_requests\": 7234,\n    \"max_requests_overall\": 6534\n  },\n  \"size_limit_info\": {\n    \"current_changes\": 4369,\n    \"current_list_size\": 635,\n    \"max_changes\": 6182,\n    \"max_list_size\": 5070\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6d2a8947-6f7d-4a14-8179-0d9d42769636",
+              "name": "The request body could not be parsed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vessels\": [\n    {\n      \"extra\": {\n        \"key_0\": 1031.6038614986733\n      },\n      \"imo_number\": \"<long>\",\n      \"mmsi_number\": \"<long>\",\n      \"note\": \"\",\n      \"tags\": [\n        \"<ascii>\",\n        \"<ascii>\"\n      ],\n      \"vessel_id\": -1\n    },\n    {\n      \"extra\": {\n        \"key_0\": 8877.748305413892\n      },\n      \"imo_number\": \"<long>\",\n      \"mmsi_number\": \"<long>\",\n      \"note\": \"\",\n      \"tags\": [\n        \"<ascii>\",\n        \"<ascii>\"\n      ],\n      \"vessel_id\": -1\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 2667\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7d46023d-03ee-4399-b94e-5b3367edb5b2",
+              "name": "The server could not verify that you are authorized to access the URL.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vessels\": [\n    {\n      \"extra\": {\n        \"key_0\": 1031.6038614986733\n      },\n      \"imo_number\": \"<long>\",\n      \"mmsi_number\": \"<long>\",\n      \"note\": \"\",\n      \"tags\": [\n        \"<ascii>\",\n        \"<ascii>\"\n      ],\n      \"vessel_id\": -1\n    },\n    {\n      \"extra\": {\n        \"key_0\": 8877.748305413892\n      },\n      \"imo_number\": \"<long>\",\n      \"mmsi_number\": \"<long>\",\n      \"note\": \"\",\n      \"tags\": [\n        \"<ascii>\",\n        \"<ascii>\"\n      ],\n      \"vessel_id\": -1\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 751\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "73a9bb7a-db1a-4bb6-9e67-8ec3acadadda",
+              "name": "The provided credentials were correct but the API is not yet fully configured.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vessels\": [\n    {\n      \"extra\": {\n        \"key_0\": 1031.6038614986733\n      },\n      \"imo_number\": \"<long>\",\n      \"mmsi_number\": \"<long>\",\n      \"note\": \"\",\n      \"tags\": [\n        \"<ascii>\",\n        \"<ascii>\"\n      ],\n      \"vessel_id\": -1\n    },\n    {\n      \"extra\": {\n        \"key_0\": 8877.748305413892\n      },\n      \"imo_number\": \"<long>\",\n      \"mmsi_number\": \"<long>\",\n      \"note\": \"\",\n      \"tags\": [\n        \"<ascii>\",\n        \"<ascii>\"\n      ],\n      \"vessel_id\": -1\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 1022\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e1fba348-d1e5-465d-a530-1e07535d5447",
+              "name": "The used HTTP method is not allowed for this URL.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vessels\": [\n    {\n      \"extra\": {\n        \"key_0\": 1031.6038614986733\n      },\n      \"imo_number\": \"<long>\",\n      \"mmsi_number\": \"<long>\",\n      \"note\": \"\",\n      \"tags\": [\n        \"<ascii>\",\n        \"<ascii>\"\n      ],\n      \"vessel_id\": -1\n    },\n    {\n      \"extra\": {\n        \"key_0\": 8877.748305413892\n      },\n      \"imo_number\": \"<long>\",\n      \"mmsi_number\": \"<long>\",\n      \"note\": \"\",\n      \"tags\": [\n        \"<ascii>\",\n        \"<ascii>\"\n      ],\n      \"vessel_id\": -1\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 3384\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c54d3cd3-9203-4283-a968-a0158c9c80cd",
+              "name": "A required parameter is missing or has a wrong structure.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vessels\": [\n    {\n      \"extra\": {\n        \"key_0\": 1031.6038614986733\n      },\n      \"imo_number\": \"<long>\",\n      \"mmsi_number\": \"<long>\",\n      \"note\": \"\",\n      \"tags\": [\n        \"<ascii>\",\n        \"<ascii>\"\n      ],\n      \"vessel_id\": -1\n    },\n    {\n      \"extra\": {\n        \"key_0\": 8877.748305413892\n      },\n      \"imo_number\": \"<long>\",\n      \"mmsi_number\": \"<long>\",\n      \"note\": \"\",\n      \"tags\": [\n        \"<ascii>\",\n        \"<ascii>\"\n      ],\n      \"vessel_id\": -1\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 5035\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dd29910c-b78c-4d8a-9e1f-690bbd6a30b4",
+              "name": "The client requested the resource too many times. (rate limit)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vessels\": [\n    {\n      \"extra\": {\n        \"key_0\": 1031.6038614986733\n      },\n      \"imo_number\": \"<long>\",\n      \"mmsi_number\": \"<long>\",\n      \"note\": \"\",\n      \"tags\": [\n        \"<ascii>\",\n        \"<ascii>\"\n      ],\n      \"vessel_id\": -1\n    },\n    {\n      \"extra\": {\n        \"key_0\": 8877.748305413892\n      },\n      \"imo_number\": \"<long>\",\n      \"mmsi_number\": \"<long>\",\n      \"note\": \"\",\n      \"tags\": [\n        \"<ascii>\",\n        \"<ascii>\"\n      ],\n      \"vessel_id\": -1\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 2308\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b857fae3-644d-4904-85ca-dc5ad071bc10",
+          "name": "Adds vessels to the fleet.",
+          "request": {
+            "name": "Adds vessels to the fleet.",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fleet",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "request_limit_info",
+                  "value": "false",
+                  "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+                },
+                {
+                  "disabled": false,
+                  "key": "size_limit_info",
+                  "value": "false",
+                  "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "apikey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"vessels\": [\n    {\n      \"extra\": {\n        \"key_0\": false,\n        \"key_1\": true,\n        \"key_2\": \"string\",\n        \"key_3\": \"string\"\n      },\n      \"imo_number\": \"<long>\",\n      \"mmsi_number\": \"<long>\",\n      \"note\": \"\",\n      \"tags\": [\n        \"<ascii>\",\n        \"<ascii>\"\n      ],\n      \"vessel_id\": -1\n    },\n    {\n      \"extra\": {\n        \"key_0\": 6998,\n        \"key_1\": 5568,\n        \"key_2\": \"string\"\n      },\n      \"imo_number\": \"<long>\",\n      \"mmsi_number\": \"<long>\",\n      \"note\": \"\",\n      \"tags\": [\n        \"<ascii>\",\n        \"<ascii>\"\n      ],\n      \"vessel_id\": -1\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "314510b6-34dd-4d7d-85c5-527e60df8e77",
+              "name": "Fleet Tracker - add vessels response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vessels\": [\n    {\n      \"extra\": {\n        \"key_0\": true,\n        \"key_1\": false,\n        \"key_2\": 697,\n        \"key_3\": \"string\"\n      },\n      \"imo_number\": \"<long>\",\n      \"mmsi_number\": \"<long>\",\n      \"note\": \"\",\n      \"tags\": [\n        \"<ascii>\",\n        \"<ascii>\"\n      ],\n      \"vessel_id\": -1\n    },\n    {\n      \"extra\": {\n        \"key_0\": 8823.926865509777\n      },\n      \"imo_number\": \"<long>\",\n      \"mmsi_number\": \"<long>\",\n      \"note\": \"\",\n      \"tags\": [\n        \"<ascii>\",\n        \"<ascii>\"\n      ],\n      \"vessel_id\": -1\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"items_added\": [\n    {\n      \"detail_url\": \"string\",\n      \"extra\": {\n        \"key_0\": 8095,\n        \"key_1\": 8743.714264779499\n      },\n      \"imo_number\": \"<long>\",\n      \"mmsi_number\": \"<long>\",\n      \"note\": \"\",\n      \"tags\": [\n        \"<ascii>\",\n        \"<ascii>\"\n      ],\n      \"vessel_id\": -1\n    },\n    {\n      \"detail_url\": \"string\",\n      \"extra\": {\n        \"key_0\": 4813.961070264268,\n        \"key_1\": 8443\n      },\n      \"imo_number\": \"<long>\",\n      \"mmsi_number\": \"<long>\",\n      \"note\": \"\",\n      \"tags\": [\n        \"<ascii>\",\n        \"<ascii>\"\n      ],\n      \"vessel_id\": -1\n    }\n  ],\n  \"items_existing\": [\n    {\n      \"detail_url\": \"string\",\n      \"extra\": {\n        \"key_0\": false\n      },\n      \"imo_number\": \"<long>\",\n      \"mmsi_number\": \"<long>\",\n      \"note\": \"\",\n      \"tags\": [\n        \"<ascii>\",\n        \"<ascii>\"\n      ],\n      \"vessel_id\": -1\n    },\n    {\n      \"detail_url\": \"string\",\n      \"extra\": {\n        \"key_0\": false\n      },\n      \"imo_number\": \"<long>\",\n      \"mmsi_number\": \"<long>\",\n      \"note\": \"\",\n      \"tags\": [\n        \"<ascii>\",\n        \"<ascii>\"\n      ],\n      \"vessel_id\": -1\n    }\n  ],\n  \"items_failed\": [\n    {\n      \"message\": \"string\",\n      \"extra\": {\n        \"key_0\": false,\n        \"key_1\": 5189,\n        \"key_2\": 6419.3626334010405\n      },\n      \"imo_number\": \"<long>\",\n      \"mmsi_number\": \"<long>\",\n      \"note\": \"\",\n      \"tags\": [\n        \"<ascii>\",\n        \"<ascii>\"\n      ],\n      \"vessel_id\": -1\n    },\n    {\n      \"message\": \"string\",\n      \"extra\": {\n        \"key_0\": \"string\",\n        \"key_1\": false\n      },\n      \"imo_number\": \"<long>\",\n      \"mmsi_number\": \"<long>\",\n      \"note\": \"\",\n      \"tags\": [\n        \"<ascii>\",\n        \"<ascii>\"\n      ],\n      \"vessel_id\": -1\n    }\n  ],\n  \"request_limit_info\": {\n    \"used_requests_overall\": 7592,\n    \"used_requests\": 2740,\n    \"left_requests\": 1292,\n    \"left_requests_overall\": 1554,\n    \"max_requests\": 3075,\n    \"max_requests_overall\": 196\n  },\n  \"size_limit_info\": {\n    \"current_changes\": 4816,\n    \"current_list_size\": 2024,\n    \"max_changes\": 726,\n    \"max_list_size\": 3327\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5c0e0ba5-a111-4d7c-af45-771f6de58aae",
+              "name": "The request body could not be parsed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vessels\": [\n    {\n      \"extra\": {\n        \"key_0\": true,\n        \"key_1\": false,\n        \"key_2\": 697,\n        \"key_3\": \"string\"\n      },\n      \"imo_number\": \"<long>\",\n      \"mmsi_number\": \"<long>\",\n      \"note\": \"\",\n      \"tags\": [\n        \"<ascii>\",\n        \"<ascii>\"\n      ],\n      \"vessel_id\": -1\n    },\n    {\n      \"extra\": {\n        \"key_0\": 8823.926865509777\n      },\n      \"imo_number\": \"<long>\",\n      \"mmsi_number\": \"<long>\",\n      \"note\": \"\",\n      \"tags\": [\n        \"<ascii>\",\n        \"<ascii>\"\n      ],\n      \"vessel_id\": -1\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 2667\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ba408d48-b155-4c6a-b63f-a24de5f4240e",
+              "name": "The server could not verify that you are authorized to access the URL.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vessels\": [\n    {\n      \"extra\": {\n        \"key_0\": true,\n        \"key_1\": false,\n        \"key_2\": 697,\n        \"key_3\": \"string\"\n      },\n      \"imo_number\": \"<long>\",\n      \"mmsi_number\": \"<long>\",\n      \"note\": \"\",\n      \"tags\": [\n        \"<ascii>\",\n        \"<ascii>\"\n      ],\n      \"vessel_id\": -1\n    },\n    {\n      \"extra\": {\n        \"key_0\": 8823.926865509777\n      },\n      \"imo_number\": \"<long>\",\n      \"mmsi_number\": \"<long>\",\n      \"note\": \"\",\n      \"tags\": [\n        \"<ascii>\",\n        \"<ascii>\"\n      ],\n      \"vessel_id\": -1\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 751\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "16eeffe7-63a2-4de4-811b-1c02a16bdc38",
+              "name": "The provided credentials were correct but the API is not yet fully configured.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vessels\": [\n    {\n      \"extra\": {\n        \"key_0\": true,\n        \"key_1\": false,\n        \"key_2\": 697,\n        \"key_3\": \"string\"\n      },\n      \"imo_number\": \"<long>\",\n      \"mmsi_number\": \"<long>\",\n      \"note\": \"\",\n      \"tags\": [\n        \"<ascii>\",\n        \"<ascii>\"\n      ],\n      \"vessel_id\": -1\n    },\n    {\n      \"extra\": {\n        \"key_0\": 8823.926865509777\n      },\n      \"imo_number\": \"<long>\",\n      \"mmsi_number\": \"<long>\",\n      \"note\": \"\",\n      \"tags\": [\n        \"<ascii>\",\n        \"<ascii>\"\n      ],\n      \"vessel_id\": -1\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 1022\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "87316866-0487-4e75-99a0-6162604cddb9",
+              "name": "The used HTTP method is not allowed for this URL.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vessels\": [\n    {\n      \"extra\": {\n        \"key_0\": true,\n        \"key_1\": false,\n        \"key_2\": 697,\n        \"key_3\": \"string\"\n      },\n      \"imo_number\": \"<long>\",\n      \"mmsi_number\": \"<long>\",\n      \"note\": \"\",\n      \"tags\": [\n        \"<ascii>\",\n        \"<ascii>\"\n      ],\n      \"vessel_id\": -1\n    },\n    {\n      \"extra\": {\n        \"key_0\": 8823.926865509777\n      },\n      \"imo_number\": \"<long>\",\n      \"mmsi_number\": \"<long>\",\n      \"note\": \"\",\n      \"tags\": [\n        \"<ascii>\",\n        \"<ascii>\"\n      ],\n      \"vessel_id\": -1\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 3384\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a80f8b01-e757-436b-8b67-03095e5b22f5",
+              "name": "A required parameter is missing or has a wrong structure.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vessels\": [\n    {\n      \"extra\": {\n        \"key_0\": true,\n        \"key_1\": false,\n        \"key_2\": 697,\n        \"key_3\": \"string\"\n      },\n      \"imo_number\": \"<long>\",\n      \"mmsi_number\": \"<long>\",\n      \"note\": \"\",\n      \"tags\": [\n        \"<ascii>\",\n        \"<ascii>\"\n      ],\n      \"vessel_id\": -1\n    },\n    {\n      \"extra\": {\n        \"key_0\": 8823.926865509777\n      },\n      \"imo_number\": \"<long>\",\n      \"mmsi_number\": \"<long>\",\n      \"note\": \"\",\n      \"tags\": [\n        \"<ascii>\",\n        \"<ascii>\"\n      ],\n      \"vessel_id\": -1\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 5035\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "df53b526-c9b9-479c-a985-e505ff32a19c",
+              "name": "The client requested the resource too many times. (rate limit)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vessels\": [\n    {\n      \"extra\": {\n        \"key_0\": true,\n        \"key_1\": false,\n        \"key_2\": 697,\n        \"key_3\": \"string\"\n      },\n      \"imo_number\": \"<long>\",\n      \"mmsi_number\": \"<long>\",\n      \"note\": \"\",\n      \"tags\": [\n        \"<ascii>\",\n        \"<ascii>\"\n      ],\n      \"vessel_id\": -1\n    },\n    {\n      \"extra\": {\n        \"key_0\": 8823.926865509777\n      },\n      \"imo_number\": \"<long>\",\n      \"mmsi_number\": \"<long>\",\n      \"note\": \"\",\n      \"tags\": [\n        \"<ascii>\",\n        \"<ascii>\"\n      ],\n      \"vessel_id\": -1\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 2308\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bab34187-df34-495e-b2cd-0c34e2a28231",
+          "name": "Removes a single vessel from the fleet.",
+          "request": {
+            "name": "Removes a single vessel from the fleet.",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fleet",
+                ":vessel_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "request_limit_info",
+                  "value": "false",
+                  "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+                },
+                {
+                  "disabled": false,
+                  "key": "size_limit_info",
+                  "value": "false",
+                  "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "vessel_id",
+                  "description": "(Required) vessel ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "apikey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "12239c3c-a1ca-4187-b2b5-cf33bacf59cc",
+              "name": "Fleet Tracker - remove vessel response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ":vessel_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "vessel_id",
+                      "description": "(Required) vessel ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"string\",\n  \"items_removed\": 615,\n  \"request_limit_info\": {\n    \"used_requests_overall\": 1258,\n    \"used_requests\": 1916,\n    \"left_requests\": 5507,\n    \"left_requests_overall\": 6756,\n    \"max_requests\": 8508,\n    \"max_requests_overall\": 4228\n  },\n  \"size_limit_info\": {\n    \"current_changes\": 4029,\n    \"current_list_size\": 8698,\n    \"max_changes\": 293,\n    \"max_list_size\": 1164\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "104ffa95-1d5f-4275-96e1-27e85262fb56",
+              "name": "The server could not verify that you are authorized to access the URL.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ":vessel_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "vessel_id",
+                      "description": "(Required) vessel ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 751\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3134e240-e354-4ce4-b755-4ab9a42a315c",
+              "name": "The provided credentials were correct but the API is not yet fully configured.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ":vessel_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "vessel_id",
+                      "description": "(Required) vessel ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 1022\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b4ebd9a1-7516-476e-bd8d-a17483bdb48c",
+              "name": "Requested item does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ":vessel_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "vessel_id",
+                      "description": "(Required) vessel ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 9322\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b4ded436-afae-474d-9f60-e706c3fc924f",
+              "name": "The used HTTP method is not allowed for this URL.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ":vessel_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "vessel_id",
+                      "description": "(Required) vessel ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 3384\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "421e223a-1cde-4f91-baac-fa4cfd04bbdd",
+              "name": "A required parameter is missing or has a wrong structure.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ":vessel_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "vessel_id",
+                      "description": "(Required) vessel ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 5035\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "112123a1-2146-4ba1-8ab4-8bf8b52ed1b2",
+              "name": "The client requested the resource too many times. (rate limit)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ":vessel_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "vessel_id",
+                      "description": "(Required) vessel ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 2308\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ccca8e97-43bf-4306-9a07-bb6c0f46d133",
+          "name": "Delivers a single vessel from the fleet.",
+          "request": {
+            "name": "Delivers a single vessel from the fleet.",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fleet",
+                ":vessel_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "request_limit_info",
+                  "value": "false",
+                  "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+                },
+                {
+                  "disabled": false,
+                  "key": "size_limit_info",
+                  "value": "false",
+                  "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "vessel_id",
+                  "description": "(Required) vessel ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "apikey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8ce05263-57be-464a-8ae8-83fa9ccb887b",
+              "name": "Fleet Tracker - vessel response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ":vessel_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "vessel_id",
+                      "description": "(Required) vessel ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"voyage\": {\n    \"draught\": 7402.899475844203,\n    \"destination\": \"string\",\n    \"eta\": \"1983-08-12T21:31:15.219Z\"\n  },\n  \"name\": \"string\",\n  \"cn_iso2\": \"string\",\n  \"imo_number\": 8993,\n  \"extra\": {\n    \"key_0\": \"string\",\n    \"key_1\": true,\n    \"key_2\": 5355.232244578936,\n    \"key_3\": \"string\"\n  },\n  \"vessel_id\": -1,\n  \"modified\": \"1999-02-05T04:30:02.187Z\",\n  \"note\": \"\",\n  \"mmsi_number\": 2022,\n  \"callsign\": \"string\",\n  \"type_code\": \"string\",\n  \"vt_verbose\": \"string\",\n  \"cn_name\": \"string\",\n  \"position\": {\n    \"location_str\": \"string\",\n    \"is_moving\": false,\n    \"received\": \"1984-09-16T20:48:27.671Z\",\n    \"true_heading\": 7485,\n    \"longitude\": 8103.626027674796,\n    \"source\": \"string\",\n    \"in_special_maneuver\": false,\n    \"latitude\": 6253.638543323496,\n    \"course_over_ground\": 1005.9925747212561,\n    \"speed\": 1162.1935331480338\n  },\n  \"fleetmon_url\": \"string\",\n  \"image_url\": \"string\",\n  \"tags\": [\n    \"string\",\n    \"string\"\n  ],\n  \"type_class\": \"string\",\n  \"request_limit_info\": {\n    \"used_requests_overall\": 3982,\n    \"used_requests\": 7201,\n    \"left_requests\": 6337,\n    \"left_requests_overall\": 5868,\n    \"max_requests\": 1998,\n    \"max_requests_overall\": 7888\n  },\n  \"size_limit_info\": {\n    \"current_changes\": 1964,\n    \"current_list_size\": 1888,\n    \"max_changes\": 5065,\n    \"max_list_size\": 3774\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5eb1afd1-1a56-4d3f-afea-da6af9f11e4f",
+              "name": "The server could not verify that you are authorized to access the URL.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ":vessel_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "vessel_id",
+                      "description": "(Required) vessel ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 751\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "48c040a7-7976-4836-8e76-acef781659fb",
+              "name": "The provided credentials were correct but the API is not yet fully configured.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ":vessel_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "vessel_id",
+                      "description": "(Required) vessel ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 1022\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a1209405-1911-4a3a-83b6-9e59ef4a637a",
+              "name": "Requested item does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ":vessel_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "vessel_id",
+                      "description": "(Required) vessel ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 9322\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0ac92137-1de4-438b-ab41-6a38153f2d3c",
+              "name": "The used HTTP method is not allowed for this URL.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ":vessel_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "vessel_id",
+                      "description": "(Required) vessel ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 3384\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "20f80a2e-804c-4f78-9202-6bcf5310de4a",
+              "name": "A required parameter is missing or has a wrong structure.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ":vessel_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "vessel_id",
+                      "description": "(Required) vessel ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 5035\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f653500c-4d71-480d-a7d6-ca5b146430d6",
+              "name": "The client requested the resource too many times. (rate limit)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ":vessel_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "vessel_id",
+                      "description": "(Required) vessel ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 2308\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "39138e74-d128-485a-99db-219aaf0c4c3c",
+          "name": "Modifies custom attributes of a single vessel.",
+          "request": {
+            "name": "Modifies custom attributes of a single vessel.",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fleet",
+                ":vessel_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "request_limit_info",
+                  "value": "false",
+                  "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+                },
+                {
+                  "disabled": false,
+                  "key": "size_limit_info",
+                  "value": "false",
+                  "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "vessel_id",
+                  "description": "(Required) vessel ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "apikey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"extra\": {\n    \"key_0\": \"string\",\n    \"key_1\": 5583\n  },\n  \"note\": \"\",\n  \"tags\": [\n    \"<ascii>\",\n    \"<ascii>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e9cfbcc9-d6d9-4d2a-babf-3946615ecb1b",
+              "name": "Fleet Tracker - edit vessel response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ":vessel_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "vessel_id",
+                      "description": "(Required) vessel ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"extra\": {\n    \"key_0\": 4133,\n    \"key_1\": false\n  },\n  \"note\": \"\",\n  \"tags\": [\n    \"<ascii>\",\n    \"<ascii>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"string\",\n  \"changed\": [\n    \"string\",\n    \"string\"\n  ],\n  \"request_limit_info\": {\n    \"used_requests_overall\": 1031,\n    \"used_requests\": 2269,\n    \"left_requests\": 7646,\n    \"left_requests_overall\": 8998,\n    \"max_requests\": 9628,\n    \"max_requests_overall\": 1041\n  },\n  \"size_limit_info\": {\n    \"current_changes\": 5372,\n    \"current_list_size\": 7754,\n    \"max_changes\": 3414,\n    \"max_list_size\": 3376\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aab12357-4629-442e-8a67-8dd8e3d8e761",
+              "name": "The request body could not be parsed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ":vessel_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "vessel_id",
+                      "description": "(Required) vessel ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"extra\": {\n    \"key_0\": 4133,\n    \"key_1\": false\n  },\n  \"note\": \"\",\n  \"tags\": [\n    \"<ascii>\",\n    \"<ascii>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 2667\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "34feb3ea-73c6-4021-94e9-ba10570efcc6",
+              "name": "The server could not verify that you are authorized to access the URL.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ":vessel_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "vessel_id",
+                      "description": "(Required) vessel ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"extra\": {\n    \"key_0\": 4133,\n    \"key_1\": false\n  },\n  \"note\": \"\",\n  \"tags\": [\n    \"<ascii>\",\n    \"<ascii>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 751\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2d2c9ec5-37a5-4780-9e32-183cfdb43434",
+              "name": "The provided credentials were correct but the API is not yet fully configured.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ":vessel_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "vessel_id",
+                      "description": "(Required) vessel ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"extra\": {\n    \"key_0\": 4133,\n    \"key_1\": false\n  },\n  \"note\": \"\",\n  \"tags\": [\n    \"<ascii>\",\n    \"<ascii>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 1022\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "969be9cf-2120-484d-b322-ff9e235b7f87",
+              "name": "Requested item does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ":vessel_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "vessel_id",
+                      "description": "(Required) vessel ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"extra\": {\n    \"key_0\": 4133,\n    \"key_1\": false\n  },\n  \"note\": \"\",\n  \"tags\": [\n    \"<ascii>\",\n    \"<ascii>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 9322\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dbc4f039-ab48-41a5-8dae-1f841a374f85",
+              "name": "The used HTTP method is not allowed for this URL.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ":vessel_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "vessel_id",
+                      "description": "(Required) vessel ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"extra\": {\n    \"key_0\": 4133,\n    \"key_1\": false\n  },\n  \"note\": \"\",\n  \"tags\": [\n    \"<ascii>\",\n    \"<ascii>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 3384\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fe1533b7-6415-4cda-8fb0-90ff1fbe9078",
+              "name": "A required parameter is missing or has a wrong structure.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ":vessel_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "vessel_id",
+                      "description": "(Required) vessel ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"extra\": {\n    \"key_0\": 4133,\n    \"key_1\": false\n  },\n  \"note\": \"\",\n  \"tags\": [\n    \"<ascii>\",\n    \"<ascii>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 5035\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "92025e9d-c361-45a3-a4d8-9c2186b079aa",
+              "name": "The client requested the resource too many times. (rate limit)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    ":vessel_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "size_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "vessel_id",
+                      "description": "(Required) vessel ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"extra\": {\n    \"key_0\": 4133,\n    \"key_1\": false\n  },\n  \"note\": \"\",\n  \"tags\": [\n    \"<ascii>\",\n    \"<ascii>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 2308\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://apiv2.fleetmon.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "68826f0d-4dd0-407d-9cd5-bee7e32047b5",
+    "name": "FleetMon API Reference Basic Vessel Data Fleet Tracker API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "ARCHIVED SPECIFICATION - RETIRED API. This is the final publicly archived Swagger 2.0 definition of the FleetMon API (apiv2.fleetmon.com), preserved from the Internet Archive Wayback Machine (schema.json capture 2021-12-08; the developer portal at developer.fleetmon.com remained online through early 2025). FleetMon was acquired by Kpler in 2023, the FleetMon platform and API were phased out beginning January 2024 and migrated into MarineTraffic, and as of 2026 the fleetmon.com domain (including apiv2.fleetmon.com and developer.fleetmon.com) no longer resolves. None of the endpoints below are live. The successor surface is the MarineTraffic API portfolio / Kpler AIS (servicedocs.marinetraffic.com).\n\n--- Original description follows ---\n\nWelcome to our API reference!\n\nYou can view JSON response samples in the area to the right.\nIf you need help with the API, just [contact us](https://www.fleetmon.com/company/contact/).\n\nFollow us on [Facebook](https://www.facebook.com/fleetmon) and [Twitter](https://twitter.com/fleetmon) for the latest updates and news on the platform.\n\nWith the use of the FleetMon API, you agree with the [Terms of Service](https://www.fleetmon.com/terms-of-service/).\n",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FleetMon API Reference Basic Vessel Data Zone Information API",
+    "version": "Version 2.4.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Zone Information",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Delivers a listing of your configured zones with some extra information.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/zone/",
+            "params": [
+              {
+                "name": "request_limit_info",
+                "value": "",
+                "type": "query",
+                "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+              }
+            ]
+          },
+          "docs": "Delivers a listing of your configured zones with some extra information."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

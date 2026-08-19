@@ -1,0 +1,86 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FleetMon API Reference Basic Vessel Data Water API",
+    "version": "Version 2.4.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Water",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns wave info for lat/lon (and timestamp).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/meteo/wave/",
+            "params": [
+              {
+                "name": "lat",
+                "value": "",
+                "type": "query",
+                "description": "Latitude for forecast"
+              },
+              {
+                "name": "lon",
+                "value": "",
+                "type": "query",
+                "description": "Longitude for forecast"
+              },
+              {
+                "name": "request_limit_info",
+                "value": "",
+                "type": "query",
+                "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+              },
+              {
+                "name": "when",
+                "value": "",
+                "type": "query",
+                "description": "Time  for forecast, defaults to `now`"
+              }
+            ]
+          },
+          "docs": "Returns wave info for lat/lon (and timestamp)."
+        },
+        {
+          "info": {
+            "name": "Returns wave info for Geohash level 5 (and timestamp).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/meteo/wave/:geohash",
+            "params": [
+              {
+                "name": "geohash",
+                "value": "",
+                "type": "path",
+                "description": "Location as geohash (level 5)"
+              },
+              {
+                "name": "request_limit_info",
+                "value": "",
+                "type": "query",
+                "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+              },
+              {
+                "name": "when",
+                "value": "",
+                "type": "query",
+                "description": "Time  for forecast, defaults to `now`"
+              }
+            ]
+          },
+          "docs": "Returns wave info for Geohash level 5 (and timestamp)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

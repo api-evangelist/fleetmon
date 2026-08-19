@@ -1,0 +1,548 @@
+{
+  "item": [
+    {
+      "id": "b1eb5d5e-3416-4f70-9b75-7ff8c5d3c9f2",
+      "name": "Historical Track API",
+      "description": {
+        "content": "Returns historical AIS position reports with fixed period and rate, by MMSI.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "482cc3f1-85c2-4af4-89fb-4596ebfbb596",
+          "name": "Returns historical AIS position reports with fixed period and rate. Input: MMSI",
+          "request": {
+            "name": "Returns historical AIS position reports with fixed period and rate. Input: MMSI",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ais",
+                "position",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "start time for track"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<long>",
+                  "description": "maximum number of messages to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "mmsi",
+                  "value": "<long>",
+                  "description": "(Required) MMSI number"
+                },
+                {
+                  "disabled": false,
+                  "key": "request_limit_info",
+                  "value": "false",
+                  "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "asc",
+                  "description": "sorting of items"
+                },
+                {
+                  "disabled": false,
+                  "key": "time_res",
+                  "value": "<long>",
+                  "description": "resolution of track in seconds"
+                },
+                {
+                  "disabled": false,
+                  "key": "until",
+                  "value": "<dateTime>",
+                  "description": "end time for track"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "apikey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fd0bd390-7d5b-4fc2-8fa9-b7364ff125df",
+              "name": "Historical Track API - get ais position items response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ais",
+                    "position",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "mmsi",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "time_res",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "until",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ais_position_items\": [\n    {\n      \"timestamp\": \"2011-03-13T14:54:59.677Z\",\n      \"course\": 34.707532496980335,\n      \"nav_status\": 1569,\n      \"heading\": 8665,\n      \"latitude\": 1167.6225486505177,\n      \"longitude\": 2217.0834385799776,\n      \"maneuver\": true,\n      \"mmsi\": 1417,\n      \"source\": \"string\",\n      \"speed\": 1093.0884024377485,\n      \"transponder_class\": \"string\",\n      \"turn\": 4301,\n      \"callsign\": \"string\",\n      \"destination\": \"string\",\n      \"draught\": 8042.74104737003,\n      \"eta\": \"1978-02-18T06:06:23.539Z\",\n      \"imo\": 5001,\n      \"length\": 4414,\n      \"name\": \"string\",\n      \"nmea\": [\n        \"string\",\n        \"string\"\n      ],\n      \"nmea_svd\": [\n        \"string\",\n        \"string\"\n      ],\n      \"shiptype\": 7895,\n      \"timestamp_svd\": \"1956-07-03T16:54:20.203Z\",\n      \"width\": 9419\n    },\n    {\n      \"timestamp\": \"2025-04-07T08:20:59.140Z\",\n      \"course\": 1531.1324967351602,\n      \"nav_status\": 449,\n      \"heading\": 2355,\n      \"latitude\": 1716.8479077649379,\n      \"longitude\": 7870.589198209581,\n      \"maneuver\": false,\n      \"mmsi\": 14,\n      \"source\": \"string\",\n      \"speed\": 8460.570014949257,\n      \"transponder_class\": \"string\",\n      \"turn\": 5219,\n      \"callsign\": \"string\",\n      \"destination\": \"string\",\n      \"draught\": 3853.1371815164052,\n      \"eta\": \"2016-10-01T15:38:48.034Z\",\n      \"imo\": 4724,\n      \"length\": 5648,\n      \"name\": \"string\",\n      \"nmea\": [\n        \"string\",\n        \"string\"\n      ],\n      \"nmea_svd\": [\n        \"string\",\n        \"string\"\n      ],\n      \"shiptype\": 5141,\n      \"timestamp_svd\": \"2010-12-08T17:19:30.710Z\",\n      \"width\": 3800\n    }\n  ],\n  \"request_limit_info\": {\n    \"used_requests\": 5686,\n    \"left_requests\": 8949,\n    \"max_requests\": 3773\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "90a0777f-5f1d-4b1c-9129-0fcc2ff74d0e",
+              "name": "The server could not verify that you are authorized to access the URL.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ais",
+                    "position",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "mmsi",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "time_res",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "until",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 218\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "554287c2-aa0e-4792-a825-1892659bf39a",
+              "name": "The provided credentials were correct but the API is not yet fully configured.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ais",
+                    "position",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "mmsi",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "time_res",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "until",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 2220\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1483fe9b-0ae0-4d44-a495-74aea7ff8535",
+              "name": "The used HTTP method is not allowed for this URL.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ais",
+                    "position",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "mmsi",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "time_res",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "until",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 517\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4eff32a9-2c7a-45e5-8fe9-13c18776f94d",
+              "name": "A required parameter is missing or has a wrong structure.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ais",
+                    "position",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "mmsi",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "time_res",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "until",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 7407\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9e9e4352-d52b-419b-88c5-5b514adc3a92",
+              "name": "The client requested the resource too many times. (rate limit)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ais",
+                    "position",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "mmsi",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "time_res",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "until",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 5076\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://apiv2.fleetmon.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2e195895-4fce-476c-9aa7-9ab9eaa1f276",
+    "name": "FleetMon API Reference Basic Vessel Data Historical Track API API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "ARCHIVED SPECIFICATION - RETIRED API. This is the final publicly archived Swagger 2.0 definition of the FleetMon API (apiv2.fleetmon.com), preserved from the Internet Archive Wayback Machine (schema.json capture 2021-12-08; the developer portal at developer.fleetmon.com remained online through early 2025). FleetMon was acquired by Kpler in 2023, the FleetMon platform and API were phased out beginning January 2024 and migrated into MarineTraffic, and as of 2026 the fleetmon.com domain (including apiv2.fleetmon.com and developer.fleetmon.com) no longer resolves. None of the endpoints below are live. The successor surface is the MarineTraffic API portfolio / Kpler AIS (servicedocs.marinetraffic.com).\n\n--- Original description follows ---\n\nWelcome to our API reference!\n\nYou can view JSON response samples in the area to the right.\nIf you need help with the API, just [contact us](https://www.fleetmon.com/company/contact/).\n\nFollow us on [Facebook](https://www.facebook.com/fleetmon) and [Twitter](https://twitter.com/fleetmon) for the latest updates and news on the platform.\n\nWith the use of the FleetMon API, you agree with the [Terms of Service](https://www.fleetmon.com/terms-of-service/).\n",
+      "type": "text/plain"
+    }
+  }
+}

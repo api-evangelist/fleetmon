@@ -1,0 +1,571 @@
+{
+  "item": [
+    {
+      "id": "4894b901-e203-4728-b49c-306b0d329256",
+      "name": "Vessel Search",
+      "description": {
+        "content": "Allows searching over the FleetMon vessel database by name, IMO-number, MMSI-number and/or callsign.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5abedf82-870d-4844-8b0b-524a64e8e0ff",
+          "name": "Delivers the list of vessels that matched the criteria.",
+          "request": {
+            "name": "Delivers the list of vessels that matched the criteria.",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vesselsearch",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "callsign",
+                  "value": "<string>",
+                  "description": "only exact matching"
+                },
+                {
+                  "disabled": false,
+                  "key": "eni_number",
+                  "value": "<long>",
+                  "description": "only exact matching"
+                },
+                {
+                  "disabled": false,
+                  "key": "imo_number",
+                  "value": "<long>",
+                  "description": "only exact matching"
+                },
+                {
+                  "disabled": false,
+                  "key": "max_pos_age_days",
+                  "value": "<long>",
+                  "description": "maximum timespan of last received position signal, in days"
+                },
+                {
+                  "disabled": false,
+                  "key": "mmsi_number",
+                  "value": "<long>",
+                  "description": "only exact matching"
+                },
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "sub-string matching, minium length is 3 characters"
+                },
+                {
+                  "disabled": false,
+                  "key": "request_limit_info",
+                  "value": "false",
+                  "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+                },
+                {
+                  "disabled": false,
+                  "key": "with_position",
+                  "value": "true",
+                  "description": "request only vessels with a valid position"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "apikey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8eb37a54-277a-4ea8-878f-ea2a517865bc",
+              "name": "Vessel Search - vessels response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vesselsearch",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "callsign",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "eni_number",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "imo_number",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "max_pos_age_days",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "mmsi_number",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "with_position",
+                      "value": "true"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"vessels\": [\n    {\n      \"static_received\": \"2004-10-22T23:55:41.032Z\",\n      \"name\": \"string\",\n      \"imo_number\": 7212,\n      \"length\": 6682,\n      \"mmsi_number\": 6490,\n      \"cn_iso2\": \"string\",\n      \"callsign\": \"string\",\n      \"vt_verbose\": \"string\",\n      \"cn_name\": \"string\",\n      \"position_received\": \"1996-01-18T01:16:38.468Z\",\n      \"vessel_id\": 6339\n    },\n    {\n      \"static_received\": \"2001-05-17T20:03:16.290Z\",\n      \"name\": \"string\",\n      \"imo_number\": 6850,\n      \"length\": 8954,\n      \"mmsi_number\": 8976,\n      \"cn_iso2\": \"string\",\n      \"callsign\": \"string\",\n      \"vt_verbose\": \"string\",\n      \"cn_name\": \"string\",\n      \"position_received\": \"2006-07-26T22:13:17.509Z\",\n      \"vessel_id\": 423\n    }\n  ],\n  \"request_limit_info\": {\n    \"used_requests\": 2092,\n    \"left_requests\": 211,\n    \"max_requests\": 708\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3ef5585c-387b-4a3b-ab60-5d83146907a6",
+              "name": "The server could not verify that you are authorized to access the URL.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vesselsearch",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "callsign",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "eni_number",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "imo_number",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "max_pos_age_days",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "mmsi_number",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "with_position",
+                      "value": "true"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 8418\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "94f658b1-e139-4bd9-8f90-e8e74368375b",
+              "name": "The provided credentials were correct but the API is not yet fully configured.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vesselsearch",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "callsign",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "eni_number",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "imo_number",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "max_pos_age_days",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "mmsi_number",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "with_position",
+                      "value": "true"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 2618\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1bd66b00-5ae5-493b-9ad8-e5c1fbbc440a",
+              "name": "The used HTTP method is not allowed for this URL.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vesselsearch",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "callsign",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "eni_number",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "imo_number",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "max_pos_age_days",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "mmsi_number",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "with_position",
+                      "value": "true"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 7361\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8ba41202-4519-4b3e-a1ce-dab26b6c4d46",
+              "name": "A required parameter is missing or has a wrong structure.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vesselsearch",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "callsign",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "eni_number",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "imo_number",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "max_pos_age_days",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "mmsi_number",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "with_position",
+                      "value": "true"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 4051\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "91d085ad-8017-4234-afc6-635a6a42a542",
+              "name": "The client requested the resource too many times. (rate limit)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vesselsearch",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "callsign",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "eni_number",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "imo_number",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "max_pos_age_days",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "mmsi_number",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "with_position",
+                      "value": "true"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 4324\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://apiv2.fleetmon.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "79a65bde-fb1e-4d6f-bc27-56e1207f1cc5",
+    "name": "FleetMon API Reference Basic Vessel Data Vessel Search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "ARCHIVED SPECIFICATION - RETIRED API. This is the final publicly archived Swagger 2.0 definition of the FleetMon API (apiv2.fleetmon.com), preserved from the Internet Archive Wayback Machine (schema.json capture 2021-12-08; the developer portal at developer.fleetmon.com remained online through early 2025). FleetMon was acquired by Kpler in 2023, the FleetMon platform and API were phased out beginning January 2024 and migrated into MarineTraffic, and as of 2026 the fleetmon.com domain (including apiv2.fleetmon.com and developer.fleetmon.com) no longer resolves. None of the endpoints below are live. The successor surface is the MarineTraffic API portfolio / Kpler AIS (servicedocs.marinetraffic.com).\n\n--- Original description follows ---\n\nWelcome to our API reference!\n\nYou can view JSON response samples in the area to the right.\nIf you need help with the API, just [contact us](https://www.fleetmon.com/company/contact/).\n\nFollow us on [Facebook](https://www.facebook.com/fleetmon) and [Twitter](https://twitter.com/fleetmon) for the latest updates and news on the platform.\n\nWith the use of the FleetMon API, you agree with the [Terms of Service](https://www.fleetmon.com/terms-of-service/).\n",
+      "type": "text/plain"
+    }
+  }
+}

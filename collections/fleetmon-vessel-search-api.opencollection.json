@@ -1,0 +1,79 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FleetMon API Reference Basic Vessel Data Vessel Search API",
+    "version": "Version 2.4.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Vessel Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Delivers the list of vessels that matched the criteria.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/vesselsearch/",
+            "params": [
+              {
+                "name": "callsign",
+                "value": "",
+                "type": "query",
+                "description": "only exact matching"
+              },
+              {
+                "name": "eni_number",
+                "value": "",
+                "type": "query",
+                "description": "only exact matching"
+              },
+              {
+                "name": "imo_number",
+                "value": "",
+                "type": "query",
+                "description": "only exact matching"
+              },
+              {
+                "name": "max_pos_age_days",
+                "value": "",
+                "type": "query",
+                "description": "maximum timespan of last received position signal, in days"
+              },
+              {
+                "name": "mmsi_number",
+                "value": "",
+                "type": "query",
+                "description": "only exact matching"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "sub-string matching, minium length is 3 characters"
+              },
+              {
+                "name": "request_limit_info",
+                "value": "",
+                "type": "query",
+                "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+              },
+              {
+                "name": "with_position",
+                "value": "",
+                "type": "query",
+                "description": "request only vessels with a valid position"
+              }
+            ]
+          },
+          "docs": "Delivers the list of vessels that matched the criteria."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

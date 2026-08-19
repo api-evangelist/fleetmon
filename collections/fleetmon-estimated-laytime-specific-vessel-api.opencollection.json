@@ -1,0 +1,61 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FleetMon API Reference Basic Vessel Data Estimated Laytime - Specific Vessel API",
+    "version": "Version 2.4.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Estimated Laytime - Specific Vessel",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Estimated laytime for vessel",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/vessel/:vessel_id/port/:port_id/laytime/",
+            "params": [
+              {
+                "name": "port_id",
+                "value": "",
+                "type": "path",
+                "description": "FleetMon Port ID"
+              },
+              {
+                "name": "vessel_id",
+                "value": "",
+                "type": "path",
+                "description": "FleetMon Vessel ID"
+              },
+              {
+                "name": "lookback",
+                "value": "",
+                "type": "query",
+                "description": "Lookback time to calculate laytimes in days"
+              },
+              {
+                "name": "minimum_laytime",
+                "value": "",
+                "type": "query",
+                "description": "Minimum duration of vessel staying in the terminal."
+              },
+              {
+                "name": "request_limit_info",
+                "value": "",
+                "type": "query",
+                "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+              }
+            ]
+          },
+          "docs": "Estimated laytime for vessel"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

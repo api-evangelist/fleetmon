@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FleetMon API Reference Basic Vessel Data Regional AIS API",
+    "version": "Version 2.4.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Regional AIS",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Delivers the list of vessels inside the bounding box",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/regional_ais/",
+            "params": [
+              {
+                "name": "request_limit_info",
+                "value": "",
+                "type": "query",
+                "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+              }
+            ]
+          },
+          "docs": "Delivers the list of vessels inside the bounding box"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FleetMon API Reference Basic Vessel Data Distance To Port API",
+    "version": "Version 2.4.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Distance To Port",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns a summary of the calculated route to the given port",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/distance/to/port/:to_port",
+            "params": [
+              {
+                "name": "to_port",
+                "value": "",
+                "type": "path",
+                "description": "Destination Port (expected FleetMon PortID )"
+              },
+              {
+                "name": "draught",
+                "value": "",
+                "type": "query",
+                "description": "Draught of vessel in meters (default: 1.0)"
+              },
+              {
+                "name": "from_latlon",
+                "value": "",
+                "type": "query",
+                "description": "Start coordinates, two floats seperated with comma (54.875,12.305)"
+              },
+              {
+                "name": "from_port",
+                "value": "",
+                "type": "query",
+                "description": "Start Port (expected FleetMon PortID )"
+              },
+              {
+                "name": "request_limit_info",
+                "value": "",
+                "type": "query",
+                "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+              },
+              {
+                "name": "speed",
+                "value": "",
+                "type": "query",
+                "description": "Speed of vessel in knots (default: 20.0)"
+              }
+            ]
+          },
+          "docs": "Returns a summary of the calculated route to the given port"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

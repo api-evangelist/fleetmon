@@ -1,0 +1,316 @@
+{
+  "item": [
+    {
+      "id": "6872a72b-0dcb-4b8f-b66a-757bacd9088e",
+      "name": "Regional AIS",
+      "description": {
+        "content": "delivers AIS informations for a predefined bounding box",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "53e74c71-9823-4cf2-8bf2-53f3f6d5ee88",
+          "name": "Delivers the list of vessels inside the bounding box",
+          "request": {
+            "name": "Delivers the list of vessels inside the bounding box",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "regional_ais",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "request_limit_info",
+                  "value": "false",
+                  "description": "If `true` some extra attributes will be added to the response informing about usage and limits of this endpoint."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "apikey"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c7d25d1b-1783-4a1c-9031-6205aba1fc8f",
+              "name": "Regional AIS - vessels response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regional_ais",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"vessels\": [\n    {\n      \"voyage\": {\n        \"received\": \"1963-07-31T13:57:11.124Z\",\n        \"draught\": 109.14307837949889,\n        \"destination\": \"string\",\n        \"eta\": \"1970-04-07T16:29:26.353Z\",\n        \"special_cargo\": \"string\"\n      },\n      \"name\": \"string\",\n      \"dwt\": 5697,\n      \"imo_number\": 3075,\n      \"width\": 2516,\n      \"length\": 6540,\n      \"vessel_id\": 1101,\n      \"mmsi_number\": 3327,\n      \"cn_iso2\": \"string\",\n      \"callsign\": \"string\",\n      \"type_code\": \"string\",\n      \"country\": \"string\",\n      \"position\": {\n        \"received\": \"1980-08-24T00:53:42.619Z\",\n        \"course_over_ground\": 6030.481948843774,\n        \"nav_status\": \"string\",\n        \"true_heading\": 9699,\n        \"longitude\": 6798.493627724024,\n        \"source\": \"string\",\n        \"in_special_maneuver\": true,\n        \"latitude\": 790.2193840129512,\n        \"speed\": 792.9536720685015\n      },\n      \"type_class\": \"string\",\n      \"type\": \"string\",\n      \"ais_type_of_ship\": 3455,\n      \"ais_type_of_ship_str\": \"string\"\n    },\n    {\n      \"voyage\": {\n        \"received\": \"1948-03-28T23:32:41.404Z\",\n        \"draught\": 3787.9776496418103,\n        \"destination\": \"string\",\n        \"eta\": \"1973-02-15T19:20:57.383Z\",\n        \"special_cargo\": \"string\"\n      },\n      \"name\": \"string\",\n      \"dwt\": 4459,\n      \"imo_number\": 7453,\n      \"width\": 8931,\n      \"length\": 6766,\n      \"vessel_id\": 6246,\n      \"mmsi_number\": 60,\n      \"cn_iso2\": \"string\",\n      \"callsign\": \"string\",\n      \"type_code\": \"string\",\n      \"country\": \"string\",\n      \"position\": {\n        \"received\": \"2006-02-02T10:58:03.262Z\",\n        \"course_over_ground\": 9536.718704093471,\n        \"nav_status\": \"string\",\n        \"true_heading\": 1549,\n        \"longitude\": 7955.1696953829505,\n        \"source\": \"string\",\n        \"in_special_maneuver\": true,\n        \"latitude\": 3812.5262222310885,\n        \"speed\": 7139.665781291342\n      },\n      \"type_class\": \"string\",\n      \"type\": \"string\",\n      \"ais_type_of_ship\": 8696,\n      \"ais_type_of_ship_str\": \"string\"\n    }\n  ],\n  \"request_limit_info\": {\n    \"used_requests\": 8564,\n    \"left_requests\": 1871,\n    \"max_requests\": 7620\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cf0cd69a-de04-4754-8fa5-a6d6fefc8523",
+              "name": "The server could not verify that you are authorized to access the URL.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regional_ais",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 8749\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "406f9376-8155-470d-8d1e-19f2931748fe",
+              "name": "The provided credentials were correct but the API is not yet fully configured.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regional_ais",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 4201\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eb84667a-36b9-431a-9195-8877bb8f6a9c",
+              "name": "The used HTTP method is not allowed for this URL.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regional_ais",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 9182\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dce412c7-4755-4792-bc7d-cbd50786143f",
+              "name": "The client requested the resource too many times. (rate limit)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regional_ais",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "request_limit_info",
+                      "value": "false"
+                    },
+                    {
+                      "key": "apikey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"string\",\n  \"description\": \"string\",\n  \"code\": 987\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://apiv2.fleetmon.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "03ca0597-d039-45ad-b7da-381000f0c5b2",
+    "name": "FleetMon API Reference Basic Vessel Data Regional AIS API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "ARCHIVED SPECIFICATION - RETIRED API. This is the final publicly archived Swagger 2.0 definition of the FleetMon API (apiv2.fleetmon.com), preserved from the Internet Archive Wayback Machine (schema.json capture 2021-12-08; the developer portal at developer.fleetmon.com remained online through early 2025). FleetMon was acquired by Kpler in 2023, the FleetMon platform and API were phased out beginning January 2024 and migrated into MarineTraffic, and as of 2026 the fleetmon.com domain (including apiv2.fleetmon.com and developer.fleetmon.com) no longer resolves. None of the endpoints below are live. The successor surface is the MarineTraffic API portfolio / Kpler AIS (servicedocs.marinetraffic.com).\n\n--- Original description follows ---\n\nWelcome to our API reference!\n\nYou can view JSON response samples in the area to the right.\nIf you need help with the API, just [contact us](https://www.fleetmon.com/company/contact/).\n\nFollow us on [Facebook](https://www.facebook.com/fleetmon) and [Twitter](https://twitter.com/fleetmon) for the latest updates and news on the platform.\n\nWith the use of the FleetMon API, you agree with the [Terms of Service](https://www.fleetmon.com/terms-of-service/).\n",
+      "type": "text/plain"
+    }
+  }
+}
