@@ -1,0 +1,53 @@
+slug: fleetmon
+provider: FleetMon
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Transportation & Logistics
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 4
+edges:
+- tag: Next Port / ETA Calculation
+  spec_file: fleetmon-next-port-eta-calculation-api-openapi.yml
+  capability_id: BC-2510.30
+  capability_id_l1: BC-2510
+  capability_name: ETA Prediction Management
+  confidence: 0.8
+  evidence: GET /vessel/{vessel_id}/ports/next/  get-next_port-detail  Next Port
+  reason: Tag and operation compute the next port of call and estimated arrival for a vessel, which is
+    ETA prediction within shipment visibility.
+- tag: Expected Port Arrivals
+  spec_file: fleetmon-expected-port-arrivals-api-openapi.yml
+  capability_id: BC-2510
+  capability_id_l1: BC-2510
+  capability_name: Shipment Visibility & Tracking Management
+  confidence: 0.75
+  evidence: GET /port/arrivals/ get-port_arrivals-listing Delivers the list of vessels.; schema port_arrivals-response-listing-vessel-voyage
+  reason: Expected-arrivals listing with voyage and position sub-objects is arrival/ETA visibility over
+    vessel movements; sub-capability between tracking and ETA prediction is ambiguous so only the L1 is
+    asserted.
+- tag: Fleet Tracker
+  spec_file: fleetmon-fleet-tracker-api-openapi.yml
+  capability_id: BC-2430.40
+  capability_id_l1: BC-2430
+  capability_name: Fleet Telematics and Monitoring
+  confidence: 0.7
+  evidence: GET /fleet/ Delivers the fleet.; PUT /fleet/ Adds vessels to the fleet.; schema fleet-response-vessel-position
+  reason: Maintains a user-defined fleet of vessels and returns their positions and voyages — continuous
+    monitoring of mobile-asset position, i.e. fleet telematics/monitoring rather than shipment-level tracking.
+- tag: Historical Track API
+  spec_file: fleetmon-historical-track-api-api-openapi.yml
+  capability_id: BC-2430.40
+  capability_id_l1: BC-2430
+  capability_name: Fleet Telematics and Monitoring
+  confidence: 0.7
+  evidence: 'GET /ais/position/ Returns historical AIS position reports with fixed period and rate. Input:
+    MMSI'
+  reason: Historical position tracks per vessel MMSI are asset position monitoring data; fits fleet telematics/monitoring,
+    though it could alternatively be read as event capture for visibility.

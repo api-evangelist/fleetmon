@@ -503,6 +503,9 @@ apis:
   - type: ArchivedAPIReference
     url: http://web.archive.org/web/20250106234623/https://developer.fleetmon.com/reference/
 common:
+- type: CapabilityMap
+  url: capabilities/fleetmon-capability-edges.yml
+  name: FleetMon Business Capability Map
 - type: AgenticAccess
   url: agentic-access/fleetmon-agentic-access.yml
 - type: DomainSecurity
