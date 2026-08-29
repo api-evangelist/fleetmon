@@ -12,6 +12,17 @@ description: FleetMon was a Rostock, Germany based vessel tracking and maritime 
   brand. As of 2026 the fleetmon.com domain, developer portal, and API no longer
   resolve - this entry preserves the final archived API surface and points to the
   Kpler / MarineTraffic successor services.
+deliveryModel:
+  model: unknown
+  open_source: false
+  commercial: false
+  callable_host: false
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
